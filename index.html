@@ -33,15 +33,15 @@
       </div>
       <div class="nav-actions">
         <div class="nav-stat">
-          <span class="nav-stat-value" id="navTotal">0</span>
+          <span class="nav-stat-value" id="navTotal">127</span>
           <span class="nav-stat-label">Kare</span>
         </div>
         <div class="nav-stat">
-          <span class="nav-stat-value" id="navAvg">0.00</span>
+          <span class="nav-stat-value" id="navAvg">5.91</span>
           <span class="nav-stat-label">Ortalama</span>
         </div>
         <div class="nav-stat">
-          <span class="nav-stat-value" id="navMax" style="color: var(--gold);">0.0</span>
+          <span class="nav-stat-value" id="navMax" style="color: var(--gold);">9.3</span>
           <span class="nav-stat-label">Zirve</span>
         </div>
         <button class="nav-action-btn" id="navLearningBtn" title="Çekim Teknikleri & Atölye (L)">Tüyolar &
@@ -115,22 +115,22 @@
   <section class="hero">
     <p class="hero-eyebrow">Küratöryel Fotoğraf Değerlendirmesi</p>
     <h1 class="hero-title">Canon PowerShot <em>A570 IS</em></h1>
-    <p class="hero-desc">Yükleniyor...</p>
+    <p class="hero-desc">127 karelik koleksiyonun teknik, kompozisyonel ve atmosferik analizini keşfedin. Her fotoğraf profesyonel bir küratör gözüyle değerlendirildi.</p>
     <div class="hero-stats">
       <div class="hero-stat">
-        <div class="hero-stat-num" id="heroTotal" data-count="0">0</div>
+        <div class="hero-stat-num" id="heroTotal" data-count="127">127</div>
         <div class="hero-stat-label">Fotoğraf</div>
       </div>
       <div class="hero-stat">
-        <div class="hero-stat-num" id="heroStar" data-count="0">0</div>
+        <div class="hero-stat-num" id="heroStar" data-count="30">30</div>
         <div class="hero-stat-label">Yıldızlı (7+)</div>
       </div>
       <div class="hero-stat">
-        <div class="hero-stat-num" id="heroEdit" data-count="0">0</div>
+        <div class="hero-stat-num" id="heroEdit" data-count="10">10</div>
         <div class="hero-stat-label">Özel Edit</div>
       </div>
       <div class="hero-stat">
-        <div class="hero-stat-num" id="heroMax" data-count="0">0</div>
+        <div class="hero-stat-num" id="heroMax" data-count="9.3">9.3</div>
         <div class="hero-stat-label">En Yüksek Puan</div>
       </div>
     </div>
@@ -258,9 +258,9 @@
       <div class="controls-bottom">
         <div class="filter-chips" id="filterChips">
           <button class="chip active" data-filter="all">Tümü <span class="chip-count"
-              id="allChipCount">0</span></button>
-          <button class="chip" data-filter="star">Yıldızlı <span class="chip-count" id="starChipCount">0</span></button>
-          <button class="chip" data-filter="edits">Editler <span class="chip-count" id="editChipCount">0</span></button>
+              id="allChipCount">127</span></button>
+          <button class="chip" data-filter="star">Yıldızlı <span class="chip-count" id="starChipCount">30</span></button>
+          <button class="chip" data-filter="edits">Editler <span class="chip-count" id="editChipCount">10</span></button>
           <button class="chip" data-filter="favorite">Favoriler <span class="chip-count"
               id="favChipCount">0</span></button>
           <button class="chip" data-filter="popular">Popüler</button>
@@ -270,20 +270,30 @@
           <button class="chip" data-filter="gece">Gece</button>
           <button class="chip" data-filter="macro">Detay</button>
         </div>
-        <div class="result-count" id="resultCount"></div>
+        <div class="result-count" id="resultCount">127 / 127 sonuç</div>
       </div>
     </div>
   </section>
 
   <!-- ═══════════ GALLERY ═══════════ -->
   <section class="gallery-section">
-    <div class="gallery-grid grid-view" id="galleryGrid"></div>
+    <div class="gallery-grid grid-view" id="galleryGrid">
+      <!-- Fast-load Dark Skeleton Placeholders -->
+      <div class="skeleton-card"><div class="skeleton-thumb"></div><div class="skeleton-body"><div class="skeleton-line skeleton-title"></div><div class="skeleton-line skeleton-exif"></div><div class="skeleton-line skeleton-desc"></div><div class="skeleton-line skeleton-meters"></div></div></div>
+      <div class="skeleton-card"><div class="skeleton-thumb"></div><div class="skeleton-body"><div class="skeleton-line skeleton-title"></div><div class="skeleton-line skeleton-exif"></div><div class="skeleton-line skeleton-desc"></div><div class="skeleton-line skeleton-meters"></div></div></div>
+      <div class="skeleton-card"><div class="skeleton-thumb"></div><div class="skeleton-body"><div class="skeleton-line skeleton-title"></div><div class="skeleton-line skeleton-exif"></div><div class="skeleton-line skeleton-desc"></div><div class="skeleton-line skeleton-meters"></div></div></div>
+      <div class="skeleton-card"><div class="skeleton-thumb"></div><div class="skeleton-body"><div class="skeleton-line skeleton-title"></div><div class="skeleton-line skeleton-exif"></div><div class="skeleton-line skeleton-desc"></div><div class="skeleton-line skeleton-meters"></div></div></div>
+      <div class="skeleton-card"><div class="skeleton-thumb"></div><div class="skeleton-body"><div class="skeleton-line skeleton-title"></div><div class="skeleton-line skeleton-exif"></div><div class="skeleton-line skeleton-desc"></div><div class="skeleton-line skeleton-meters"></div></div></div>
+      <div class="skeleton-card"><div class="skeleton-thumb"></div><div class="skeleton-body"><div class="skeleton-line skeleton-title"></div><div class="skeleton-line skeleton-exif"></div><div class="skeleton-line skeleton-desc"></div><div class="skeleton-line skeleton-meters"></div></div></div>
+      <div class="skeleton-card"><div class="skeleton-thumb"></div><div class="skeleton-body"><div class="skeleton-line skeleton-title"></div><div class="skeleton-line skeleton-exif"></div><div class="skeleton-line skeleton-desc"></div><div class="skeleton-line skeleton-meters"></div></div></div>
+      <div class="skeleton-card"><div class="skeleton-thumb"></div><div class="skeleton-body"><div class="skeleton-line skeleton-title"></div><div class="skeleton-line skeleton-exif"></div><div class="skeleton-line skeleton-desc"></div><div class="skeleton-line skeleton-meters"></div></div></div>
+    </div>
   </section>
 
   <!-- ═══════════ FOOTER ═══════════ -->
   <footer class="site-footer">
     <span class="footer-brand">Canon A570 IS — Küratöryel Portfolyo</span>
-    <span id="footerStats">0 fotoğraf · Ortalama 0.00 / 10</span>
+    <span id="footerStats">127 fotoğraf · Ortalama 5.91 / 10</span>
   </footer>
 
   <!-- ═══════════ LIGHTBOX ═══════════ -->
@@ -1045,7 +1055,7 @@
   <!-- ═══════════ TOAST ═══════════ -->
   <div class="toast" id="toast"></div>
 
-  <script src="jszip.min.js"></script>
+  <script src="jszip.min.js" defer></script>
   <script src="data.js"></script>
   <script src="app.js" defer></script>
   <!-- ═══════════ MOBİL ALT GEZİNME ÇUBUĞU (BOTTOM NAVIGATION) ═══════════ -->
