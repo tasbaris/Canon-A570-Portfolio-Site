@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description"
+    content="Canon PowerShot A570 IS ile çekilmiş 123 fotoğraflık küratöryel sergi ve analitik inceleme koleksiyonu.">
+  <meta name="theme-color" content="#0d0f12">
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23d4a373'/><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-weight='bold' font-size='60' fill='%230f1115'>C</text></svg>">
+  <title>CANON A570 IS — Küratöryel Portfolyo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- ═══════════ NAVBAR ═══════════ -->
+  <nav class="navbar" id="navbar">
+    <div class="navbar-inner">
+      <div class="nav-brand">
+        <div class="nav-logo">C</div>
+        <div class="nav-title-group">
+          <span class="nav-title">Canon A570 IS</span>
+          <span class="nav-subtitle">Küratöryel Portfolyo</span>
+        </div>
+      </div>
+      <div class="nav-actions">
+        <div class="nav-stat">
+          <span class="nav-stat-value" id="navTotal">0</span>
+          <span class="nav-stat-label">Kare</span>
+        </div>
+        <div class="nav-stat">
+          <span class="nav-stat-value" id="navAvg">0.00</span>
+          <span class="nav-stat-label">Ortalama</span>
+        </div>
+        <div class="nav-stat">
+          <span class="nav-stat-value" id="navMax" style="color: var(--gold);">0.0</span>
+          <span class="nav-stat-label">Zirve</span>
+        </div>
+        <button class="nav-action-btn" id="navLearningBtn" title="Çekim Teknikleri & Atölye (L)">Tüyolar &
+          Atölye</button>
+        <button class="nav-action-btn" id="navAnalyticsBtn"
+          title="Fotoğrafçılık Gelişim Analitiği (A)">Analitik</button>
+        <div class="custom-select-wrap export-wrap" id="exportWrap">
+          <button type="button" class="nav-action-btn export-btn" id="exportBtn" aria-haspopup="true"
+            aria-expanded="false" title="Toplu İndirme Menüsü">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" style="margin-right:4px;">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg><span>İndir</span>
+            <svg class="select-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="custom-select-dropdown export-dropdown" id="exportDropdown">
+            <div class="select-option export-option" data-export="favorites">
+
+              <span class="opt-label">Favorileri İndir (.zip)</span>
+            </div>
+            <div class="select-option export-option" data-export="stars">
+
+              <span class="opt-label">Yıldızlı Fotoğrafları İndir (.zip)</span>
+            </div>
+            <div class="select-option export-option" data-export="filtered">
+              <span class="opt-label">Filtrelenen Sonuçları İndir (.zip)</span>
+            </div>
+            <div class="select-option export-option" data-export="gphotos">
+              <span class="opt-label">Google Fotoğraflar Albümü (Web)</span>
+            </div>
+          </div>
+        </div>
+        <button class="kbd-btn" id="kbdBtn" title="Klavye Kısayolları"><svg width="15" height="15" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+            <line x1="6" y1="8" x2="6" y2="8"></line>
+            <line x1="10" y1="8" x2="10" y2="8"></line>
+            <line x1="14" y1="8" x2="14" y2="8"></line>
+            <line x1="18" y1="8" x2="18" y2="8"></line>
+            <line x1="6" y1="12" x2="6" y2="12"></line>
+            <line x1="18" y1="12" x2="18" y2="12"></line>
+            <line x1="8" y1="16" x2="16" y2="16"></line>
+          </svg></button>
+        <button class="mobile-search-btn" id="mobileSearchBtn" title="Fotoğraflarda Ara"><svg width="14" height="14"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg></button>
+        <button class="theme-btn" id="themeBtn" title="Tema Değiştir"><svg id="themeIcon" width="14" height="14"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══════════ HERO ═══════════ -->
+  <section class="hero">
+    <p class="hero-eyebrow">Küratöryel Fotoğraf Değerlendirmesi</p>
+    <h1 class="hero-title">Canon PowerShot <em>A570 IS</em></h1>
+    <p class="hero-desc">Yükleniyor...</p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-num" id="heroTotal" data-count="0">0</div>
+        <div class="hero-stat-label">Fotoğraf</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num" id="heroStar" data-count="0">0</div>
+        <div class="hero-stat-label">Yıldızlı (7+)</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num" id="heroEdit" data-count="0">0</div>
+        <div class="hero-stat-label">Özel Edit</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num" id="heroMax" data-count="0">0</div>
+        <div class="hero-stat-label">En Yüksek Puan</div>
+      </div>
+    </div>
+    <div class="scroll-hint"><span></span></div>
+  </section>
+
+
+
+  <!-- ═══════════ CONTROLS ═══════════ -->
+  <section class="controls-section" id="controlsSection">
+    <div class="controls-bar">
+      <div class="controls-top">
+        <div class="search-wrap">
+          <svg class="search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" id="searchInput" class="search-input" placeholder="Ara... (dosya adı, konu, yorum)">
+        </div>
+        <div class="custom-select-wrap" id="sortCustomSelect">
+          <button type="button" class="custom-select-trigger" id="sortTrigger" aria-haspopup="listbox"
+            aria-expanded="false">
+
+            <span class="select-current-label" id="sortCurrentLabel">En Yüksek Puan</span>
+            <svg class="select-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="custom-select-dropdown" id="sortDropdown" role="listbox">
+            <div class="select-option" data-value="votes-desc" role="option" aria-selected="false">
+
+              <span class="opt-label">En Çok Oy Alanlar</span>
+              <svg class="opt-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+            </div>
+            <div class="select-option active" data-value="score-desc" role="option" aria-selected="true">
+
+              <span class="opt-label">En Yüksek Puan</span>
+              <svg class="opt-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+            </div>
+            <div class="select-option" data-value="score-asc" role="option" aria-selected="false">
+
+              <span class="opt-label">En Düşük Puan</span>
+              <svg class="opt-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+            </div>
+            <div class="select-option" data-value="date-desc" role="option" aria-selected="false">
+
+              <span class="opt-label">En Yeni (Tarih ↓)</span>
+              <svg class="opt-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+            </div>
+            <div class="select-option" data-value="date-asc" role="option" aria-selected="false">
+
+              <span class="opt-label">En Eski (Tarih ↑)</span>
+              <svg class="opt-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+            </div>
+            <div class="select-option" data-value="id-asc" role="option" aria-selected="false">
+
+              <span class="opt-label">Dosya Numarası ↑</span>
+              <svg class="opt-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+            </div>
+            <div class="select-option" data-value="id-desc" role="option" aria-selected="false">
+
+              <span class="opt-label">Dosya Numarası ↓</span>
+              <svg class="opt-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+            </div>
+            <div class="select-option" data-value="shutter-desc" role="option" aria-selected="false">
+
+              <span class="opt-label">En Hızlı Enstantane</span>
+              <svg class="opt-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+            </div>
+            <div class="select-option" data-value="iso-desc" role="option" aria-selected="false">
+
+              <span class="opt-label">En Yüksek ISO</span>
+              <svg class="opt-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div class="view-toggle">
+          <button class="view-btn active" data-view="grid" title="Grid Görünüm"><svg width="14" height="14"
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="7" height="7"></rect>
+              <rect x="14" y="3" width="7" height="7"></rect>
+              <rect x="14" y="14" width="7" height="7"></rect>
+              <rect x="3" y="14" width="7" height="7"></rect>
+            </svg></button>
+          <button class="view-btn" data-view="list" title="Liste Görünüm"><svg width="14" height="14"
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="8" y1="6" x2="21" y2="6"></line>
+              <line x1="8" y1="12" x2="21" y2="12"></line>
+              <line x1="8" y1="18" x2="21" y2="18"></line>
+              <line x1="3" y1="6" x2="3.01" y2="6"></line>
+              <line x1="3" y1="12" x2="3.01" y2="12"></line>
+              <line x1="3" y1="18" x2="3.01" y2="18"></line>
+            </svg></button>
+        </div>
+      </div>
+      <div class="controls-bottom">
+        <div class="filter-chips" id="filterChips">
+          <button class="chip active" data-filter="all">Tümü <span class="chip-count"
+              id="allChipCount">0</span></button>
+          <button class="chip" data-filter="star">Yıldızlı <span class="chip-count" id="starChipCount">0</span></button>
+          <button class="chip" data-filter="edits">Editler <span class="chip-count" id="editChipCount">0</span></button>
+          <button class="chip" data-filter="favorite">Favoriler <span class="chip-count"
+              id="favChipCount">0</span></button>
+          <button class="chip" data-filter="popular">Popüler</button>
+          <button class="chip" data-filter="manzara">Manzara</button>
+          <button class="chip" data-filter="sokak">Sokak</button>
+          <button class="chip" data-filter="mimari">Mimari</button>
+          <button class="chip" data-filter="gece">Gece</button>
+          <button class="chip" data-filter="macro">Detay</button>
+        </div>
+        <div class="result-count" id="resultCount"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ GALLERY ═══════════ -->
+  <section class="gallery-section">
+    <div class="gallery-grid grid-view" id="galleryGrid"></div>
+  </section>
+
+  <!-- ═══════════ FOOTER ═══════════ -->
+  <footer class="site-footer">
+    <span class="footer-brand">Canon A570 IS — Küratöryel Portfolyo</span>
+    <span id="footerStats">0 fotoğraf · Ortalama 0.00 / 10</span>
+  </footer>
+
+  <!-- ═══════════ LIGHTBOX ═══════════ -->
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-container">
+      <div class="modal-topbar">
+        <div class="modal-title-area">
+          <span class="modal-fname" id="mFname">-</span>
+          <span class="modal-counter" id="mCounter">-</span>
+        </div>
+        <div class="modal-actions">
+          <!-- Lightbox Reddit Vote Pill -->
+          <div class="reddit-vote-pill modal-vote-pill" id="mRedditVotePill" data-id="" title="Fotoğrafı Oyla">
+            <button type="button" class="vote-btn upvote" id="mUpBtn" aria-label="Upvote" title="Beğen (+1)">
+              <svg viewBox="0 0 24 24" width="14" height="14">
+                <path fill="currentColor" d="M12 4L4 14h5v6h6v-6h5L12 4z" />
+              </svg>
+            </button>
+            <span class="vote-score" id="mScoreVal">0</span>
+            <button type="button" class="vote-btn downvote" id="mDownBtn" aria-label="Downvote" title="Beğenme (-1)">
+              <svg viewBox="0 0 24 24" width="14" height="14">
+                <path fill="currentColor" d="M12 20l8-10h-5V4h-6v6H4l8 10z" />
+              </svg>
+            </button>
+          </div>
+
+          <button class="modal-btn finder-btn" id="mPlay" title="Slayt (Space)">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+            <span class="btn-text">Slayt</span>
+          </button>
+          <button class="modal-btn fav-btn" id="mFavBtn" title="Favorilere Ekle / Çıkar (F)">
+            <svg class="m-fav-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2">
+              <path
+                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+              </path>
+            </svg>
+            <span class="btn-text" id="mFavLabel">Favorile</span>
+          </button>
+          <button class="modal-btn" id="mCompare" style="display:none;" title="Önce / Sonra Karşılaştır (C)">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="M12 2a10 10 0 0 1 0 20z" fill="currentColor"></path>
+            </svg>
+            <span class="btn-text">Karşılaştır</span>
+          </button>
+          <button class="modal-btn" id="mDownload" title="Fotoğrafı İndir (D)">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span class="btn-text">İndir</span>
+          </button>
+          <button class="modal-btn close-btn" id="mClose" title="Kapat">
+            <span class="btn-text">Kapat</span>
+          </button>
+        </div>
+      </div>
+      <div class="modal-body">
+
+        <div class="modal-canvas" id="modalCanvas">
+          <div id="minimap" class="minimap">
+            <div id="minimapBox" class="minimap-box"></div>
+          </div>
+
+          <!-- BEFORE/AFTER COMPARE STAGE -->
+          <div id="compareStage" class="compare-stage" style="display:none;">
+            <div class="compare-container" id="cmpContainer">
+              <img id="cmpBeforeImg" class="compare-img compare-before" src="" alt="Orijinal">
+              <div class="compare-after-wrap" id="cmpAfterWrap">
+                <img id="cmpAfterImg" class="compare-img compare-after" src="" alt="Küratör Editi">
+              </div>
+              <div class="split-bar" id="splitBar">
+                <div class="split-handle">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                  </svg>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg>
+                </div>
+              </div>
+              <span class="compare-badge badge-before">ORİJİNAL (AS-SHOT)</span>
+              <span class="compare-badge badge-after">KÜRATÖR EDİTİ</span>
+            </div>
+          </div>
+
+          <img class="modal-hero-img" id="mImg" src="" alt="">
+          <div class="modal-nav-bar">
+            <button class="modal-nav-arrow" id="mPrev">‹</button>
+            <button class="modal-nav-arrow" id="mNext">›</button>
+          </div>
+        </div>
+        <div class="modal-panel">
+          <div class="dossier-top">
+            <div>
+              <div class="dossier-tur-label">TÜR & KONSEPT</div>
+              <h2 class="dossier-tur-text" id="mTur">-</h2>
+            </div>
+            <div class="radial-score">
+              <svg viewBox="0 0 36 36">
+                <circle class="radial-track" cx="18" cy="18" r="15.5" />
+                <circle class="radial-fill" id="mRadialFill" cx="18" cy="18" r="15.5" stroke-dasharray="97.4"
+                  stroke-dashoffset="97.4" />
+              </svg>
+              <div class="radial-number">
+                <span class="radial-val" id="mScore">0</span>
+                <span class="radial-label">Puan</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="exif-section">
+            <div class="section-label">Kamera & EXIF Verisi</div>
+            <div class="exif-grid">
+              <div class="exif-cell"><span class="exif-key">Mod</span><span class="exif-val" id="mMode">-</span></div>
+              <div class="exif-cell"><span class="exif-key">Enstantane</span><span class="exif-val"
+                  id="mShutter">-</span></div>
+              <div class="exif-cell"><span class="exif-key">Diyafram</span><span class="exif-val"
+                  id="mAperture">-</span></div>
+              <div class="exif-cell"><span class="exif-key">ISO</span><span class="exif-val" id="mIso">-</span></div>
+              <div class="exif-cell"><span class="exif-key">Odak</span><span class="exif-val" id="mFocal">-</span></div>
+              <div class="exif-cell"><span class="exif-key">Poz Telafisi</span><span class="exif-val"
+                  id="mBias">-</span></div>
+              <div class="exif-cell"><span class="exif-key">Flaş</span><span class="exif-val" id="mFlash">-</span></div>
+              <div class="exif-cell"><span class="exif-key">Tarih</span><span class="exif-val" id="mDate">-</span></div>
+            </div>
+          </div>
+
+          <div class="criteria-section">
+            <div class="section-label">Detaylı Puanlama</div>
+            <div class="criteria-item">
+              <div class="criteria-header">
+                <span class="criteria-name">Teknik (Netlik / Pozlama)</span>
+                <span class="criteria-score" id="mTekS">-</span>
+              </div>
+              <div class="criteria-track">
+                <div class="criteria-fill meter-tek" id="mTekBar"></div>
+              </div>
+              <p class="criteria-desc" id="mTekD">-</p>
+            </div>
+            <div class="criteria-item">
+              <div class="criteria-header">
+                <span class="criteria-name">Kompozisyon & Kadraj</span>
+                <span class="criteria-score" id="mKompS">-</span>
+              </div>
+              <div class="criteria-track">
+                <div class="criteria-fill meter-komp" id="mKompBar"></div>
+              </div>
+              <p class="criteria-desc" id="mKompD">-</p>
+            </div>
+            <div class="criteria-item">
+              <div class="criteria-header">
+                <span class="criteria-name">Color Grade & Atmosfer</span>
+                <span class="criteria-score" id="mColS">-</span>
+              </div>
+              <div class="criteria-track">
+                <div class="criteria-fill meter-col" id="mColBar"></div>
+              </div>
+              <p class="criteria-desc" id="mColD">-</p>
+            </div>
+          </div>
+
+          <div class="curator-note">
+            <div class="curator-label">Küratör Notu</div>
+            <p class="curator-text" id="mOzet">-</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ KBD MODAL ═══════════ -->
+  <div class="kbd-modal" id="kbdModal">
+    <div class="kbd-card">
+      <h3>Klavye Kısayolları</h3>
+      <div class="kbd-row"><span class="kbd-desc">Sonraki fotoğraf</span><span class="kbd-key">→</span></div>
+      <div class="kbd-row"><span class="kbd-desc">Önceki fotoğraf</span><span class="kbd-key">←</span></div>
+      <div class="kbd-row"><span class="kbd-desc">Lightbox kapat</span><span class="kbd-key">Esc</span></div>
+      <div class="kbd-row"><span class="kbd-desc">Tema değiştir</span><span class="kbd-key">T</span></div>
+      <div class="kbd-row"><span class="kbd-desc">Aramaya odaklan</span><span class="kbd-key">/</span></div>
+      <div class="kbd-row"><span class="kbd-desc">Grid / Liste</span><span class="kbd-key">V</span></div>
+      <div class="kbd-row"><span class="kbd-desc">Favoriye ekle / çıkar</span><span class="kbd-key">F</span></div>
+      <div class="kbd-row"><span class="kbd-desc">Önce / Sonra Karşılaştır</span><span class="kbd-key">C</span></div>
+      <div class="kbd-row"><span class="kbd-desc">Analitik & Lens Rehberi</span><span class="kbd-key">A</span></div>
+      <div class="kbd-row"><span class="kbd-desc">Tüyolar & Çekim Atölyesi</span><span class="kbd-key">L</span></div>
+      <div class="kbd-row"><span class="kbd-desc">Fotoğrafı İndir</span><span class="kbd-key">D</span></div>
+      <div class="kbd-row"><span class="kbd-desc">Bu paneli kapat</span><span class="kbd-key">?</span></div>
+      <div style="text-align:center;margin-top:16px;">
+        <button class="modal-btn close-btn"
+          onclick="document.getElementById('kbdModal').classList.remove('open')">Kapat</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ═══════════ ANALYTICS MODAL ═══════════ -->
+  <div class="analytics-modal" id="analyticsModal">
+    <div class="analytics-container">
+      <div class="analytics-header">
+        <div>
+          <div class="analytics-eyebrow">CANON A570 IS • OPTİK & KÜRATÖRYEL ZEKA</div>
+          <h2 class="analytics-title">Fotoğrafçılık Analitiği & Lens Rehberi</h2>
+          <p class="analytics-subtitle">Çekim alışkanlıkları, diyafram tatlı noktaları ve kişiselleştirilmiş küratör
+            rehberi</p>
+        </div>
+        <button class="modal-btn close-btn" id="analyticsCloseBtn">Kapat</button>
+      </div>
+
+      <div class="analytics-body">
+        <!-- 4 KPI Cards -->
+        <div class="analytics-kpi-grid">
+          <div class="analytics-kpi-card">
+            <div class="kpi-icon">01</div>
+            <div class="kpi-meta">
+              <span class="kpi-label">Lens Sweet Spot</span>
+              <span class="kpi-val" id="kpiSweetSpot">-</span>
+              <span class="kpi-sub" id="kpiSweetSpotSub">En yüksek puanlı optik ayar</span>
+            </div>
+          </div>
+          <div class="analytics-kpi-card">
+            <div class="kpi-icon">02</div>
+            <div class="kpi-meta">
+              <span class="kpi-label">Enstantane Güvenliği</span>
+              <span class="kpi-val" id="kpiShutterSafe">-</span>
+              <span class="kpi-sub" id="kpiShutterSafeSub">≥ 1/60s sarsıntısız çekim</span>
+            </div>
+          </div>
+          <div class="analytics-kpi-card">
+            <div class="kpi-icon">03</div>
+            <div class="kpi-meta">
+              <span class="kpi-label">CCD Renk Safiyeti</span>
+              <span class="kpi-val" id="kpiCcdPure">-</span>
+              <span class="kpi-sub" id="kpiCcdPureSub">ISO 80/100 temiz sinyal</span>
+            </div>
+          </div>
+          <div class="analytics-kpi-card">
+            <div class="kpi-icon">04</div>
+            <div class="kpi-meta">
+              <span class="kpi-label">Zirve Küratör Skoru</span>
+              <span class="kpi-val gold" id="kpiPeakScore">-</span>
+              <span class="kpi-sub" id="kpiPeakPhoto">Koleksiyon rekoru</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Charts Grid (Focal & Aperture) -->
+        <div class="analytics-charts-grid">
+          <div class="analytics-card">
+            <div class="card-chart-header">
+              <h3 class="chart-title">Odak Uzaklığı Dağılımı</h3>
+              <span class="chart-badge">Optik Aralık</span>
+            </div>
+            <div class="dist-list" id="focalDistList"></div>
+          </div>
+
+          <div class="analytics-card">
+            <div class="card-chart-header">
+              <h3 class="chart-title">Diyafram Performansı</h3>
+              <span class="chart-badge">Optik Keskinlik</span>
+            </div>
+            <div class="dist-list" id="apertureDistList"></div>
+          </div>
+        </div>
+
+        <!-- Smart Insights -->
+        <div class="analytics-insights-section">
+          <h3 class="insights-title">Akıllı Küratör Tavsiyeleri</h3>
+          <div class="insights-grid" id="insightsGrid"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ LEARNING & WORKSHOP MODAL ═══════════ -->
+  <div class="learning-modal" id="learningModal" role="dialog" aria-modal="true" aria-labelledby="learningModalTitle">
+    <div class="learning-container">
+      <div class="learning-header">
+        <div>
+          <div class="learning-eyebrow">CANON A570 IS • FOTOĞRAFÇILIK AKADEMİSİ & ATÖLYE</div>
+          <h2 class="learning-title" id="learningModalTitle">Çekim Teknikleri, Tüyolar & Vaka Analizleri</h2>
+          <p class="learning-subtitle">Gerçek çekimler üzerinden kadraj tüyoları, renk reçeteleri ve Canon CCD donanım
+            sırları</p>
+        </div>
+        <button class="modal-btn close-btn" id="learningCloseBtn" title="Kapat">Kapat</button>
+      </div>
+
+      <!-- Categories / Filter Chips -->
+      <div class="learning-tabs-bar" id="learningTabsBar">
+        <button class="learning-tab active" data-tab="all">Tümü</button>
+        <button class="learning-tab" data-tab="cases">Vaka Analizleri (6)</button>
+        <button class="learning-tab" data-tab="hardware">Canon Sırları</button>
+        <button class="learning-tab" data-tab="recipes">Renk Reçeteleri</button>
+        <button class="learning-tab" data-tab="composition">Açı & Kadraj</button>
+      </div>
+
+      <div class="learning-body" id="learningBody">
+
+        <!-- SECTION 1: VAKA ANALİZLERİ (CASE STUDIES) -->
+        <section class="learning-section" data-section="cases">
+          <div class="learning-section-head">
+            <h3 class="learning-section-title">Kullanıcının Fotoğraflarıyla Küratör Vaka Analizleri</h3>
+            <p class="learning-section-desc">Koleksiyonunuzdaki gerçek karelerin kadraj problemleri, açı düzeltmeleri ve
+              kopyalanabilir renk reçeteleri.</p>
+          </div>
+
+          <div class="case-grid">
+
+            <!-- VAKA 1 -->
+            <article class="case-card">
+              <div class="case-media">
+                <div class="case-dual-thumbs">
+                  <div class="case-dual-thumb-item" title="Orijinal Çekim (IMG_0003)"
+                    onclick="openModalById('IMG_0003.JPG')">
+                    <img src="thumbs/IMG_0003.JPG" alt="IMG_0003" onerror="this.src='../IMG_0003.JPG'">
+                    <span class="case-dual-label">Orijinal</span>
+                  </div>
+                  <div class="case-dual-thumb-item" title="Küratör Editi (IMG_0003_1)"
+                    onclick="openModalById('IMG_0003_1.jpg')">
+                    <img src="thumbs/IMG_0003_1.jpg" alt="IMG_0003_1" onerror="this.src='../IMG_0003_1.jpg'">
+                    <span class="case-dual-label" style="background:var(--gold);">Edit v1</span>
+                  </div>
+                </div>
+                <div class="case-img-badge">IMG_0003 & IMG_0003_1 · 23.2mm Tele</div>
+              </div>
+              <div class="case-content">
+                <div class="case-header">
+                  <span class="case-tag">Vaka 1 · Kentsel Katmanlama & Tele Sıkıştırması</span>
+                  <h4 class="case-title">İzmir Silüeti: Elektrik Teli Kaosunu Aşma & Katmanlı Derinlik</h4>
+                </div>
+                <div class="case-analysis-block">
+                  <div class="analysis-pill problem">
+                    <strong>Kadraj Sorunu:</strong> Alt çeyrekteki elektrik telleri ve direk karmaşası kentsel derinliği
+                    kesiyor. Sert öğle ışığı binalarda pus yaratıyor.
+                  </div>
+                  <div class="analysis-pill solution">
+                    <strong>Açı & Kadraj Tüyosu:</strong> Yarım adım öne çıkıp hafif tilt-up (yukarı açı) yaparak
+                    kabloları çerçeve dışına itin veya 16:9 sinematik kırpma ile alt kaosu tamamen elimine edin.
+                  </div>
+                  <div class="analysis-pill recipe">
+                    <strong>Renk Reçetesi (Teal & Orange):</strong> Dehaze +35, Highlights -40, Shadows +25, Gökyüzü
+                    Camgöbeği doygunluk +20, sıcak binalara kehribar ton bindirme.
+                  </div>
+                </div>
+                <div class="case-actions">
+                  <button class="case-btn primary" onclick="openModalById('IMG_0003_1.jpg')">Galeride İncele</button>
+                  <button class="case-btn gold"
+                    onclick="openCompareForPhotos('IMG_0003.JPG', 'IMG_0003_1.jpg')">Karşılaştır</button>
+                  <button class="case-btn"
+                    onclick="copyRecipe('Kentsel Teal & Pus Kırma', 'Exposure: +0.0 | Contrast: +25 | Highlights: -40 | Shadows: +25 | Dehaze: +35 | Teal/Aqua Sat: +20 | Temp: +4 (Amber)')">Reçeteyi
+                    Kopyala</button>
+                </div>
+              </div>
+            </article>
+
+            <!-- VAKA 2 -->
+            <article class="case-card">
+              <div class="case-media">
+                <div class="case-dual-thumbs">
+                  <div class="case-dual-thumb-item" title="Orijinal Çekim (IMG_0106)"
+                    onclick="openModalById('IMG_0106.JPG')">
+                    <img src="thumbs/IMG_0106.JPG" alt="IMG_0106" onerror="this.src='../IMG_0106.JPG'">
+                    <span class="case-dual-label">Orijinal</span>
+                  </div>
+                  <div class="case-dual-thumb-item" title="Küratör Editi (IMG_0106_1)"
+                    onclick="openModalById('IMG_0106_1.jpg')">
+                    <img src="thumbs/IMG_0106_1.jpg" alt="IMG_0106_1" onerror="this.src='../IMG_0106_1.jpg'">
+                    <span class="case-dual-label" style="background:var(--gold);">Revize v1</span>
+                  </div>
+                </div>
+                <div class="case-img-badge">IMG_0106 & IMG_0106_1 · 23.2mm</div>
+              </div>
+              <div class="case-content">
+                <div class="case-header">
+                  <span class="case-tag">Vaka 2 · Hareket Halinde Manzara & Puslu Dağ</span>
+                  <h4 class="case-title">Seyir Halinde Çam Ormanı & Masif Dağ Katmanı</h4>
+                </div>
+                <div class="case-analysis-block">
+                  <div class="analysis-pill problem">
+                    <strong>Kadraj Sorunu:</strong> Araç seyrindeyken 1/250s enstantanede ön plandaki ağaçlarda oluşan
+                    sarsıntı fluluğu ve uzaktaki dağda atmosferik pus.
+                  </div>
+                  <div class="analysis-pill solution">
+                    <strong>Enstantane & Kadraj Kuralı:</strong> Tv (Enstantane Öncelikli) modunda min 1/1000s hıza
+                    çıkılmalı. Kadraj 1/3 oranında üçe bölünmeli: 1/3 ön plan ağaçlar, 1/3 heybetli dağ kütlesi, 1/3
+                    açık gökyüzü.
+                  </div>
+                  <div class="analysis-pill recipe">
+                    <strong>Renk Reçetesi:</strong> Gökyüzü Blue/Cyan Lum -30, Saturation +25. Dağ gölgelerine
+                    zümrüt/haki ton bindirme, ağaç tepelerine altın kehribar ışıltı (+15 Vibrance, -20 Midtone
+                    Highlights).
+                  </div>
+                </div>
+                <div class="case-actions">
+                  <button class="case-btn primary" onclick="openModalById('IMG_0106_1.jpg')">Galeride İncele</button>
+                  <button class="case-btn gold"
+                    onclick="openCompareForPhotos('IMG_0106.JPG', 'IMG_0106_1.jpg')">Karşılaştır</button>
+                  <button class="case-btn"
+                    onclick="copyRecipe('Sinematik Dağ & Orman', 'Exposure: -0.1 | Contrast: +22 | Highlights: -35 | Shadows: +20 | Blue Lum: -30 | Blue Sat: +25 | Emerald Shadows: +15 | Vibrance: +15')">Reçeteyi
+                    Kopyala</button>
+                </div>
+              </div>
+            </article>
+
+            <!-- VAKA 3 -->
+            <article class="case-card">
+              <div class="case-media">
+                <div class="case-img-wrap" onclick="openModalById('CRW_0006.jpg')" style="cursor:pointer;"
+                  title="Galeride Aç">
+                  <img class="case-img" src="thumbs/CRW_0006.jpg" alt="CRW_0006" onerror="this.src='../CRW_0006.jpg'">
+                </div>
+                <div class="case-img-badge">CRW_0006.jpg · ISO 75 · 1/1000s</div>
+              </div>
+              <div class="case-content">
+                <div class="case-header">
+                  <span class="case-tag">Vaka 3 · Sinematik Sokak & Repoussoir</span>
+                  <h4 class="case-title">35mm Film Estetiği: Doğal Çalı Çerçevesiyle Sokak Kurgusu</h4>
+                </div>
+                <div class="case-analysis-block">
+                  <div class="analysis-pill solution">
+                    <strong>Repoussoir Tekniği:</strong> Ön plandaki karanlık çalılar doğal bir optik vinyet
+                    (repoussoir) oluşturarak izleyicinin bakışını doğrudan sokaktaki beyaz arabaya yönlendiriyor.
+                  </div>
+                  <div class="analysis-pill solution">
+                    <strong>Kompozisyon:</strong> Alt kadrajın 1/4'ü gölgede bırakılarak derinlik hissi yaratılmış; araç
+                    altın spiral merkezine oturtulmuş.
+                  </div>
+                  <div class="analysis-pill recipe">
+                    <strong>Renk Reçetesi (35mm Analog):</strong> Lifted Blacks (Gölge tabanı +12), Kehribar vurgular
+                    (Highlights Warm +15), Teal gölgeler, ince organik analog gren (+18 Grain, Size 25).
+                  </div>
+                </div>
+                <div class="case-actions">
+                  <button class="case-btn primary" onclick="openModalById('CRW_0006.jpg')">Galeride İncele</button>
+                  <button class="case-btn"
+                    onclick="copyRecipe('35mm Analog Film CCD', 'Exposure: +0.0 | Contrast: +32 | Highlights: -25 (Warm +15) | Lifted Blacks: +12 | Shadows: Teal/Cyan +10 | Grain: +18')">Reçeteyi
+                    Kopyala</button>
+                </div>
+              </div>
+            </article>
+
+            <!-- VAKA 4 -->
+            <article class="case-card">
+              <div class="case-media">
+                <div class="case-dual-thumbs">
+                  <div class="case-dual-thumb-item" title="Orijinal Çekim (IMG_0015)"
+                    onclick="openModalById('IMG_0015.JPG')">
+                    <img src="thumbs/IMG_0015.JPG" alt="IMG_0015" onerror="this.src='../IMG_0015.JPG'">
+                    <span class="case-dual-label">Orijinal</span>
+                  </div>
+                  <div class="case-dual-thumb-item" title="Küratör Editi (IMG_0015_1)"
+                    onclick="openModalById('IMG_0015_1.jpg')">
+                    <img src="thumbs/IMG_0015_1.jpg" alt="IMG_0015_1" onerror="this.src='../IMG_0015_1.jpg'">
+                    <span class="case-dual-label" style="background:var(--gold);">Edit v1</span>
+                  </div>
+                </div>
+                <div class="case-img-badge">IMG_0015 & IMG_0015_1 · 23.2mm</div>
+              </div>
+              <div class="case-content">
+                <div class="case-header">
+                  <span class="case-tag">Vaka 4 · Dinamik Sokak & Kenar Taraması</span>
+                  <h4 class="case-title">Edge Patrol Disiplini: Köşelerdeki İstenmeyen Objeleri Ayıklama</h4>
+                </div>
+                <div class="case-analysis-block">
+                  <div class="analysis-pill problem">
+                    <strong>Kadraj Sorunu:</strong> Sol alt köşeden ansızın kadraja giren yarım mavi araba ve dükkan
+                    önündeki çöp/tabela detayları hareketli gümüş Volkswagen Polo'nun odağını çalıyor.
+                  </div>
+                  <div class="analysis-pill solution">
+                    <strong>Edge Patrol Tüyosu:</strong> Çekim öncesi vizörün/ekranın 4 köşesini gözle tarama kuralı!
+                    Sol altı temizlemek için 16:9 sinematik kırpma veya çekim anında yarım adım sağa kayıp yolun
+                    kavisini merkeze oturtma.
+                  </div>
+                  <div class="analysis-pill recipe">
+                    <strong>Renk Düzenlemesi:</strong> Yeni dökülen koyu asfalt dokusunu öne çıkarmak için Clarity +18,
+                    Kontrast +24, sarı çam dallarına hafif zümrüt doygunluk.
+                  </div>
+                </div>
+                <div class="case-actions">
+                  <button class="case-btn primary" onclick="openModalById('IMG_0015_1.jpg')">Galeride İncele</button>
+                  <button class="case-btn gold"
+                    onclick="openCompareForPhotos('IMG_0015.JPG', 'IMG_0015_1.jpg')">Karşılaştır</button>
+                  <button class="case-btn"
+                    onclick="copyRecipe('Kentsel Asfalt & Kontrast', 'Contrast: +24 | Highlights: -30 | Shadows: +15 | Clarity: +18 | Texture: +15 | Green Hue: +8 | Asfalt Cool: +5')">Reçeteyi
+                    Kopyala</button>
+                </div>
+              </div>
+            </article>
+
+            <!-- VAKA 5 -->
+            <article class="case-card">
+              <div class="case-media">
+                <div class="case-img-wrap" onclick="openModalById('IMG_0009.JPG')" style="cursor:pointer;"
+                  title="Galeride Aç">
+                  <img class="case-img" src="thumbs/IMG_0009.JPG" alt="IMG_0009" onerror="this.src='../IMG_0009.JPG'">
+                </div>
+                <div class="case-img-badge">IMG_0009.JPG · 23.2mm Makro</div>
+              </div>
+              <div class="case-content">
+                <div class="case-header">
+                  <span class="case-tag">Vaka 5 · Natürmort & 45° Yanal Işık</span>
+                  <h4 class="case-title">Raking Light: Domates Kabuğu & Bıçak Çeliğinde Hacim</h4>
+                </div>
+                <div class="case-analysis-block">
+                  <div class="analysis-pill solution">
+                    <strong>Işık & Doku Başarısı:</strong> Yanal gelen doğal pencere ışığı (Raking Light) domateslerin
+                    gözeneklerini, su damlalarını ve çelik bıçağın parlaklığını maksimum üç boyutlu hacimle ortaya
+                    çıkarmış.
+                  </div>
+                  <div class="analysis-pill solution">
+                    <strong>Açı Tüyosu:</strong> Ön plandaki plastik kabın sınırını temizlemek için konuya 10cm daha
+                    yaklaşarak veya f/4 diyaframla arka planı yumuşatarak saf makro izolasyon sağlanabilir.
+                  </div>
+                  <div class="analysis-pill recipe">
+                    <strong>Renk Reçetesi (Gastronomi Doku):</strong> Parlamaları yumuşatma (Highlights -50), Doku
+                    artırma (Texture +25), Kırmızı doygunluk +18 ve Lum -10 ile kadife derinlik, sıcak ton dengesi (+3
+                    Temp).
+                  </div>
+                </div>
+                <div class="case-actions">
+                  <button class="case-btn primary" onclick="openModalById('IMG_0009.JPG')">Galeride İncele</button>
+                  <button class="case-btn"
+                    onclick="copyRecipe('Organik Natürmort & Doku', 'Highlights: -50 | Texture: +25 | Clarity: +10 | Red Sat: +18 | Red Lum: -10 | Shadows: +15 | Temp: +3')">Reçeteyi
+                    Kopyala</button>
+                </div>
+              </div>
+            </article>
+
+            <!-- VAKA 6 -->
+            <article class="case-card">
+              <div class="case-media">
+                <div class="case-img-wrap" onclick="openModalById('CRW_0004.jpg')" style="cursor:pointer;"
+                  title="Galeride Aç">
+                  <img class="case-img" src="thumbs/CRW_0004.jpg" alt="CRW_0004" onerror="this.src='../CRW_0004.jpg'">
+                </div>
+                <div class="case-img-badge">CRW_0004.jpg · f/5.6 · 1/430s</div>
+              </div>
+              <div class="case-content">
+                <div class="case-header">
+                  <span class="case-tag">Vaka 6 · Kuşbakışı Begonvil & Köşe Detayları</span>
+                  <h4 class="case-title">Akdeniz Renk Kontrastı & Taş Duvar Geometrisi</h4>
+                </div>
+                <div class="case-analysis-block">
+                  <div class="analysis-pill problem">
+                    <strong>Kadraj Sorunu:</strong> Sağ alt köşeyi istila eden yabancı sac çatı parçası ve köşelerdeki
+                    sert optik vinyet begonvilin doğal estetiğini zedeliyor.
+                  </div>
+                  <div class="analysis-pill solution">
+                    <strong>Açı Tüyosu:</strong> Hafif aşağı eğimle sac çatıyı kadraj dışı bırakın; begonvilin S
+                    kavisini sol üstten sağ ortaya doğru diyagonal akış çizgisi olarak konumlandırın.
+                  </div>
+                  <div class="analysis-pill recipe">
+                    <strong>Renk Reçetesi:</strong> Macenta/Fuşya doygunluğu +15, Yeşil yaprakların sararmasını önlemek
+                    için Green Hue +5, Sert vinyet yumuşatma (+25 Lens Vignette Correction).
+                  </div>
+                </div>
+                <div class="case-actions">
+                  <button class="case-btn primary" onclick="openModalById('CRW_0004.jpg')">Galeride İncele</button>
+                  <button class="case-btn"
+                    onclick="copyRecipe('Akdeniz Begonvil & Taş', 'Magenta Sat: +15 | Green Hue: +5 | Highlights: -30 | Vignette Correction: +25 | Clarity: +12')">Reçeteyi
+                    Kopyala</button>
+                </div>
+              </div>
+            </article>
+
+          </div>
+        </section>
+
+        <!-- SECTION 2: CANON SIRLARI (HARDWARE SECRETS) -->
+        <section class="learning-section" data-section="hardware">
+          <div class="learning-section-head">
+            <h3 class="learning-section-title">Canon PowerShot A570 IS Donanım Sırları</h3>
+            <p class="learning-section-desc">1/2.5" CCD sensör ve Digic III görüntü işlemcisinden stüdyo kalitesinde
+              verim almanın 4 altın kuralı.</p>
+          </div>
+
+          <div class="secrets-grid">
+            <div class="secret-card">
+              <div class="secret-top">
+                <div class="secret-icon">ISO</div>
+                <div>
+                  <h4 class="secret-title">Sabit ISO 80 Kuralı</h4>
+                  <span class="dist-stats">Sensör Gürültü Kontrolü</span>
+                </div>
+                <span class="secret-badge">Zorunlu</span>
+              </div>
+              <p class="secret-text">
+                Kompakt CCD sensörlerde Auto ISO, kapalı veya gölgeli sahnelerde hemen ISO 200/400'e çıkarak suluboya
+                etkisi yaratan agresif bir gürültü engelleme (noise reduction) başlatır. Dinamik aralık ve organik film
+                tonlaması için ISO'yu daima manuel olarak ISO 80'e kilitleyin.
+              </p>
+              <div class="secret-tip">Menü Ayarı: 'FUNC. SET' → ISO 80</div>
+            </div>
+
+            <div class="secret-card">
+              <div class="secret-top">
+                <div class="secret-icon">EV</div>
+                <div>
+                  <h4 class="secret-title">-0.3 / -0.7 EV Pozlama Telafisi</h4>
+                  <span class="dist-stats">Highlight Koruma</span>
+                </div>
+                <span class="secret-badge">Tavsiye</span>
+              </div>
+              <p class="secret-text">
+                Canon Digic III işlemci gölgelerdeki detayları başarıyla saklar fakat patlayan beyazları (clipping
+                highlights) geri getiremez. Sert Akdeniz güneşinde binaların camları ve gökyüzü bulut detaylarının
+                yanmaması için pozlama telafisini -0.3 veya -0.7 EV'de tutun.
+              </p>
+              <div class="secret-tip">Kısayol: +/- Tuşu → -1/3 EV veya -2/3 EV</div>
+            </div>
+
+            <div class="secret-card">
+              <div class="secret-top">
+                <div class="secret-icon">f/</div>
+                <div>
+                  <h4 class="secret-title">Sweet Spot: f/4.0 – f/5.5</h4>
+                  <span class="dist-stats">Optik Keskinlik Zirvesi</span>
+                </div>
+                <span class="secret-badge">Optik</span>
+              </div>
+              <p class="secret-text">
+                Küçük sensörlü optiklerde f/8 değeri difraksiyona (ışık kırınımı yumuşaması) yol açar ve keskinliği
+                düşürür. Portfolyo analitiğinde de kanıtlandığı üzere, A570 IS lensinin mikro kontrast ve köşe
+                keskinliği zirvesi f/4.0 - f/5.5 diyafram aralığıdır.
+              </p>
+              <div class="secret-tip">Mod: Av (Aperture Priority) → f/4.0 - f/5.6</div>
+            </div>
+
+            <div class="secret-card">
+              <div class="secret-top">
+                <div class="secret-icon">IS</div>
+                <div>
+                  <h4 class="secret-title">1/200s Elde Çekim & IS Stratejisi</h4>
+                  <span class="dist-stats">Sarsıntısız Çekim</span>
+                </div>
+                <span class="secret-badge">Stabilite</span>
+              </div>
+              <p class="secret-text">
+                Optik İmaj Sabitleyiciyi (IS) pilden tasarruf etmek ve sensör merkezlemesini sabitlemek için
+                'Continuous' yerine 'Shoot Only' (Sadece Çekim Anı) moduna ayarlayın. Telefoto (23.2mm) zumda el
+                titremesini önlemek için güvenli enstantaneyi 1/200s üzerinde tutun.
+              </p>
+              <div class="secret-tip">Menü: IS Mode → 'Shoot Only'</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION 3: RENK REÇETELERİ (COLOR RECIPES) -->
+        <section class="learning-section" data-section="recipes">
+          <div class="learning-section-head">
+            <h3 class="learning-section-title">Küratöryel Renk Reçeteleri (One-Click Copy)</h3>
+            <p class="learning-section-desc">Lightroom, Photoshop Camera Raw veya mobil editörlere doğrudan
+              uygulayabileceğiniz test edilmiş parametreler.</p>
+          </div>
+
+          <div class="recipes-grid">
+            <div class="recipe-card">
+              <div class="recipe-header">
+                <h4 class="recipe-title">Sinematik Teal & Doğa</h4>
+                <span class="recipe-tag">Manzara</span>
+              </div>
+              <p class="recipe-desc">Gök mavilerini camgöbeğine çeker, gölgeleri zümrüt tonlarla derinleştirir. Kentsel
+                peyzaj ve dağ sahneleri için mükemmel.</p>
+              <div class="recipe-chips">
+                <span class="recipe-param-chip">Exp: 0.0</span>
+                <span class="recipe-param-chip">Contrast: +22</span>
+                <span class="recipe-param-chip">Highlights: -45</span>
+                <span class="recipe-param-chip">Shadows: +30</span>
+                <span class="recipe-param-chip">Dehaze: +20</span>
+                <span class="recipe-param-chip">Teal Lum: -25</span>
+              </div>
+              <button class="recipe-copy-btn"
+                onclick="copyRecipe('Sinematik Teal & Doğa', 'Exposure: 0.0 | Contrast: +22 | Highlights: -45 | Shadows: +30 | Whites: -15 | Blacks: +10 | Texture: +15 | Clarity: +12 | Dehaze: +20 | Vibrance: +15 | HSL Blues: Hue -10, Sat +15, Lum -25 | HSL Greens: Hue +12, Sat +20, Lum -10 | Split Toning Shadows: Hue 210, Sat 15 | Highlights: Hue 42, Sat 20')">
+                Reçeteyi Kopyala
+              </button>
+            </div>
+
+            <div class="recipe-card">
+              <div class="recipe-header">
+                <h4 class="recipe-title">Vintage Kodachrome / Analog CCD</h4>
+                <span class="recipe-tag">Sokak & Portre</span>
+              </div>
+              <p class="recipe-desc">Derin sıcak kırmızı/kehribar vurgular, hafif yükseltilmiş siyahlar (lifted blacks)
+                ve organik 35mm gren dokusu.</p>
+              <div class="recipe-chips">
+                <span class="recipe-param-chip">Exp: -0.2</span>
+                <span class="recipe-param-chip">Contrast: +35</span>
+                <span class="recipe-param-chip">Highlights: -30</span>
+                <span class="recipe-param-chip">Blacks: +18 (Lifted)</span>
+                <span class="recipe-param-chip">Red Sat: +22</span>
+                <span class="recipe-param-chip">Grain: +25</span>
+              </div>
+              <button class="recipe-copy-btn"
+                onclick="copyRecipe('Vintage Kodachrome CCD', 'Exposure: -0.2 | Contrast: +35 | Highlights: -30 | Shadows: +15 | Whites: +10 | Blacks: +18 (Lifted) | Texture: +8 | Clarity: -5 | Dehaze: +5 | Vibrance: +25 | HSL Reds: Sat +22, Lum -5 | HSL Yellows: Hue -5, Sat +18 | Split Toning Shadows: Hue 45, Sat 12 | Highlights: Hue 200, Sat 8 | Grain: 25')">
+                Reçeteyi Kopyala
+              </button>
+            </div>
+
+            <div class="recipe-card">
+              <div class="recipe-header">
+                <h4 class="recipe-title">Kentsel Minimalist & Kontrast</h4>
+                <span class="recipe-tag">Mimari & Detay</span>
+              </div>
+              <p class="recipe-desc">Grafiksel gölge çizgilerini keskinleştirir, renk kirliliğini hafifçe desatüre
+                ederek mimari geometriyi öne çıkarır.</p>
+              <div class="recipe-chips">
+                <span class="recipe-param-chip">Exp: +0.1</span>
+                <span class="recipe-param-chip">Contrast: +40</span>
+                <span class="recipe-param-chip">Highlights: -60</span>
+                <span class="recipe-param-chip">Clarity: +25</span>
+                <span class="recipe-param-chip">Texture: +30</span>
+                <span class="recipe-param-chip">Dehaze: +35</span>
+              </div>
+              <button class="recipe-copy-btn"
+                onclick="copyRecipe('Kentsel Minimalist & Kontrast', 'Exposure: +0.1 | Contrast: +40 | Highlights: -60 | Shadows: -15 | Whites: +20 | Blacks: -25 | Texture: +30 | Clarity: +25 | Dehaze: +35 | Saturation: -20 | Vibrance: +5 | Sharpness: +45, Masking 60')">
+                Reçeteyi Kopyala
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION 4: AÇI & KADRAJ (COMPOSITION RULES) -->
+        <section class="learning-section" data-section="composition">
+          <div class="learning-section-head">
+            <h3 class="learning-section-title">Açı & Kadraj Kompozisyon Kuralları</h3>
+            <p class="learning-section-desc">Kompakt fotoğraf makinelerinde sıradan bir enstantaneyi sergi seviyesine
+              taşıyan perspektif prensipleri.</p>
+          </div>
+
+          <div class="composition-grid">
+            <div class="composition-card">
+              <div class="composition-head">
+                <div class="composition-icon">01</div>
+                <h4 class="composition-title">Repoussoir (Doğal Çerçeveleme)</h4>
+              </div>
+              <p class="composition-text">
+                Kadrajın ön planına ağaç dalları, karanlık bir çalı öbeği, kemer veya pencere pervazı koyarak arkadaki
+                ana konuyu çerçeveleyin. İki boyutlu fotoğraf yüzeyine anında sinematik bir 3D derinlik katmanı
+                kazandırır (Örn: CRW_0006).
+              </p>
+            </div>
+
+            <div class="composition-card">
+              <div class="composition-head">
+                <div class="composition-icon">02</div>
+                <h4 class="composition-title">Edge Patrol (4 Köşe Kontrolü)</h4>
+              </div>
+              <p class="composition-text">
+                Deklanşöre basmadan hemen önce gözünüzle vizörün 4 köşesini dairesel olarak tarayın. Kenardan kadraja
+                giren yarım bir araba tavanı, çöp kutusu veya elektrik kablosu gibi gözü çalan tüm unsurları 5cm'lik açı
+                değişimiyle dışarıda bırakın (Örn: IMG_0015).
+              </p>
+            </div>
+
+            <div class="composition-card">
+              <div class="composition-head">
+                <div class="composition-icon">03</div>
+                <h4 class="composition-title">Telefoto Sıkıştırması & Katmanlama</h4>
+              </div>
+              <p class="composition-text">
+                23.2mm optik zum ucunda mesafe perspektifi sıkışır; uzaktaki dağlar ve binalar birbirine yakınlaşır. Ön
+                plan, orta plan ve arka planı yatay katmanlar halinde hizalayarak masif bir kentsel tablo yaratın (Örn:
+                IMG_0003).
+              </p>
+            </div>
+
+            <div class="composition-card">
+              <div class="composition-head">
+                <div class="composition-icon">04</div>
+                <h4 class="composition-title">1/3 Kuralı & Ufuk Çizgisi</h4>
+              </div>
+              <p class="composition-text">
+                Ufuk çizgisini kadrajın tam ortasına koyarak sahneyi iki eşit parçaya bölmeyin. Gökyüzü etkileyici ve
+                bulutluysa ufku alt üçte bire; zemin veya şehir dokusu güçlüyse ufku üst üçte bire yerleştirin.
+              </p>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ═══════════ SCROLL TO TOP ═══════════ -->
+  <button class="scroll-top-btn" id="scrollTopBtn" title="Yukarı Çık" aria-label="Yukarı Çık">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+      stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <!-- ═══════════ TOAST ═══════════ -->
+  <div class="toast" id="toast"></div>
+
+  <script src="jszip.min.js"></script>
+  <script src="data.js"></script>
+  <script src="app.js" defer></script>
+  <!-- ═══════════ MOBİL ALT GEZİNME ÇUBUĞU (BOTTOM NAVIGATION) ═══════════ -->
+  <nav class="bottom-nav" id="bottomNav" aria-label="Mobil Alt Gezinme">
+    <button class="bottom-nav-item active" data-nav="gallery" id="bNavGallery">
+      <span class="bottom-nav-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+          <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg></span>
+      <span class="bottom-nav-label">Galeri</span>
+    </button>
+    <button class="bottom-nav-item" data-nav="favorites" id="bNavFavorites">
+      <span class="bottom-nav-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2">
+          <path
+            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+          </path>
+        </svg></span>
+      <span class="bottom-nav-label">Favoriler</span>
+      <span class="bottom-nav-badge" id="bNavFavBadge" style="display:none;">0</span>
+    </button>
+    <button class="bottom-nav-item" data-nav="popular" id="bNavPopular">
+      <span class="bottom-nav-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2">
+          <polygon
+            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+          </polygon>
+        </svg></span>
+      <span class="bottom-nav-label">Popüler</span>
+    </button>
+    <button class="bottom-nav-item" data-nav="learning" id="bNavLearning">
+      <span class="bottom-nav-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2">
+          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+          <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+        </svg></span>
+      <span class="bottom-nav-label">Tüyolar</span>
+    </button>
+    <button class="bottom-nav-item" data-nav="analytics" id="bNavAnalytics">
+      <span class="bottom-nav-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2">
+          <line x1="18" y1="20" x2="18" y2="10"></line>
+          <line x1="12" y1="20" x2="12" y2="4"></line>
+          <line x1="6" y1="20" x2="6" y2="14"></line>
+        </svg></span>
+      <span class="bottom-nav-label">Analitik</span>
+    </button>
+  </nav>
+
+</body>
+
+</html>
