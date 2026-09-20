@@ -866,7 +866,7 @@ function openModal(index, direction) {
     mIso.textContent = p.exif.iso || '-';
     mFocal.textContent = p.exif.focal || '-';
     mBias.textContent = p.exif.bias || '-';
-    mFlash.textContent = p.exif.flash || '-';
+    if (mFlash) mFlash.textContent = p.exif.flash || '-';
     mDate.textContent = p.exif.date || '-';
     if (mSize) {
       if (p.file_size) {
