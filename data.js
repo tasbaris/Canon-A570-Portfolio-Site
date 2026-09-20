@@ -52,6 +52,31 @@ const staticPhotosData = [
     "gphotos_id": "AF1QipOdKci6ow66VxwOvy6mnPTY77YNPp3n-cxd_9DH"
   },
   {
+    "id": "CRW_0006_1.jpg",
+    "tur": "Özel Seri & Fine-Art / Sinematik Kentsel Sokak & Arıtılmış Kadraj (Revize v1)",
+    "tek_score": 8.8,
+    "tek_desc": "CRW_0006'daki ezilmiş koyu gölgeler ve aşırı sert vinyet dengelenmiş, dinamik aralık ve orta tonlar [midtones] başarıyla açılmış. Aracın beyaz kaportasındaki boya parıltısı, asfaltın taş dokusu ve ön plandaki bitki yapraklarının detayları çok daha temiz ve organik bir analog netlik kazanmış.",
+    "komp_score": 8.7,
+    "komp_desc": "Sol kenardaki kesik mavi tabela kirliliği kadraj dışı bırakılarak kompozisyon tamamen ana aksa; beyaz sedan araba, mavi diş kliniği tabelası ve arkadaki palmiye/ağaç dokusuna kilitlenmiş. Ön plan çalılarının ağırlığı optimize edilerek sinematik bir 'repoussoir' etkisi yakalanmış.",
+    "col_score": 9.0,
+    "col_desc": "Teal & Orange renk uyumu mükemmel bir retro 35mm film tonuna kavuşturulmuş. Mavi diş tabelası ile turuncu/kiremit rengi zemin şeridi ve sıcak asfalt tonları arasındaki sinematik kontrast göz alıcı. Gölgeler boğulmadan nefes alıyor.",
+    "gen_score": 8.8,
+    "ozet": "İlk versiyondaki eleştirileri ve potansiyeli tam anlamıyla avantaja çeviren mükemmel bir revizyon. Gereksiz kadraj fazlalıklarının kırpılması ve gölge detaylarının kurtarılmasıyla tam bir Wong Kar-wai / 90'lar analog sokak sineması karesi ortaya çıkmış. Kesinlikle yıldızlı bir kentsel başyapıt.",
+    "exif": {
+      "shutter": "1/1000s",
+      "aperture": "f/5.7",
+      "iso": "ISO 75",
+      "focal": "23.2mm",
+      "bias": "Color Grade: Sinematik Retro Sokak & Kırpılmış Kadraj",
+      "flash": "Kapalı",
+      "mode": "Manuel Düzenleme (Post-Process)",
+      "date": "1980:01:01 00:04:12 (Revize v1)"
+    },
+    "thumbUrl": "thumbs/CRW_0006_1.jpg",
+    "fullUrl": "thumbs/CRW_0006_1.jpg",
+    "source": "local"
+  },
+  {
     "id": "CRW_0062.jpg",
     "tur": "Şehir & Doğa Manzarası / Kentsel Doku ve Dağ Sıradağları",
     "tek_score": 5.5,
@@ -1904,6 +1929,32 @@ const staticPhotosData = [
     "gphotos_id": "AF1QipNFYa96askB4dNGjqu8pHqTAnYAKkcThajnBabz"
   },
   {
+    "id": "IMG_0080.JPG",
+    "tur": "Şehir / Mimari Detay (Uzaktaki cami, bloklar ve ön plandaki çatı parapeti)",
+    "tek_score": 6.0,
+    "tek_desc": "Arka plandaki cami ve bloklar telefoto mesafesinde seçilebiliyor; ancak ön plandaki kaba beton parapet ve metal boru sert tepe ışığında çok baskın ve sert çıkmış.",
+    "komp_score": 4.5,
+    "komp_desc": "Kadrajın alt yarısını çaprazlama kesen kaba beton çatı kenarı manzarayı görmeyi engelliyor; camiyi çerçevelemekten ziyade kazara kadraja girmiş bir engel görünümünde.",
+    "col_score": 6.0,
+    "col_desc": "Caminin kubbesi, ağaçların koyu yeşili ve bloklar arasındaki renk ayrımı fena değil; ancak ön plandaki soluk beton renk dengesini bozuyor.",
+    "gen_score": 5.0,
+    "ozet": "Cami ile arkasındaki masif modern blokların kentsel tezatı ilgi çekici bir anlatım vadediyor; fakat ön plandaki devasa beton parapet kadrajı kapatmış. Duvarın üzerinden yükselerek temiz bir bakış açısı bulunmalıdır.",
+    "exif": {
+      "mode": "Tanımsız / Otomatik",
+      "shutter": "1/400s",
+      "aperture": "f/5.5",
+      "iso": "ISO 80",
+      "focal": "23.2mm",
+      "bias": "+0.0 EV",
+      "flash": "Kapalı",
+      "date": "2026:09:13 17:12:45"
+    },
+    "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczOQSpwkbwsJgAF_YGvJPPsFkvwApz3WZYovzTs35z4PYRamAeYX949ES8TeB5zjx331g4WaVGmvxcrrcOcaaRxcC0CXB459I1FNqWOm1gCHWa6V4LI=w600-h600",
+    "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczOQSpwkbwsJgAF_YGvJPPsFkvwApz3WZYovzTs35z4PYRamAeYX949ES8TeB5zjx331g4WaVGmvxcrrcOcaaRxcC0CXB459I1FNqWOm1gCHWa6V4LI=w2048-h1536",
+    "source": "gphotos",
+    "gphotos_id": "AF1QipNvfubhTFVO2zHbhXzUuTjtHNPOsA9aRViW0mqA"
+  },
+  {
     "id": "IMG_0081.JPG",
     "tur": "Şehir Manzarası / Kentsel Yayılma (Vadiye yayılan kent, dağlar ve ön plan duvarı)",
     "tek_score": 7.0,
@@ -3100,6 +3151,31 @@ const staticPhotosData = [
     "gphotos_id": "AF1QipNH8JHF54yYSxWy7RPuMXStDl518HPOHQ4yGFO6"
   },
   {
+    "id": "IMG_0149_1.jpg",
+    "tur": "Özel Seri & Fine-Art / Canlı Doğa & Zengin Kontrastlı Kedi Portresi",
+    "tek_score": 9.0,
+    "tek_desc": "Orijinal ham çekimdeki hafif pus ve matlık giderilmiş, dinamik aralık ve mikro-kontrast mükemmel seviyeye çekilmiş. Kedinin beyaz kürk dokusu, bıyıkları ve göz berraklığı dijital gren ve artefakt oluşturulmadan kusursuzca keskinleştirilmiş.",
+    "komp_score": 8.8,
+    "komp_desc": "Yatay çevre portresi dengesi korunmuş; ağaç kabuğunun derin gölgeleri ve sağdaki masif duruşu ile çimenlik alandaki sonbahar yaprakları kareye zengin bir tabiat atmosferi katıyor.",
+    "col_score": 9.0,
+    "col_desc": "Canlı çimen yeşilleri, kehribar sarısı dökülmüş yapraklar ve ağaç kabuğunun zengin sıcak kahverengisi arasında göz alıcı bir renk dengesi. Kedinin gözlerindeki parlak zümrüt-yeşil ışıltı ve pembe burun tonu harika bir canlılık kazanmış.",
+    "gen_score": 9.0,
+    "ozet": "Orijinal çekimin sevimli kompozisyonunu profesyonel bir doğa/hayvan dergisi kalitesine taşıyan birinci sınıf bir renk düzenlemesi. Renk doygunluğu ve kontrast oranı tam kıvamında; kesinlikle galerinin yıldızlı karelerinden biri.",
+    "exif": {
+      "shutter": "1/125s",
+      "aperture": "f/4.0",
+      "iso": "ISO 80",
+      "focal": "12.7mm",
+      "bias": "Color Grade: Zengin Kontrast & Canlı Çimenler",
+      "flash": "Kapalı",
+      "mode": "Manuel Düzenleme (Post-Process)",
+      "date": "2026:09:20 14:09:12 (Revize v1)"
+    },
+    "thumbUrl": "thumbs/IMG_0149_1.jpg",
+    "fullUrl": "thumbs/IMG_0149_1.jpg",
+    "source": "local"
+  },
+  {
     "id": "IMG_0150.JPG",
     "tur": "Hayvan Portresi / Başını Eğmiş Kedi Yakın Plan",
     "tek_score": 8.0,
@@ -3124,6 +3200,31 @@ const staticPhotosData = [
     "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczP6GOIOoSkUxhDk_Fb7UTXyi-sIojAqqm-UAKhBsNqK7GM8AMvTG1Ot4LakwF-_d2UIRWIwBNfxS39lisvmDFRJ63VD-G7NI4kSZjzgYgGVdMLL2lI=w2048-h1536",
     "source": "gphotos",
     "gphotos_id": "AF1QipOh0GYHyXHWu9cUIUPnpJCcPVLVokPJWlrZvK0u"
+  },
+  {
+    "id": "IMG_0150_1.jpg",
+    "tur": "Özel Seri & Fine-Art / Dikey Odaklı Zirve Kedi Portresi & Amber Bokeh",
+    "tek_score": 9.3,
+    "tek_desc": "Yatay ham çekimin 90 derece dikey portrait oryantasyonuna çevrilmesiyle kedi tam dik konuma getirilmiş. Tüylerdeki yumuşak geçişler, kulak tutamları, göz bebeğindeki ışık parıltısı ve burun dokusu olağanüstü net ve berrak.",
+    "komp_score": 9.3,
+    "komp_desc": "Dikey kadraj kedinin doğrudan objektife kilitlenen samimi ve meraklı bakışlarını tam bir başyapıt haline getirmiş. Sağ taraftaki dikey ağaç gövdesi doğal bir sütun çerçevesi sunarken, odak tamamen kedinin yüz ifadesine çekilmiş.",
+    "col_score": 9.3,
+    "col_desc": "Arka plandaki kremsi altın/kehribar bokeh, köşelerdeki yumuşak sinematik vinyet ve kedinin gözlerine kazandırılan büyüleyici bal/kehribar sarısı tonlama adeta analog Kodak Gold/Portra hissi veriyor.",
+    "gen_score": 9.3,
+    "ozet": "Ham fotoğraftaki tüm potansiyeli açığa çıkaran, dikey rotasyonu, kadrajı, vinyeti ve sıcak renk paletiyle galerinin en etkileyici ve sanatsal kedi portresi. Zirve puanı ve yıldızı sonuna kadar hak eden gerçek bir başyapıt.",
+    "exif": {
+      "shutter": "1/60s",
+      "aperture": "f/5.5",
+      "iso": "ISO 80",
+      "focal": "23.2mm",
+      "bias": "Color Grade & Dikey Kadraj: Altın Gözler & Amber Bokeh",
+      "flash": "Kapalı",
+      "mode": "Manuel Düzenleme (Post-Process)",
+      "date": "2026:09:20 14:09:24 (Revize v1)"
+    },
+    "thumbUrl": "thumbs/IMG_0150_1.jpg",
+    "fullUrl": "thumbs/IMG_0150_1.jpg",
+    "source": "local"
   },
   {
     "id": "IMG_0151.JPG",
