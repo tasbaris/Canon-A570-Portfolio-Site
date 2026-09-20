@@ -43,6 +43,7 @@ const mFocal = document.getElementById('mFocal');
 const mBias = document.getElementById('mBias');
 const mFlash = document.getElementById('mFlash');
 const mDate = document.getElementById('mDate');
+const mSize = document.getElementById('mSize');
 const mTekS = document.getElementById('mTekS');
 const mTekBar = document.getElementById('mTekBar');
 const mTekD = document.getElementById('mTekD');
@@ -867,6 +868,14 @@ function openModal(index, direction) {
     mBias.textContent = p.exif.bias || '-';
     mFlash.textContent = p.exif.flash || '-';
     mDate.textContent = p.exif.date || '-';
+    if (mSize) {
+      if (p.file_size) {
+        const mb = (p.file_size / (1024 * 1024)).toFixed(1);
+        mSize.textContent = `${mb} MB`;
+      } else {
+        mSize.textContent = '-';
+      }
+    }
 
     mTekS.textContent = p.tek_score + ' / 10';
     mTekBar.style.width = (p.tek_score * 10) + '%';
