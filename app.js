@@ -1202,9 +1202,9 @@ if (splitBar && cmpContainer) {
 function getFullDownloadUrl(photo) {
   let url = photo.fullUrl || photo.thumbUrl || ('thumbs/' + photo.id);
   if (url.startsWith('http') && url.includes('googleusercontent.com')) {
-    // Strip existing sizing and attachment flags to get pure high-res direct download
+    // Use =s0-d for original full-resolution (4.7 MB+ original quality) direct download
     const base = url.split('=')[0];
-    return base + '=w2048-h1536-d';
+    return base + '=s0-d';
   }
   return url;
 }
