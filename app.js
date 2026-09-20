@@ -1199,6 +1199,54 @@ if (splitBar && cmpContainer) {
 // ═══════════════════════════════════════
 // FEATURE 4: BATCH DOWNLOAD (EXPORT TO ZIP)
 // ═══════════════════════════════════════
+function fetchPhotoBlob(photo) {
+  return new Promise((resolve, reject) => {
+    const fullUrl = photo.fullUrl || photo.thumbUrl || ('thumbs/' + photo.id);
+    
+    // First try standard fetch on fullUrl
+    fetch(fullUrl)
+      .then(res => {
+        if (!res.ok) throw new Error('Fetch failed');
+        return res.blob();
+      })
+      .then(resolve)
+      .catch(() => {
+        // Fallback: draw full image onto offscreen canvas to extract high-res blob
+        const img = new Image();
+        img.crossOrigin = 'anonymous';
+        img.onload = () => {
+          try {
+            const canvas = document.createElement('canvas');
+            canvas.width = img.naturalWidth || img.width;
+            canvas.height = img.naturalHeight || img.height;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0);
+            canvas.toBlob((blob) => {
+              if (blob) {
+                resolve(blob);
+              } else {
+                fetchLocalThumb(photo).then(resolve).catch(reject);
+              }
+            }, 'image/jpeg', 0.95);
+          } catch (e) {
+            fetchLocalThumb(photo).then(resolve).catch(reject);
+          }
+        };
+        img.onerror = () => {
+          fetchLocalThumb(photo).then(resolve).catch(reject);
+        };
+        img.src = fullUrl;
+      });
+  });
+}
+
+function fetchLocalThumb(photo) {
+  return fetch('thumbs/' + photo.id).then(r => {
+    if (!r.ok) throw new Error('Thumb fetch failed');
+    return r.blob();
+  });
+}
+
 async function downloadZip(photoList, zipFilename) {
   if (!photoList || photoList.length === 0) {
     showToast('İndirilecek fotoğraf bulunamadı');
@@ -1219,22 +1267,12 @@ async function downloadZip(photoList, zipFilename) {
   let completed = 0;
 
   for (const p of photoList) {
-    const url = p.fullUrl || p.thumbUrl || ('thumbs/' + p.id);
     try {
-      const res = await fetch(url);
-      if (!res.ok) throw new Error('Fetch failed');
-      const blob = await res.blob();
+      const blob = await fetchPhotoBlob(p);
       zip.file(p.id, blob);
       completed++;
     } catch (e) {
-      try {
-        const fallbackRes = await fetch('thumbs/' + p.id);
-        if (fallbackRes.ok) {
-          const blob = await fallbackRes.blob();
-          zip.file(p.id, blob);
-          completed++;
-        }
-      } catch (err) { }
+      console.warn('Could not pack photo into zip:', p.id, e);
     }
     if (completed % 2 === 0 || completed === photoList.length) {
       showToast(`${photoList.length} fotoğraf paketleniyor (${completed}/${photoList.length})...`);
@@ -1721,13 +1759,9 @@ filterChips.addEventListener('click', e => {
 
 function downloadSinglePhoto(photo) {
   if (!photo) return;
-  const url = photo.fullUrl || photo.thumbUrl || ('thumbs/' + photo.id);
   showToast(`Fotoğraf indiriliyor: ${photo.id}...`);
-  fetch(url)
-    .then(r => {
-      if (!r.ok) throw new Error('Network error');
-      return r.blob();
-    })
+
+  fetchPhotoBlob(photo)
     .then(blob => {
       const blobUrl = URL.createObjectURL(blob);
       const a = document.createElement('a');
@@ -1736,18 +1770,22 @@ function downloadSinglePhoto(photo) {
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
-      setTimeout(() => URL.revokeObjectURL(blobUrl), 1000);
+      setTimeout(() => URL.revokeObjectURL(blobUrl), 2000);
       showToast(`${photo.id} başarıyla indirildi`);
     })
     .catch(() => {
+      // Fallback: If blob conversion failed, trigger direct download via Google CDN attachment parameter (-d)
+      let dlUrl = photo.fullUrl || photo.thumbUrl || ('thumbs/' + photo.id);
+      if (dlUrl.startsWith('http') && dlUrl.includes('googleusercontent.com')) {
+        dlUrl = dlUrl.endsWith('-d') ? dlUrl : (dlUrl + '-d');
+      }
       const a = document.createElement('a');
-      a.href = url;
-      a.target = '_blank';
+      a.href = dlUrl;
       a.download = photo.id;
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
-      showToast(`${photo.id} yeni sekmede açıldı`);
+      showToast(`${photo.id} indiriliyor`);
     });
 }
 
