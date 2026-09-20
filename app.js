@@ -904,7 +904,7 @@ function openModal(index, direction) {
     mImg.style.transition = 'transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease';
     mImg.style.transform = 'translateX(0)';
     const isCloudPhoto = p.source === 'gphotos' || p.source === 'google_photos' || !!p.fullUrl || String(p.id).startsWith('gphoto_');
-    mImg.src = (isCloudPhoto && p.fullUrl) ? p.fullUrl : ((isCloudPhoto && p.thumbUrl) ? p.thumbUrl : ('thumbs/' + p.id));
+    mImg.src = (isCloudPhoto && p.fullUrl) ? p.fullUrl : ((isCloudPhoto && p.thumbUrl) ? p.thumbUrl : ('../' + p.id));
     lightbox.classList.add('open');
     document.body.style.overflow = 'hidden';
   } else {
