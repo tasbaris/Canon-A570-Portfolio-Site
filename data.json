@@ -72,9 +72,12 @@
       "mode": "Manuel Düzenleme (Post-Process)",
       "date": "1980:01:01 00:04:12 (Revize v1)"
     },
-    "thumbUrl": "thumbs/CRW_0006_1.jpg",
-    "fullUrl": "thumbs/CRW_0006_1.jpg",
-    "source": "local"
+    "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczOo3jV873yeH1Dwt1U-qQFiTEydyOV5pMUvZsl39Gcph5CaoQqwA61u6Jdf35kD9uhB4fzxEtI18G4Rt_IduSCwid7fJXrVmzDujj1L9QxRnlcPojA=w600-h600",
+    "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczOo3jV873yeH1Dwt1U-qQFiTEydyOV5pMUvZsl39Gcph5CaoQqwA61u6Jdf35kD9uhB4fzxEtI18G4Rt_IduSCwid7fJXrVmzDujj1L9QxRnlcPojA=w2048-h1536",
+    "source": "gphotos",
+    "gphotos_id": "AF1QipMTQe5AIxk48oIhcmUdKo9MVHRM4mCoKm2PfXzN",
+    "pair_id": "CRW_0006.jpg",
+    "is_edit": true
   },
   {
     "id": "CRW_0062.jpg",
@@ -3171,9 +3174,12 @@
       "mode": "Manuel Düzenleme (Post-Process)",
       "date": "2026:09:20 14:09:12 (Revize v1)"
     },
-    "thumbUrl": "thumbs/IMG_0149_1.jpg",
-    "fullUrl": "thumbs/IMG_0149_1.jpg",
-    "source": "local"
+    "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczMm6HNvwZ7wJAXRWjpctticfBSMk1-_m23QzDFg8BjyKmuVwOMJYEQRMijSGlzIQCsykdjhlsUNtY8Ibm9-9pKHv9X0Td_60a9bCuutXJedRLxj3rA=w600-h600",
+    "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczMm6HNvwZ7wJAXRWjpctticfBSMk1-_m23QzDFg8BjyKmuVwOMJYEQRMijSGlzIQCsykdjhlsUNtY8Ibm9-9pKHv9X0Td_60a9bCuutXJedRLxj3rA=w2048-h1536",
+    "source": "gphotos",
+    "gphotos_id": "AF1QipPXA5jXkaUS2Dxq0p9lRWttMz8iLIjjBKlpy4pv",
+    "pair_id": "IMG_0149.JPG",
+    "is_edit": true
   },
   {
     "id": "IMG_0150.JPG",
@@ -3222,9 +3228,12 @@
       "mode": "Manuel Düzenleme (Post-Process)",
       "date": "2026:09:20 14:09:24 (Revize v1)"
     },
-    "thumbUrl": "thumbs/IMG_0150_1.jpg",
-    "fullUrl": "thumbs/IMG_0150_1.jpg",
-    "source": "local"
+    "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczPbYOWfte9CHl2l6ZGLbIOtip0TDaVQoyC0KNWNoMb3hiU16YFM9SPmdMlQOcmtkXsGpMq7NBSzRPykTCmzUwzF-9wdwpZucp8ule608oJ8O-knwmU=w600-h600",
+    "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczPbYOWfte9CHl2l6ZGLbIOtip0TDaVQoyC0KNWNoMb3hiU16YFM9SPmdMlQOcmtkXsGpMq7NBSzRPykTCmzUwzF-9wdwpZucp8ule608oJ8O-knwmU=w2048-h1536",
+    "source": "gphotos",
+    "gphotos_id": "AF1QipPhtBQ9EBa2VCca8DVBA8rwtc3SF5i_orOVRyoT",
+    "pair_id": "IMG_0150.JPG",
+    "is_edit": true
   },
   {
     "id": "IMG_0151.JPG",
