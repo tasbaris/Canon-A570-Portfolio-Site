@@ -511,8 +511,14 @@ function renderGrid() {
 
     const isFav = isFavorite(p.id);
     const isEager = idx < 6;
-    const imgSrc = p.thumbUrl || `thumbs/${p.id}`;
-    const fallbackSrc = p.fullUrl || `thumbs/${p.id}`;
+    let imgSrc = p.thumbUrl || `thumbs/${p.id}`;
+    if (imgSrc.includes('googleusercontent.com') && !imgSrc.includes('-rw')) {
+      imgSrc += '-rw';
+    }
+    let fallbackSrc = p.fullUrl || `thumbs/${p.id}`;
+    if (fallbackSrc.includes('googleusercontent.com') && !fallbackSrc.includes('-rw')) {
+      fallbackSrc += '-rw';
+    }
 
     card.innerHTML = `
           <div class="card-frame">
@@ -1114,16 +1120,25 @@ function fetchPhotoBlob(photo) {
   });
 }
 
+async function ensureJSZip() {
+  if (typeof JSZip !== 'undefined') return true;
+  return new Promise((resolve) => {
+    const s = document.createElement('script');
+    s.src = 'jszip.min.js';
+    s.onload = () => resolve(true);
+    s.onerror = () => resolve(false);
+    document.head.appendChild(s);
+  });
+}
+
 async function downloadZip(photoList, zipFilename) {
   if (!photoList || photoList.length === 0) {
     showToast('İndirilecek fotoğraf bulunamadı');
     return;
   }
 
-  // If browser blocks cross-origin blobs into JSZip, trigger sequential native high-res downloads
-  let useDirectDownloads = false;
-
   showToast(`${photoList.length} fotoğraf hazırlanıyor...`);
+  await ensureJSZip();
 
   if (typeof JSZip === 'undefined') {
     for (let i = 0; i < photoList.length; i++) {
