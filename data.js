@@ -724,9 +724,11 @@ const staticPhotosData = [
       "flash": "Kapalı",
       "date": "2026:09:21 09:38:00 (Revize v1)"
     },
-    "thumbUrl": "thumbs/IMG_0030_1.jpg",
-    "fullUrl": "thumbs/IMG_0030_1.jpg",
-    "file_size": 2873774
+    "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczNQ0qybBdlcBy-wZnjwSCpyDONCL0RK_97nHNV35hwIIiG8gvYymso4m_eQSuMvPMv665UkJ22MUQeDz3aGt0B9sAkRc9UyN4Bf3x9B7NYkTs1mGBM=w600-h600",
+    "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczNQ0qybBdlcBy-wZnjwSCpyDONCL0RK_97nHNV35hwIIiG8gvYymso4m_eQSuMvPMv665UkJ22MUQeDz3aGt0B9sAkRc9UyN4Bf3x9B7NYkTs1mGBM=s0",
+    "file_size": 2873774,
+    "source": "gphotos",
+    "gphotos_id": "AF1QipP5vXQmqam6EFmkWVBwkBQFfUgcsDvqQWZwjkT9"
   },
   {
     "id": "IMG_0031.JPG",
@@ -3516,5 +3518,59 @@ const staticPhotosData = [
     "source": "gphotos",
     "gphotos_id": "AF1QipMY113gIQ3lpU3dK0FwUw7Ddarz0lUvlvnLUZzc",
     "file_size": 2934067
+  },
+  {
+    "id": "IMG_0190.JPG",
+    "tur": "Obje & Portre / Elektro Gitar Yakın Çekim (Flaşlı İç Mekan)",
+    "tek_score": 7.0,
+    "tek_desc": "1/60s ve f/2.6 diyafram ile ISO 80 düşük ışık koşullarında flaş zorunlu olmuş. CCD sensörün flaş aydınlatması altında gitar gövdesindeki metalik kırmızı boya, pearlescent beyaz pickguard ve teller üzerindeki yansımalar son derece keskin.",
+    "komp_score": 7.0,
+    "komp_desc": "Gitar gövdesi kadraja diyagonal olarak yerleşerek dinamik bir akış yaratmış. Sol kenardaki monitör parlaması ve kablolar dikkat dağıtıcı unsurlar.",
+    "col_score": 6.0,
+    "col_desc": "Ham flaş fotoğrafı; aydınlatma düz ve sert. Monitörün mavi parlaması sol alt köşede renk kirliliği yaratıyor. Color grade yapılmamış.",
+    "gen_score": 6.7,
+    "ozet": "Gitarın donanım detaylarını başarıyla yakalayan net bir çekim ancak flaşın sert ve düz aydınlatması atmosferden yoksun bırakmış. Color grade ile arka plan karartılıp gitar gövdesine sıcak amber tonlar katıldığında profesyonel bir enstrüman portresi potansiyeli taşıyor.",
+    "exif": {
+      "mode": "Tanımsız / Otomatik",
+      "shutter": "1/60s",
+      "aperture": "f/2.6",
+      "iso": "ISO 80",
+      "focal": "5.8mm",
+      "bias": "+0.0 EV",
+      "flash": "Açık",
+      "date": "2026:09:21 12:17:54"
+    },
+    "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczOMz1FnyVO6GETbwMDOuJMQE6QVfqZrsmk584Tktck4ttW7MX5BD6qJuWRcnUZqEoREJ-F8cVovzZnXSn9U9g4FCeqflhWcHfb6W_KOYxOyvY8kOnw=w600-h600",
+    "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczOMz1FnyVO6GETbwMDOuJMQE6QVfqZrsmk584Tktck4ttW7MX5BD6qJuWRcnUZqEoREJ-F8cVovzZnXSn9U9g4FCeqflhWcHfb6W_KOYxOyvY8kOnw=s0",
+    "source": "gphotos",
+    "gphotos_id": "AF1QipPAiR2Pa6naCjvripgq_jJvSl5raJ6bX0GRxgz6",
+    "file_size": 2317529
+  },
+  {
+    "id": "IMG_0190_1.jpg",
+    "tur": "Özel Seri & Fine-Art / Enstrüman Portresi & Dramatik Stüdyo Işık (Revize v1)",
+    "tek_score": 8.0,
+    "tek_desc": "Orijinal çekimdeki CCD sensör netliği korunarak arka plan başarıyla karartılmış. Gitar tellerinin ışıltısı, pearlescent pickguard dokusunun mikro-kontrastı ve metalik kırmızı boyanın yansımaları mükemmel parlatılmış.",
+    "komp_score": 8.0,
+    "komp_desc": "Arka planın tamamen siyaha çekilmesiyle gitar gövdesi izole edilmiş; enstrümanın eğrileri ve diyagonal hattı kadrajda tek ve güçlü odak noktası olmuş.",
+    "col_score": 8.5,
+    "col_desc": "Gitar gövdesine kazandırılan sıcak amber/bordo tonlama, akçaağaç sapın altın sarısı parıltısı ve zifiri siyah arka plan adeta profesyonel bir enstrüman kataloğu veya müzik dergisi çekimi hissi uyandırıyor.",
+    "gen_score": 8.2,
+    "ozet": "Ham flaş fotoğrafını profesyonel stüdyo kalitesinde bir enstrüman portresine dönüştüren çok başarılı bir revizyon. Arka planın tamamen karartılması, sıcak amber/bordo color grade ve kontrollü ışık yönlendirmesi gitarın metalik kırmızı gövdesini bir sanat eserine çevirmiş.",
+    "exif": {
+      "mode": "Manuel Düzenleme (Post-Process)",
+      "shutter": "1/60s",
+      "aperture": "f/2.6",
+      "iso": "ISO 80",
+      "focal": "5.8mm",
+      "bias": "Color Grade & Arka Plan Karartma: Dramatik Stüdyo Enstrüman Portresi",
+      "flash": "Açık (Orijinal)",
+      "date": "2026:09:21 21:02:12 (Revize v1)"
+    },
+    "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczODFl9k8bL29ey9NdVMMFXjQL7cWt47nCS60viUT3SFdl5aLcI1yK0kCleXXNQQZ3BZvGgSKMPWFzlt_7AxbH-Z3z7QlNr6MTv7s1LseDLQ80wXo98=w600-h600",
+    "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczODFl9k8bL29ey9NdVMMFXjQL7cWt47nCS60viUT3SFdl5aLcI1yK0kCleXXNQQZ3BZvGgSKMPWFzlt_7AxbH-Z3z7QlNr6MTv7s1LseDLQ80wXo98=s0",
+    "source": "gphotos",
+    "gphotos_id": "AF1QipMD-0LrPlV6_cuW9Db3mCyd3ANiksh4W-KuB6xF",
+    "file_size": 3050999
   }
 ];
