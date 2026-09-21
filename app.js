@@ -490,79 +490,105 @@ function filterAndSort() {
 // ═══════════════════════════════════════
 // RENDER GRID
 // ═══════════════════════════════════════
+function createCardElement(p, idx) {
+  const card = document.createElement('article');
+  const isMasterwork = p.gen_score >= 9.0;
+  const isGold = p.gen_score >= 7.5 && !isMasterwork;
+  const isEmerald = p.gen_score >= 6.5 && p.gen_score < 7.5;
+  const badgeClass = isMasterwork ? 'masterwork' : (isGold ? 'gold' : (isEmerald ? 'emerald' : ''));
+  card.className = `photo-card ${isMasterwork ? 'masterwork' : ''}`;
+  card.dataset.id = p.id;
+  card.onclick = () => {
+    const curIdx = filteredPhotos.findIndex(item => item.id === p.id);
+    if (curIdx !== -1) openModal(curIdx);
+  };
+
+  const isFav = isFavorite(p.id);
+  const isEager = idx < 4;
+  let imgSrc = p.thumbUrl || `thumbs/${p.id}`;
+  if (imgSrc.includes('googleusercontent.com') && !imgSrc.includes('-rw')) {
+    imgSrc += '-rw';
+  }
+  let fallbackSrc = p.fullUrl || `thumbs/${p.id}`;
+  if (fallbackSrc.includes('googleusercontent.com') && !fallbackSrc.includes('-rw')) {
+    fallbackSrc += '-rw';
+  }
+
+  card.innerHTML = `
+        <div class="card-frame">
+          <button class="card-fav-btn ${isFav ? 'active' : ''}" data-id="${p.id}" title="${isFav ? 'Favorilerden çıkar' : 'Favorilere ekle'}" aria-label="${isFav ? 'Favorilerden çıkar' : 'Favorilere ekle'}" onclick="event.stopPropagation(); toggleFavorite('${p.id}');">
+            <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
+          <div class="card-badges-left"></div>
+          <img class="card-img" src="${imgSrc}" loading="${isEager ? 'eager' : 'lazy'}" fetchpriority="${isEager ? 'high' : 'auto'}" decoding="async" alt="${p.id}" onload="this.classList.add('loaded'); if (this.parentElement) this.parentElement.classList.add('img-loaded');" onerror="this.onerror=null; this.src='${fallbackSrc}';">
+          <div class="card-badge ${badgeClass}"><svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" style="display:inline-block;vertical-align:-1px;margin-right:2px;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>${p.gen_score.toFixed(1)}</div>
+          <div class="card-overlay"><span class="card-overlay-text">Detayları Gör</span></div>
+        </div>
+        <div class="card-body">
+          <div class="card-top-row">
+            <span class="card-filename" title="${p.id}">${p.id}</span>
+          </div>
+          <div class="card-exif-row">
+            <span>${p.exif.shutter || '-'}</span>
+            <span>${p.exif.aperture || '-'}</span>
+            <span>${p.exif.iso || '-'}</span>
+          </div>
+          <p class="card-review">"${p.ozet}"</p>
+          <div class="card-meters">
+            <div class="mini-meter">
+              <div class="mini-meter-header"><span>Teknik</span><strong>${p.tek_score}</strong></div>
+              <div class="mini-meter-track"><div class="mini-meter-fill meter-tek" style="width:${p.tek_score * 10}%"></div></div>
+            </div>
+            <div class="mini-meter">
+              <div class="mini-meter-header"><span>Komp</span><strong>${p.komp_score}</strong></div>
+              <div class="mini-meter-track"><div class="mini-meter-fill meter-komp" style="width:${p.komp_score * 10}%"></div></div>
+            </div>
+            <div class="mini-meter">
+              <div class="mini-meter-header"><span>Renk</span><strong>${p.col_score}</strong></div>
+              <div class="mini-meter-track"><div class="mini-meter-fill meter-col" style="width:${p.col_score * 10}%"></div></div>
+            </div>
+          </div>
+        </div>
+      `;
+  return card;
+}
+
+let renderChunkTimer = null;
 function renderGrid() {
+  if (renderChunkTimer) {
+    cancelAnimationFrame(renderChunkTimer);
+    renderChunkTimer = null;
+  }
   galleryGrid.innerHTML = '';
   if (filteredPhotos.length === 0) {
     galleryGrid.innerHTML = '<div class="empty-state">Seçilen kriterlere uygun fotoğraf bulunamadı.</div>';
     return;
   }
-  filteredPhotos.forEach((p, idx) => {
-    const card = document.createElement('article');
-    const isMasterwork = p.gen_score >= 9.0;
-    const isGold = p.gen_score >= 7.5 && !isMasterwork;
-    const isEmerald = p.gen_score >= 6.5 && p.gen_score < 7.5;
-    const badgeClass = isMasterwork ? 'masterwork' : (isGold ? 'gold' : (isEmerald ? 'emerald' : ''));
-    card.className = `photo-card ${isMasterwork ? 'masterwork' : ''}`;
-    card.dataset.id = p.id;
-    card.onclick = () => {
-      const curIdx = filteredPhotos.findIndex(item => item.id === p.id);
-      if (curIdx !== -1) openModal(curIdx);
-    };
 
-    const isFav = isFavorite(p.id);
-    const isEager = idx < 6;
-    let imgSrc = p.thumbUrl || `thumbs/${p.id}`;
-    if (imgSrc.includes('googleusercontent.com') && !imgSrc.includes('-rw')) {
-      imgSrc += '-rw';
-    }
-    let fallbackSrc = p.fullUrl || `thumbs/${p.id}`;
-    if (fallbackSrc.includes('googleusercontent.com') && !fallbackSrc.includes('-rw')) {
-      fallbackSrc += '-rw';
-    }
-
-    card.innerHTML = `
-          <div class="card-frame">
-            <button class="card-fav-btn ${isFav ? 'active' : ''}" data-id="${p.id}" title="${isFav ? 'Favorilerden çıkar' : 'Favorilere ekle'}" onclick="event.stopPropagation(); toggleFavorite('${p.id}');">
-              <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-            </button>
-            <div class="card-badges-left"></div>
-            <img class="card-img" src="${imgSrc}" loading="${isEager ? 'eager' : 'lazy'}" fetchpriority="${isEager ? 'high' : 'auto'}" decoding="async" alt="${p.id}" onload="this.classList.add('loaded'); if (this.parentElement) this.parentElement.classList.add('img-loaded');" onerror="this.onerror=null; this.src='${fallbackSrc}';">
-            <div class="card-badge ${badgeClass}"><svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" style="display:inline-block;vertical-align:-1px;margin-right:2px;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>${p.gen_score.toFixed(1)}</div>
-            <div class="card-overlay"><span class="card-overlay-text">Detayları Gör</span></div>
-          </div>
-          <div class="card-body">
-            <div class="card-top-row">
-              <span class="card-filename" title="${p.id}">${p.id}</span>
-            </div>
-            <div class="card-exif-row">
-              <span>${p.exif.shutter || '-'}</span>
-              <span>${p.exif.aperture || '-'}</span>
-              <span>${p.exif.iso || '-'}</span>
-            </div>
-            <p class="card-review">"${p.ozet}"</p>
-            <div class="card-meters">
-              <div class="mini-meter">
-                <div class="mini-meter-header"><span>Teknik</span><strong>${p.tek_score}</strong></div>
-                <div class="mini-meter-track"><div class="mini-meter-fill meter-tek" style="width:${p.tek_score * 10}%"></div></div>
-              </div>
-              <div class="mini-meter">
-                <div class="mini-meter-header"><span>Komp</span><strong>${p.komp_score}</strong></div>
-                <div class="mini-meter-track"><div class="mini-meter-fill meter-komp" style="width:${p.komp_score * 10}%"></div></div>
-              </div>
-              <div class="mini-meter">
-                <div class="mini-meter-header"><span>Renk</span><strong>${p.col_score}</strong></div>
-                <div class="mini-meter-track"><div class="mini-meter-fill meter-col" style="width:${p.col_score * 10}%"></div></div>
-              </div>
-            </div>
-          </div>
-        `;
+  const BATCH_SIZE = 12;
+  const initialBatch = filteredPhotos.slice(0, BATCH_SIZE);
+  initialBatch.forEach((p, idx) => {
+    const card = createCardElement(p, idx);
     galleryGrid.appendChild(card);
-
-    // Staggered entrance animation
-    setTimeout(() => {
-      cardObserver.observe(card);
-    }, 10);
+    cardObserver.observe(card);
   });
+
+  if (filteredPhotos.length > BATCH_SIZE) {
+    let currentIdx = BATCH_SIZE;
+    function renderNextBatch() {
+      const nextBatch = filteredPhotos.slice(currentIdx, currentIdx + BATCH_SIZE);
+      nextBatch.forEach((p, bIdx) => {
+        const card = createCardElement(p, currentIdx + bIdx);
+        galleryGrid.appendChild(card);
+        cardObserver.observe(card);
+      });
+      currentIdx += BATCH_SIZE;
+      if (currentIdx < filteredPhotos.length) {
+        renderChunkTimer = requestAnimationFrame(renderNextBatch);
+      }
+    }
+    renderChunkTimer = requestAnimationFrame(renderNextBatch);
+  }
 }
 
 // Card entrance observer
@@ -2012,3 +2038,14 @@ buildPhotoPairs(photos);
 initFavorites();
 filterAndSort();
 updateAllStats();
+
+// ═══════════════════════════════════════
+// SERVICE WORKER REGISTRATION
+// ═══════════════════════════════════════
+if ('serviceWorker' in navigator && window.location.protocol.startsWith('http')) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js').catch((err) => {
+      console.warn('SW registration failed:', err);
+    });
+  });
+}
