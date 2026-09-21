@@ -189,16 +189,7 @@
             </svg>
           </button>
           <div class="custom-select-dropdown" id="sortDropdown" role="listbox">
-            <div class="select-option" data-value="votes-desc" role="option" aria-selected="false">
-
-              <span class="opt-label">En Çok Oy Alanlar</span>
-              <svg class="opt-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="20 6 9 17 4 12" />
-              </svg>
-            </div>
             <div class="select-option active" data-value="score-desc" role="option" aria-selected="true">
-
               <span class="opt-label">En Yüksek Puan</span>
               <svg class="opt-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                 stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -206,7 +197,6 @@
               </svg>
             </div>
             <div class="select-option" data-value="score-asc" role="option" aria-selected="false">
-
               <span class="opt-label">En Düşük Puan</span>
               <svg class="opt-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                 stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -214,7 +204,6 @@
               </svg>
             </div>
             <div class="select-option" data-value="date-desc" role="option" aria-selected="false">
-
               <span class="opt-label">En Yeni (Tarih ↓)</span>
               <svg class="opt-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                 stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -222,7 +211,6 @@
               </svg>
             </div>
             <div class="select-option" data-value="date-asc" role="option" aria-selected="false">
-
               <span class="opt-label">En Eski (Tarih ↑)</span>
               <svg class="opt-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                 stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -230,7 +218,6 @@
               </svg>
             </div>
             <div class="select-option" data-value="id-asc" role="option" aria-selected="false">
-
               <span class="opt-label">Dosya Numarası ↑</span>
               <svg class="opt-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                 stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -238,7 +225,6 @@
               </svg>
             </div>
             <div class="select-option" data-value="id-desc" role="option" aria-selected="false">
-
               <span class="opt-label">Dosya Numarası ↓</span>
               <svg class="opt-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                 stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -246,7 +232,6 @@
               </svg>
             </div>
             <div class="select-option" data-value="shutter-desc" role="option" aria-selected="false">
-
               <span class="opt-label">En Hızlı Enstantane</span>
               <svg class="opt-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                 stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -254,7 +239,6 @@
               </svg>
             </div>
             <div class="select-option" data-value="iso-desc" role="option" aria-selected="false">
-
               <span class="opt-label">En Yüksek ISO</span>
               <svg class="opt-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                 stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -285,19 +269,19 @@
       <div class="controls-bottom">
         <div class="filter-chips" id="filterChips">
           <button class="chip active" data-filter="all">Tümü <span class="chip-count"
-              id="allChipCount">127</span></button>
-          <button class="chip" data-filter="star">Yıldızlı <span class="chip-count" id="starChipCount">30</span></button>
-          <button class="chip" data-filter="edits">Editler <span class="chip-count" id="editChipCount">10</span></button>
+              id="allChipCount">62</span></button>
+          <button class="chip" data-filter="star">Yıldızlı <span class="chip-count" id="starChipCount">19</span></button>
+          <button class="chip" data-filter="edits">Özel Editler <span class="chip-count" id="editChipCount">12</span></button>
           <button class="chip" data-filter="favorite">Favoriler <span class="chip-count"
               id="favChipCount">0</span></button>
-          <button class="chip" data-filter="popular">Popüler</button>
+          <button class="chip" data-filter="doga">Doğa & Hayvan</button>
+          <button class="chip" data-filter="sokak">Sokak & Yaşam</button>
           <button class="chip" data-filter="manzara">Manzara</button>
-          <button class="chip" data-filter="sokak">Sokak</button>
           <button class="chip" data-filter="mimari">Mimari</button>
-          <button class="chip" data-filter="gece">Gece</button>
-          <button class="chip" data-filter="macro">Detay</button>
+          <button class="chip" data-filter="gece">Gece & Astro</button>
+          <button class="chip" data-filter="obje">Obje & Detay</button>
         </div>
-        <div class="result-count" id="resultCount">127 / 127 sonuç</div>
+        <div class="result-count" id="resultCount">62 / 62 sonuç</div>
       </div>
     </div>
   </section>
@@ -332,21 +316,6 @@
           <span class="modal-counter" id="mCounter">-</span>
         </div>
         <div class="modal-actions">
-          <!-- Lightbox Reddit Vote Pill -->
-          <div class="reddit-vote-pill modal-vote-pill" id="mRedditVotePill" data-id="" title="Fotoğrafı Oyla">
-            <button type="button" class="vote-btn upvote" id="mUpBtn" aria-label="Upvote" title="Beğen (+1)">
-              <svg viewBox="0 0 24 24" width="14" height="14">
-                <path fill="currentColor" d="M12 4L4 14h5v6h6v-6h5L12 4z" />
-              </svg>
-            </button>
-            <span class="vote-score" id="mScoreVal">0</span>
-            <button type="button" class="vote-btn downvote" id="mDownBtn" aria-label="Downvote" title="Beğenme (-1)">
-              <svg viewBox="0 0 24 24" width="14" height="14">
-                <path fill="currentColor" d="M12 20l8-10h-5V4h-6v6H4l8 10z" />
-              </svg>
-            </button>
-          </div>
-
           <button class="modal-btn finder-btn" id="mPlay" title="Slayt (Space)">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
               <polygon points="5 3 19 12 5 21 5 3"></polygon>
@@ -1106,14 +1075,17 @@
       <span class="bottom-nav-label">Favoriler</span>
       <span class="bottom-nav-badge" id="bNavFavBadge" style="display:none;">0</span>
     </button>
-    <button class="bottom-nav-item" data-nav="popular" id="bNavPopular">
+    <button class="bottom-nav-item" data-nav="random" id="bNavRandom">
       <span class="bottom-nav-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
           stroke-width="2">
-          <polygon
-            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-          </polygon>
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+          <circle cx="8.5" cy="8.5" r="1.5" fill="currentColor"></circle>
+          <circle cx="15.5" cy="8.5" r="1.5" fill="currentColor"></circle>
+          <circle cx="15.5" cy="15.5" r="1.5" fill="currentColor"></circle>
+          <circle cx="8.5" cy="15.5" r="1.5" fill="currentColor"></circle>
+          <circle cx="12" cy="12" r="1.5" fill="currentColor"></circle>
         </svg></span>
-      <span class="bottom-nav-label">Popüler</span>
+      <span class="bottom-nav-label">Rastgele</span>
     </button>
     <button class="bottom-nav-item" data-nav="learning" id="bNavLearning">
       <span class="bottom-nav-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"

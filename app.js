@@ -176,188 +176,6 @@ function parseExifDate(dateStr) {
 }
 
 // ═══════════════════════════════════════
-// REAKTİF REDDIT RATE (VOTESTORE)
-// ═══════════════════════════════════════
-const VoteStore = {
-  votesData: {}, // { photoId: { up: number, down: number, score: number } }
-  userVotes: {}, // { photoId: 1 | 0 | -1 }
-
-  init() {
-    try {
-      const stored = localStorage.getItem('user_photo_votes');
-      if (stored) this.userVotes = JSON.parse(stored);
-    } catch (e) {
-      console.warn('VoteStore userVotes load warning:', e);
-      this.userVotes = {};
-    }
-
-    if (Array.isArray(photos)) {
-      photos.forEach(p => {
-        this.votesData[p.id] = { up: 0, down: 0, score: 0 };
-      });
-    }
-
-    this.fetchVotes();
-  },
-
-  fetchVotes() {
-    fetch('/api/votes')
-      .then(r => (r.ok ? r.json() : Promise.reject(r.status)))
-      .then(data => {
-        const votesMap = (data && data.votes) ? data.votes : data;
-        if (votesMap && typeof votesMap === 'object') {
-          Object.keys(votesMap).forEach(id => {
-            const item = votesMap[id];
-            const up = Number(item.up || (typeof item === 'number' ? item : 0));
-            const down = Number(item.down || 0);
-            this.votesData[id] = { up, down, score: up - down };
-          });
-          this.updateAllPills();
-        }
-      })
-      .catch(() => { });
-  },
-
-  getUserVote(id) {
-    return this.userVotes[id] || 0;
-  },
-
-  getScore(id) {
-    if (!this.votesData[id]) {
-      this.votesData[id] = { up: 0, down: 0, score: 0 };
-    }
-    return this.votesData[id].score;
-  },
-
-  castVote(id, direction, event) {
-    if (event) event.stopPropagation();
-
-    if (!this.votesData[id]) {
-      this.votesData[id] = { up: 0, down: 0, score: 0 };
-    }
-
-    const currentVote = this.getUserVote(id);
-    const newVote = (currentVote === direction) ? 0 : direction;
-    const delta = newVote - currentVote;
-
-    // Optimistik skor güncellemesi
-    this.votesData[id].score += delta;
-    if (newVote === 1) {
-      this.votesData[id].up = Math.max(0, (this.votesData[id].up || 0) + 1);
-      if (currentVote === -1) this.votesData[id].down = Math.max(0, (this.votesData[id].down || 0) - 1);
-    } else if (newVote === -1) {
-      this.votesData[id].down = Math.max(0, (this.votesData[id].down || 0) + 1);
-      if (currentVote === 1) this.votesData[id].up = Math.max(0, (this.votesData[id].up || 0) - 1);
-    } else {
-      if (currentVote === 1) this.votesData[id].up = Math.max(0, (this.votesData[id].up || 0) - 1);
-      if (currentVote === -1) this.votesData[id].down = Math.max(0, (this.votesData[id].down || 0) - 1);
-    }
-
-    this.userVotes[id] = newVote;
-    try {
-      localStorage.setItem('user_photo_votes', JSON.stringify(this.userVotes));
-    } catch (e) {
-      console.warn('Failed to save user votes:', e);
-    }
-
-    this.updatePillsForId(id);
-
-    if (newVote === 1) showToast(`${id} (+1) oylandı`);
-    else if (newVote === -1) showToast(`${id} (-1) oylandı`);
-    else showToast(`${id} oyu geri alındı`);
-
-    fetch('/api/vote', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ id, dir: newVote, prevDir: currentVote, vote: newVote, previousVote: currentVote })
-    })
-      .then(r => r.ok ? r.json() : null)
-      .then(res => {
-        if (res && res.status === 'ok') {
-          this.votesData[id] = { up: res.up, down: res.down, score: res.score };
-          this.updatePillsForId(id);
-        }
-      })
-      .catch(err => {
-        console.log('Background vote sync notice:', err);
-      });
-
-    if (sortMode === 'votes-desc') {
-      filterAndSort();
-    }
-  },
-
-  updatePillsForId(id) {
-    const myVote = this.getUserVote(id);
-    const score = this.getScore(id);
-    const scoreFormatted = score > 0 ? `+${score}` : `${score}`;
-
-    document.querySelectorAll(`.reddit-vote-pill[data-id="${id}"]`).forEach(pill => {
-      const upBtn = pill.querySelector('.vote-btn.upvote');
-      const downBtn = pill.querySelector('.vote-btn.downvote');
-      const scoreEl = pill.querySelector('.vote-score');
-
-      if (upBtn) upBtn.classList.toggle('active', myVote === 1);
-      if (downBtn) downBtn.classList.toggle('active', myVote === -1);
-      if (scoreEl) {
-        scoreEl.textContent = scoreFormatted;
-        scoreEl.className = 'vote-score ' + (myVote === 1 ? 'upvoted' : myVote === -1 ? 'downvoted' : '');
-      }
-    });
-
-    if (activeIdx >= 0 && filteredPhotos[activeIdx] && filteredPhotos[activeIdx].id === id) {
-      this.updateModalPill(id);
-    }
-  },
-
-  updateModalPill(id) {
-    const mPill = document.getElementById('mRedditVotePill');
-    if (!mPill) return;
-    mPill.dataset.id = id;
-
-    const myVote = this.getUserVote(id);
-    const score = this.getScore(id);
-    const scoreFormatted = score > 0 ? `+${score}` : `${score}`;
-
-    const upBtn = document.getElementById('mUpBtn');
-    const downBtn = document.getElementById('mDownBtn');
-    const scoreEl = document.getElementById('mScoreVal');
-
-    if (upBtn) upBtn.classList.toggle('active', myVote === 1);
-    if (downBtn) downBtn.classList.toggle('active', myVote === -1);
-    if (scoreEl) {
-      scoreEl.textContent = scoreFormatted;
-      scoreEl.className = 'vote-score ' + (myVote === 1 ? 'upvoted' : myVote === -1 ? 'downvoted' : '');
-    }
-  },
-
-  updateAllPills() {
-    if (Array.isArray(photos)) {
-      photos.forEach(p => this.updatePillsForId(p.id));
-    }
-  },
-
-  renderPillHtml(id) {
-    const myVote = this.getUserVote(id);
-    const score = this.getScore(id);
-    const scoreFormatted = score > 0 ? `+${score}` : `${score}`;
-    const scoreClass = myVote === 1 ? 'upvoted' : myVote === -1 ? 'downvoted' : '';
-
-    return `
-          <div class="reddit-vote-pill" data-id="${id}" onclick="event.stopPropagation();">
-            <button type="button" class="vote-btn upvote ${myVote === 1 ? 'active' : ''}" onclick="VoteStore.castVote('${id}', 1, event)" aria-label="Upvote" title="Beğen (+1)">
-              <svg viewBox="0 0 24 24" width="13" height="13"><path fill="currentColor" d="M12 4L4 14h5v6h6v-6h5L12 4z"/></svg>
-            </button>
-            <span class="vote-score ${scoreClass}">${scoreFormatted}</span>
-            <button type="button" class="vote-btn downvote ${myVote === -1 ? 'active' : ''}" onclick="VoteStore.castVote('${id}', -1, event)" aria-label="Downvote" title="Beğenme (-1)">
-              <svg viewBox="0 0 24 24" width="13" height="13"><path fill="currentColor" d="M12 20l8-10h-5V4h-6v6H4l8 10z"/></svg>
-            </button>
-          </div>
-        `;
-  }
-};
-
-// ═══════════════════════════════════════
 // FAVORITES SYSTEM (localStorage)
 // ═══════════════════════════════════════
 let favorites = new Set();
@@ -576,50 +394,42 @@ function filterAndSort() {
     // Ham halini ayrı inceleme olarak gösterme (yalnızca editli halleri sergile)
     if (p.hasEdit) return false;
 
+    const tags = p.tags || [];
+    const hasAnyTag = (...ts) => ts.some(t => tags.includes(t.toLowerCase()));
+
     if (activeFilter === 'star' && p.gen_score < 7.0) return false;
-    if (activeFilter === 'edits' && !/özel seri|fine-art|revize|edit/i.test(p.tur) && !/(?:IMG|CRW)_\d+_\d+/.test(p.id) && !p.isEdit && !p.is_edit && p.id !== 'IMG_0053.JPG' && p.id !== 'CRW_0062.jpg') return false;
+    if (activeFilter === 'edits' && !hasAnyTag('edit', 'revize', 'fine-art', 'özel seri') && !/(?:IMG|CRW)_\d+_\d+/.test(p.id) && !p.isEdit && !p.is_edit && p.id !== 'IMG_0053.JPG' && p.id !== 'CRW_0062.jpg') return false;
     if (activeFilter === 'favorite' && !isFavorite(p.id)) return false;
-    if (activeFilter === 'popular') return true;
 
-    // Kaynak ve AI Filtreleri
-    const isGP = p.source === 'gphotos' || !!p.gphotos_id || (typeof p.source === 'object' && p.source.type === 'google_photos');
-    if (activeFilter === 'source-local' && isGP) return false;
-    if (activeFilter === 'source-gphotos' && !isGP) return false;
-    if (activeFilter === 'ai-analyzed' && !p.ai_metadata) return false;
+    // Kategori Filtreleri (Gizli Semantik Tag Eşleşmesi)
+    if (activeFilter === 'doga' && !hasAnyTag('doğa', 'nature', 'hayvan', 'animal', 'kedi', 'cat', 'kuş', 'bird', 'çiçek', 'flower', 'botanik', 'çam', 'ağaç', 'orman')) return false;
+    if (activeFilter === 'sokak' && !hasAnyTag('sokak', 'street', 'yaşam', 'life', 'belgesel', 'insan', 'bisiklet', 'ulaşım', 'bayrak', 'otobüs', 'yol')) return false;
+    if (activeFilter === 'manzara' && !hasAnyTag('manzara', 'landscape', 'deniz', 'sahil', 'karşıyaka', 'körfez', 'vadi', 'dağ', 'panoramik')) return false;
+    if (activeFilter === 'mimari' && !hasAnyTag('mimari', 'architecture', 'bina', 'building', 'grafik', 'geometri', 'çatı', 'meydan', 'lamba', 'sokak lambası', 'hükümet konağı', 'ses bariyeri')) return false;
+    if (activeFilter === 'gece' && !hasAnyTag('gece', 'night', 'ay', 'moon', 'dolunay', 'uzun pozlama', 'ışık izi', 'astro', 'karanlık')) return false;
+    if (activeFilter === 'obje' && !hasAnyTag('obje', 'object', 'detay', 'detail', 'makro', 'macro', 'minimalist', 'gitar', 'terlik', 'mouse', 'elma', 'çiçek')) return false;
 
-    if (activeFilter === 'manzara' && !/manzara|şehir|kentsel|peyzaj|deniz|meydan/i.test(p.tur)) return false;
-    if (activeFilter === 'sokak' && !/sokak|belgesel|insan|yaşam|meydan|kültürel/i.test(p.tur)) return false;
-    if (activeFilter === 'mimari' && !/mimari|çatı|bina|grafik|geometri/i.test(p.tur)) return false;
-    if (activeFilter === 'gece' && !/gece|ay|ışık|karanlık/i.test(p.tur)) return false;
-    if (activeFilter === 'macro' && !/natürmort|makro|detay|yemek|iç mekan|terlik/i.test(p.tur)) return false;
+    // Arama Sorgusu (Tag, Dosya Adı, Başlık, Yorum ve EXIF)
     if (searchQuery) {
       const q = searchQuery.toLowerCase().trim();
-      const inBasic = p.id.toLowerCase().includes(q) || p.tur.toLowerCase().includes(q) || p.ozet.toLowerCase().includes(q);
-      if (inBasic) return true;
 
-      // EXIF Parametresi Akıllı Arama (shutter, iso, aperture, focal, flash, bias, mode)
+      // 1. Tagler
+      if (tags.some(t => t.includes(q))) return true;
+
+      // 2. ID / Başlık / Özet
+      if (p.id.toLowerCase().includes(q) || (p.tur && p.tur.toLowerCase().includes(q)) || (p.ozet && p.ozet.toLowerCase().includes(q))) return true;
+
+      // 3. EXIF Parametreleri
       if (p.exif) {
         const e = p.exif;
-        const inExif = (e.shutter && e.shutter.toLowerCase().includes(q)) ||
-                       (e.aperture && e.aperture.toLowerCase().includes(q)) ||
-                       (e.iso && e.iso.toLowerCase().includes(q)) ||
-                       (e.focal && e.focal.toLowerCase().includes(q)) ||
-                       (e.flash && e.flash.toLowerCase().includes(q)) ||
-                       (e.mode && e.mode.toLowerCase().includes(q)) ||
-                       (e.bias && e.bias.toLowerCase().includes(q)) ||
-                       (e.date && e.date.toLowerCase().includes(q));
-        if (inExif) return true;
-        
-        // Türkçe terim eşleşmeleri (flaş vs flash)
-        if ((q === 'flaş' || q === 'flash') && e.flash && !e.flash.toLowerCase().includes('kapalı')) return true;
-        if ((q === 'flaşsız' || q === 'noflash') && e.flash && e.flash.toLowerCase().includes('kapalı')) return true;
-      }
-
-      // AI etiketleri ve küratör eleştirisi içinde semantik arama
-      if (p.ai_metadata) {
-        if (p.ai_metadata.tags && p.ai_metadata.tags.some(t => t.toLowerCase().includes(q))) return true;
-        if (p.ai_metadata.critique && p.ai_metadata.critique.toLowerCase().includes(q)) return true;
-        if (p.ai_metadata.caption && p.ai_metadata.caption.toLowerCase().includes(q)) return true;
+        if (e.shutter && e.shutter.toLowerCase().includes(q)) return true;
+        if (e.aperture && e.aperture.toLowerCase().includes(q)) return true;
+        if (e.iso && e.iso.toLowerCase().includes(q)) return true;
+        if (e.focal && e.focal.toLowerCase().includes(q)) return true;
+        if (e.flash && e.flash.toLowerCase().includes(q)) return true;
+        if (e.mode && e.mode.toLowerCase().includes(q)) return true;
+        if (e.bias && e.bias.toLowerCase().includes(q)) return true;
+        if (e.date && e.date.toLowerCase().includes(q)) return true;
       }
       return false;
     }
@@ -627,10 +437,6 @@ function filterAndSort() {
   });
 
   filteredPhotos.sort((a, b) => {
-    if (sortMode === 'votes-desc') {
-      const diff = VoteStore.getScore(b.id) - VoteStore.getScore(a.id);
-      return diff !== 0 ? diff : (b.gen_score - a.gen_score) || a.id.localeCompare(b.id);
-    }
     if (sortMode === 'score-desc') return b.gen_score - a.gen_score || a.id.localeCompare(b.id);
     if (sortMode === 'score-asc') return a.gen_score - b.gen_score || a.id.localeCompare(b.id);
     if (sortMode === 'date-desc') {
@@ -675,7 +481,9 @@ function filterAndSort() {
     return 0;
   });
 
-  resultCount.textContent = filteredPhotos.length + ' / ' + photos.length + ' sonuç';
+  if (resultCount) {
+    resultCount.textContent = filteredPhotos.length + ' / ' + photos.filter(p => !p.hasEdit).length + ' sonuç';
+  }
   renderGrid();
 }
 
@@ -719,7 +527,6 @@ function renderGrid() {
           <div class="card-body">
             <div class="card-top-row">
               <span class="card-filename" title="${p.id}">${p.id}</span>
-              ${VoteStore.renderPillHtml(p.id)}
             </div>
             <div class="card-exif-row">
               <span>${p.exif.shutter || '-'}</span>
@@ -930,7 +737,6 @@ function openModal(index, direction) {
     const isFav = isFavorite(p.id);
     if (mFavBtn) mFavBtn.classList.toggle('active', isFav);
     if (mFavLabel) mFavLabel.textContent = isFav ? 'Favoride' : 'Favorile';
-    VoteStore.updateModalPill(p.id);
   };
 
   resetZoom();
@@ -2001,27 +1807,8 @@ document.getElementById('kbdBtn').onclick = () => document.getElementById('kbdMo
 
 
 // ═══════════════════════════════════════
-// MODAL VOTE BUTTONS & TOUCH SWIPE ENGINE
+// TOUCH SWIPE ENGINE & MODAL GESTURES
 // ═══════════════════════════════════════
-const mUpBtn = document.getElementById('mUpBtn');
-const mDownBtn = document.getElementById('mDownBtn');
-if (mUpBtn) {
-  mUpBtn.onclick = (e) => {
-    e.stopPropagation();
-    if (activeIdx >= 0 && filteredPhotos[activeIdx]) {
-      VoteStore.castVote(filteredPhotos[activeIdx].id, 1, e);
-    }
-  };
-}
-if (mDownBtn) {
-  mDownBtn.onclick = (e) => {
-    e.stopPropagation();
-    if (activeIdx >= 0 && filteredPhotos[activeIdx]) {
-      VoteStore.castVote(filteredPhotos[activeIdx].id, -1, e);
-    }
-  };
-}
-
 let touchStartX = 0;
 let touchStartY = 0;
 let touchStartTime = 0;
@@ -2063,7 +1850,7 @@ if (modalCanvas) {
     const duration = Date.now() - touchStartTime;
 
     if (absX < 14 && absY < 14 && duration < 320) {
-      if (!e.target.closest('button') && !e.target.closest('.reddit-vote-pill')) {
+      if (!e.target.closest('button')) {
         toggleImmersiveMode();
       }
       return;
@@ -2094,44 +1881,12 @@ closeModal = function () {
 };
 
 // ═══════════════════════════════════════
-// MOBILE BOTTOM NAV & POPULAR LOGIC
+// MOBILE BOTTOM NAV
 // ═══════════════════════════════════════
 function updateBottomNavActive(navId) {
   document.querySelectorAll('.bottom-nav-item').forEach(item => {
     item.classList.toggle('active', item.dataset.nav === navId);
   });
-}
-
-function activatePopularSort() {
-  sortMode = 'votes-desc';
-  activeFilter = 'popular';
-
-  if (sortCurrentIcon) sortCurrentIcon.textContent = '';
-  if (sortCurrentLabel) sortCurrentLabel.textContent = 'En Çok Oy Alanlar';
-
-  if (sortDropdown) {
-    sortDropdown.querySelectorAll('.select-option').forEach(opt => {
-      const match = opt.dataset.value === 'votes-desc';
-      opt.classList.toggle('active', match);
-      opt.setAttribute('aria-selected', match ? 'true' : 'false');
-    });
-  }
-
-  if (filterChips) {
-    filterChips.querySelectorAll('.chip').forEach(c => {
-      c.classList.toggle('active', c.dataset.filter === 'popular');
-    });
-  }
-
-  updateBottomNavActive('popular');
-  filterAndSort();
-
-  const target = document.getElementById('controlsSection') || document.getElementById('galleryGrid');
-  if (target) {
-    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
-
-  showToast('En çok oy alan popüler fotoğraflar listelendi');
 }
 
 const bottomNav = document.getElementById('bottomNav');
@@ -2160,8 +1915,8 @@ if (bottomNav) {
       filterAndSort();
       const target = document.getElementById('controlsSection') || document.getElementById('galleryGrid');
       if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    } else if (nav === 'popular') {
-      activatePopularSort();
+    } else if (nav === 'random') {
+      openRandomPhoto();
     } else if (nav === 'learning') {
       openLearningModal();
       updateBottomNavActive('learning');
@@ -2177,9 +1932,7 @@ if (filterChips) {
   filterChips.addEventListener('click', (e) => {
     const btn = e.target.closest('.chip');
     if (!btn) return;
-    if (btn.dataset.filter === 'popular') {
-      activatePopularSort();
-    } else if (btn.dataset.filter === 'favorite') {
+    if (btn.dataset.filter === 'favorite') {
       updateBottomNavActive('favorites');
     } else {
       updateBottomNavActive('gallery');
@@ -2210,7 +1963,6 @@ saveFavorites = function () {
   }
 };
 
-
 function applyTagSearch(tag) {
   if (lightbox && lightbox.classList.contains('open')) {
     closeModal();
@@ -2238,12 +1990,10 @@ function copyHexColor(hex) {
   }
 }
 
-
 // ═══════════════════════════════════════
 // INIT
 // ═══════════════════════════════════════
 buildPhotoPairs(photos);
 initFavorites();
-VoteStore.init();
 filterAndSort();
 updateAllStats();
