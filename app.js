@@ -542,9 +542,21 @@ function updateAllStats() {
   if (starChip) starChip.textContent = star;
   if (editChip) editChip.textContent = edit;
   if (favChip) favChip.textContent = favorites.size;
-  if (localChip) localChip.textContent = localCount;
-  if (gphotosChip) gphotosChip.textContent = gphotosCount;
-  if (aiChip) aiChip.textContent = aiCount;
+  if (localChip) {
+    localChip.textContent = localCount;
+    const parentChip = localChip.closest('.chip');
+    if (parentChip) parentChip.style.display = localCount > 0 ? '' : 'none';
+  }
+  if (gphotosChip) {
+    gphotosChip.textContent = gphotosCount;
+    const parentChip = gphotosChip.closest('.chip');
+    if (parentChip) parentChip.style.display = gphotosCount > 0 ? '' : 'none';
+  }
+  if (aiChip) {
+    aiChip.textContent = aiCount;
+    const parentChip = aiChip.closest('.chip');
+    if (parentChip) parentChip.style.display = aiCount > 0 ? '' : 'none';
+  }
 
   if (resultCount) {
     resultCount.textContent = filteredPhotos.length + ' / ' + total + ' sonuç';
@@ -581,9 +593,27 @@ function filterAndSort() {
     if (activeFilter === 'gece' && !/gece|ay|ışık|karanlık/i.test(p.tur)) return false;
     if (activeFilter === 'macro' && !/natürmort|makro|detay|yemek|iç mekan|terlik/i.test(p.tur)) return false;
     if (searchQuery) {
-      const q = searchQuery.toLowerCase();
+      const q = searchQuery.toLowerCase().trim();
       const inBasic = p.id.toLowerCase().includes(q) || p.tur.toLowerCase().includes(q) || p.ozet.toLowerCase().includes(q);
       if (inBasic) return true;
+
+      // EXIF Parametresi Akıllı Arama (shutter, iso, aperture, focal, flash, bias, mode)
+      if (p.exif) {
+        const e = p.exif;
+        const inExif = (e.shutter && e.shutter.toLowerCase().includes(q)) ||
+                       (e.aperture && e.aperture.toLowerCase().includes(q)) ||
+                       (e.iso && e.iso.toLowerCase().includes(q)) ||
+                       (e.focal && e.focal.toLowerCase().includes(q)) ||
+                       (e.flash && e.flash.toLowerCase().includes(q)) ||
+                       (e.mode && e.mode.toLowerCase().includes(q)) ||
+                       (e.bias && e.bias.toLowerCase().includes(q)) ||
+                       (e.date && e.date.toLowerCase().includes(q));
+        if (inExif) return true;
+        
+        // Türkçe terim eşleşmeleri (flaş vs flash)
+        if ((q === 'flaş' || q === 'flash') && e.flash && !e.flash.toLowerCase().includes('kapalı')) return true;
+        if ((q === 'flaşsız' || q === 'noflash') && e.flash && e.flash.toLowerCase().includes('kapalı')) return true;
+      }
 
       // AI etiketleri ve küratör eleştirisi içinde semantik arama
       if (p.ai_metadata) {
@@ -660,18 +690,19 @@ function renderGrid() {
   }
   filteredPhotos.forEach((p, idx) => {
     const card = document.createElement('article');
-    card.className = 'photo-card';
+    const isMasterwork = p.gen_score >= 9.0;
+    const isGold = p.gen_score >= 7.5 && !isMasterwork;
+    const isEmerald = p.gen_score >= 6.5 && p.gen_score < 7.5;
+    const badgeClass = isMasterwork ? 'masterwork' : (isGold ? 'gold' : (isEmerald ? 'emerald' : ''));
+    card.className = `photo-card ${isMasterwork ? 'masterwork' : ''}`;
     card.dataset.id = p.id;
     card.onclick = () => {
       const curIdx = filteredPhotos.findIndex(item => item.id === p.id);
       if (curIdx !== -1) openModal(curIdx);
     };
 
-    const isGold = p.gen_score >= 7.5;
-    const isEmerald = p.gen_score >= 6.5 && p.gen_score < 7.5;
-    const badgeClass = isGold ? 'gold' : (isEmerald ? 'emerald' : '');
     const isFav = isFavorite(p.id);
-
+    const isEager = idx < 6;
     const imgSrc = p.thumbUrl || `thumbs/${p.id}`;
     const fallbackSrc = p.fullUrl || `thumbs/${p.id}`;
 
@@ -681,7 +712,7 @@ function renderGrid() {
               <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
             </button>
             <div class="card-badges-left"></div>
-            <img class="card-img" src="${imgSrc}" loading="lazy" decoding="async" alt="${p.id}" onload="this.classList.add('loaded')" onerror="this.onerror=null; this.src='${fallbackSrc}';">
+            <img class="card-img" src="${imgSrc}" loading="${isEager ? 'eager' : 'lazy'}" fetchpriority="${isEager ? 'high' : 'auto'}" decoding="async" alt="${p.id}" onload="this.classList.add('loaded'); if (this.parentElement) this.parentElement.classList.add('img-loaded');" onerror="this.onerror=null; this.src='${fallbackSrc}';">
             <div class="card-badge ${badgeClass}"><svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" style="display:inline-block;vertical-align:-1px;margin-right:2px;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>${p.gen_score.toFixed(1)}</div>
             <div class="card-overlay"><span class="card-overlay-text">Detayları Gör</span></div>
           </div>
@@ -1080,10 +1111,9 @@ function buildPhotoPairs(photoList) {
     }
   });
 
-  // Özel Tanımlı Eşleşmeler (IMG_0054 ham/IMG_0053 kurgu, IMG_0042 ham/CRW_0062 edit)
+  // Özel Tanımlı Eşleşmeler (IMG_0054 ham / IMG_0053 kurgu)
   const specialPairs = [
-    { before: 'IMG_0054.JPG', after: 'IMG_0053.JPG' },
-    { before: 'IMG_0042.JPG', after: 'CRW_0062.jpg' }
+    { before: 'IMG_0054.JPG', after: 'IMG_0053.JPG' }
   ];
   specialPairs.forEach(sp => {
     const b = photoList.find(x => x.id === sp.before);
@@ -1425,11 +1455,12 @@ if (analyticsModal) {
 }
 
 function renderAnalytics() {
-  if (!photos || photos.length === 0) return;
+  const curPhotos = photos.filter(p => !p.hasEdit);
+  if (!curPhotos || curPhotos.length === 0) return;
 
   // 1. Lens Sweet Spot
   const comboMap = new Map();
-  photos.forEach(p => {
+  curPhotos.forEach(p => {
     const f = (p.exif && p.exif.focal) ? p.exif.focal : '23.2mm';
     const a = (p.exif && p.exif.aperture) ? p.exif.aperture : 'f/5.5';
     const key = `${f} @ ${a}`;
@@ -1458,7 +1489,7 @@ function renderAnalytics() {
   // 2. Shutter Safety (>= 1/60s)
   let safeCount = 0;
   let shutterCount = 0;
-  photos.forEach(p => {
+  curPhotos.forEach(p => {
     const s = p.exif && p.exif.shutter;
     if (s && s !== 'Bilinmiyor') {
       shutterCount++;
@@ -1483,13 +1514,13 @@ function renderAnalytics() {
 
   // 3. CCD Color Purity
   let ccdCount = 0;
-  photos.forEach(p => {
+  curPhotos.forEach(p => {
     const isoStr = (p.exif && p.exif.iso) ? p.exif.iso.toUpperCase() : '';
     if (isoStr.includes('80') || isoStr.includes('100') || isoStr.includes('75')) {
       ccdCount++;
     }
   });
-  const ccdPct = Math.round((ccdCount / photos.length) * 100);
+  const ccdPct = Math.round((ccdCount / curPhotos.length) * 100);
   const kpiCcdPure = document.getElementById('kpiCcdPure');
   const kpiCcdPureSub = document.getElementById('kpiCcdPureSub');
   if (kpiCcdPure) {
@@ -1930,6 +1961,10 @@ window.addEventListener('keydown', e => {
     else openLearningModal();
     return;
   }
+  if (e.key === 'r' || e.key === 'R') {
+    openRandomPhoto();
+    return;
+  }
   if (e.key === 't' || e.key === 'T') document.getElementById('themeBtn').click();
   if (e.key === '/') { e.preventDefault(); searchInput.focus(); }
   if (e.key === 'v' || e.key === 'V') {
@@ -1938,6 +1973,29 @@ window.addEventListener('keydown', e => {
   }
   if (e.key === '?') document.getElementById('kbdModal').classList.add('open');
 });
+
+function openRandomPhoto() {
+  const pool = filteredPhotos.length > 0 ? filteredPhotos : photos.filter(p => !p.hasEdit);
+  if (!pool || pool.length === 0) return;
+  const randIdx = Math.floor(Math.random() * pool.length);
+  const targetPhoto = pool[randIdx];
+  const curIdx = filteredPhotos.findIndex(p => p.id === targetPhoto.id);
+  if (curIdx !== -1) {
+    openModal(curIdx);
+  } else {
+    activeFilter = 'all';
+    document.querySelectorAll('.filter-chips .chip').forEach(c => c.classList.toggle('active', c.dataset.filter === 'all'));
+    searchQuery = '';
+    if (searchInput) searchInput.value = '';
+    filterAndSort();
+    const newIdx = filteredPhotos.findIndex(p => p.id === targetPhoto.id);
+    if (newIdx !== -1) openModal(newIdx);
+  }
+  showToast(`🎲 Rastgele Kare: ${targetPhoto.id}`);
+}
+
+const randomPhotoBtn = document.getElementById('randomPhotoBtn');
+if (randomPhotoBtn) randomPhotoBtn.onclick = openRandomPhoto;
 
 document.getElementById('kbdBtn').onclick = () => document.getElementById('kbdModal').classList.toggle('open');
 

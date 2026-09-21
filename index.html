@@ -5,11 +5,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="description"
-    content="Canon PowerShot A570 IS ile çekilmiş 123 fotoğraflık küratöryel sergi ve analitik inceleme koleksiyonu.">
+    content="Canon PowerShot A570 IS ile çekilmiş 62 fotoğraflık küratöryel sergi ve analitik inceleme koleksiyonu.">
   <meta name="theme-color" content="#0d0f12">
+  <link rel="manifest" href="manifest.json">
   <link rel="icon" type="image/svg+xml"
     href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23d4a373'/><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-weight='bold' font-size='60' fill='%230f1115'>C</text></svg>">
   <title>CANON A570 IS — Küratöryel Portfolyo</title>
+
+  <!-- OpenGraph Social Meta Tags -->
+  <meta property="og:title" content="CANON A570 IS — Küratöryel Portfolyo">
+  <meta property="og:description" content="Canon PowerShot A570 IS ile çekilmiş 62 fotoğraflık küratöryel sergi ve analitik inceleme koleksiyonu.">
+  <meta property="og:image" content="https://lh3.googleusercontent.com/pw/AP1GczOLeVV805OJAXxlf4C9LG9eYyWXyx2WRRNwgjOdNa74Xr1c-x5zclAIP1CfELrEIZeuEeBFfXSssDEvezD-VtED8bvhLHagqZ4_Q7ghFmhcPvCgBy4=w1200-h630-p">
+  <meta property="og:url" content="https://baris.github.io/Canon-A570-Portfolio-Site/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Canon PowerShot A570 IS Küratöryel Portfolyo">
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CANON A570 IS — Küratöryel Portfolyo">
+  <meta name="twitter:description" content="Canon PowerShot A570 IS ile çekilmiş 62 fotoğraflık küratöryel sergi ve analitik inceleme koleksiyonu.">
+  <meta name="twitter:image" content="https://lh3.googleusercontent.com/pw/AP1GczOLeVV805OJAXxlf4C9LG9eYyWXyx2WRRNwgjOdNa74Xr1c-x5zclAIP1CfELrEIZeuEeBFfXSssDEvezD-VtED8bvhLHagqZ4_Q7ghFmhcPvCgBy4=w1200-h630-p">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -44,6 +60,17 @@
           <span class="nav-stat-value" id="navMax" style="color: var(--gold);">9.3</span>
           <span class="nav-stat-label">Zirve</span>
         </div>
+        <button class="nav-action-btn random-btn" id="randomPhotoBtn" title="Rastgele Kare / Günün Karesi (R)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" style="margin-right:4px;">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+            <circle cx="8.5" cy="8.5" r="1.5" fill="currentColor"></circle>
+            <circle cx="15.5" cy="8.5" r="1.5" fill="currentColor"></circle>
+            <circle cx="15.5" cy="15.5" r="1.5" fill="currentColor"></circle>
+            <circle cx="8.5" cy="15.5" r="1.5" fill="currentColor"></circle>
+            <circle cx="12" cy="12" r="1.5" fill="currentColor"></circle>
+          </svg><span>Rastgele</span>
+        </button>
         <button class="nav-action-btn" id="navLearningBtn" title="Çekim Teknikleri & Atölye (L)">Tüyolar &
           Atölye</button>
         <button class="nav-action-btn" id="navAnalyticsBtn"
@@ -486,6 +513,7 @@
       <div class="kbd-row"><span class="kbd-desc">Analitik & Lens Rehberi</span><span class="kbd-key">A</span></div>
       <div class="kbd-row"><span class="kbd-desc">Tüyolar & Çekim Atölyesi</span><span class="kbd-key">L</span></div>
       <div class="kbd-row"><span class="kbd-desc">Fotoğrafı İndir</span><span class="kbd-key">D</span></div>
+      <div class="kbd-row"><span class="kbd-desc">Rastgele fotoğraf</span><span class="kbd-key">R</span></div>
       <div class="kbd-row"><span class="kbd-desc">Bu paneli kapat</span><span class="kbd-key">?</span></div>
       <div style="text-align:center;margin-top:16px;">
         <button class="modal-btn close-btn"
