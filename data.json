@@ -704,6 +704,31 @@
     "file_size": 2402801
   },
   {
+    "id": "IMG_0030_1.jpg",
+    "tur": "Özel Seri & Fine-Art / Minimalist Grafik & Sıcak Sinematik Işık-Gölge (Revize v1)",
+    "tek_score": 8.8,
+    "tek_desc": "Dikey kadraja geçirilerek kompozisyon sıkılaştırılmış. Terliklerin gofrajlı dokusu, kabartma logosu ve fayans derzlerindeki mikro-kontrast mükemmel bir netlikle parlatılmış. Güneş ışığının vurduğu seramik yüzeylerdeki patlamalar kontrol altına alınarak sıcak ve dengeli bir dinamik aralık elde edilmiş.",
+    "komp_score": 9.0,
+    "komp_desc": "90 derece dikey portrait oryantasyonu, balkon korkuluklarının zemine vuran diyagonal gölge çizgilerine muhteşem bir derinlik ve yön duygusu kazandırmış. İki terliğin gölge ve ışık hattı boyunca diyagonal yerleşimi güçlü bir grafik ritim yaratıyor; orijinaldeki dağınıklık ve kenar taşması ortadan kaldırılarak saf bir minimalist başyapıt ortaya çıkmış.",
+    "col_score": 9.2,
+    "col_desc": "Zemine kazandırılan sıcak amber/terrakotta tonlama, derin kadife siyah gölgeler ve güneşin yansıdığı alandaki altın sarısı parıltı adeta bir sinema filmi karesi veya analog Kodak Portra hissi uyandırıyor. Ham çekimin soğuk/düz atmosferi tamamen sıcak bir görsel şölene dönüşmüş.",
+    "gen_score": 9.0,
+    "ozet": "Ham fotoğraftaki tavsiyeyi harfiyen uygulayarak kompozisyonu kusursuzlaştıran, dikey kadrajı, dramatik gölge ritmi ve sıcak sinematik renk tonlamasıyla tam bir minimalist sanat eserine (fine-art) dönüşen üst düzey bir revizyon. Galerinin yıldızlı ve en yüksek puanlı çalışmaları arasına girmeyi kesinlikle hak ediyor.",
+    "exif": {
+      "mode": "Manuel Düzenleme (Post-Process)",
+      "shutter": "1/800s",
+      "aperture": "f/3.2",
+      "iso": "ISO 80",
+      "focal": "7.9mm",
+      "bias": "Color Grade & Dikey Kadraj: Sıcak Amber & Dramatik Gölge Ritmi",
+      "flash": "Kapalı",
+      "date": "2026:09:21 09:38:00 (Revize v1)"
+    },
+    "thumbUrl": "thumbs/IMG_0030_1.jpg",
+    "fullUrl": "thumbs/IMG_0030_1.jpg",
+    "file_size": 2873774
+  },
+  {
     "id": "IMG_0031.JPG",
     "tur": "Günlük Yaşam / Dış Mekan (Balkon zemini ve terlikler)",
     "tek_score": 5.0,
