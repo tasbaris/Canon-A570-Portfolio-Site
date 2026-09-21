@@ -485,16 +485,17 @@ if (sortTrigger && sortCustomSelect) {
 // DYNAMIC STATS UPDATE
 // ═══════════════════════════════════════
 function updateAllStats() {
-  const total = photos.length;
-  const avg = total ? (photos.reduce((sum, p) => sum + p.gen_score, 0) / total).toFixed(2) : '0';
-  const max = total ? Math.max(...photos.map(p => p.gen_score)).toFixed(1) : '0';
-  const star = photos.filter(p => p.gen_score >= 7.0).length;
-  const edit = photos.filter(p => /(?:IMG|CRW)_\d+_\d+/.test(p.id) || p.isEdit || p.is_edit || p.id === 'IMG_0053.JPG' || p.id === 'CRW_0062.jpg').length;
+  const visiblePhotos = photos.filter(p => !p.hasEdit);
+  const total = visiblePhotos.length;
+  const avg = total ? (visiblePhotos.reduce((sum, p) => sum + p.gen_score, 0) / total).toFixed(2) : '0';
+  const max = total ? Math.max(...visiblePhotos.map(p => p.gen_score)).toFixed(1) : '0';
+  const star = visiblePhotos.filter(p => p.gen_score >= 7.0).length;
+  const edit = visiblePhotos.filter(p => /(?:IMG|CRW)_\d+_\d+/.test(p.id) || p.isEdit || p.is_edit || p.id === 'IMG_0053.JPG' || p.id === 'CRW_0062.jpg').length;
 
   // Kaynak ve AI sayaçları
-  const localCount = photos.filter(p => !p.source || p.source === 'local' || (typeof p.source === 'object' && p.source.type === 'local')).length;
-  const gphotosCount = photos.filter(p => p.source === 'gphotos' || p.gphotos_id || (typeof p.source === 'object' && p.source.type === 'google_photos')).length;
-  const aiCount = photos.filter(p => !!p.ai_metadata).length;
+  const localCount = visiblePhotos.filter(p => !p.source || p.source === 'local' || (typeof p.source === 'object' && p.source.type === 'local')).length;
+  const gphotosCount = visiblePhotos.filter(p => p.source === 'gphotos' || p.gphotos_id || (typeof p.source === 'object' && p.source.type === 'google_photos')).length;
+  const aiCount = visiblePhotos.filter(p => !!p.ai_metadata).length;
 
   const heroDesc = document.querySelector('.hero-desc');
   if (heroDesc) {
@@ -546,7 +547,7 @@ function updateAllStats() {
   if (aiChip) aiChip.textContent = aiCount;
 
   if (resultCount) {
-    resultCount.textContent = filteredPhotos.length + ' / ' + photos.length + ' sonuç';
+    resultCount.textContent = filteredPhotos.length + ' / ' + total + ' sonuç';
   }
 
   const footerStats = document.getElementById('footerStats');
@@ -560,6 +561,9 @@ function updateAllStats() {
 // ═══════════════════════════════════════
 function filterAndSort() {
   filteredPhotos = photos.filter(p => {
+    // Ham halini ayrı inceleme olarak gösterme (yalnızca editli halleri sergile)
+    if (p.hasEdit) return false;
+
     if (activeFilter === 'star' && p.gen_score < 7.0) return false;
     if (activeFilter === 'edits' && !/özel seri|fine-art|revize|edit/i.test(p.tur) && !/(?:IMG|CRW)_\d+_\d+/.test(p.id) && !p.isEdit && !p.is_edit && p.id !== 'IMG_0053.JPG' && p.id !== 'CRW_0062.jpg') return false;
     if (activeFilter === 'favorite' && !isFavorite(p.id)) return false;
@@ -1035,6 +1039,7 @@ function buildPhotoPairs(photoList) {
   photoList.forEach(p => {
     p.pairedId = null;
     p.isEdit = false;
+    p.hasEdit = false;
     const editMatch = p.id.match(editRegex);
     if (editMatch) {
       p.isEdit = true;
@@ -1054,6 +1059,7 @@ function buildPhotoPairs(photoList) {
     if (p.isEdit) {
       const orig = origMap.get(p.baseNum);
       if (orig) {
+        orig.hasEdit = true;
         p.pairedId = orig.id;
         p.beforeId = orig.id;
         p.afterId = p.id;
@@ -1066,6 +1072,7 @@ function buildPhotoPairs(photoList) {
     } else if (p.baseNum && editMap.has(p.baseNum)) {
       const edits = editMap.get(p.baseNum);
       if (edits && edits.length > 0) {
+        p.hasEdit = true;
         p.pairedId = edits[0].id;
         p.beforeId = p.id;
         p.afterId = edits[0].id;
@@ -1085,6 +1092,7 @@ function buildPhotoPairs(photoList) {
       b.pairedId = a.id;
       b.beforeId = b.id;
       b.afterId = a.id;
+      b.hasEdit = true;
 
       a.pairedId = b.id;
       a.beforeId = b.id;
@@ -1102,6 +1110,12 @@ function buildPhotoPairs(photoList) {
         p.pairedId = partner.id;
         p.beforeId = isAfter ? partner.id : p.id;
         p.afterId = isAfter ? p.id : partner.id;
+
+        if (isAfter) {
+          partner.hasEdit = true;
+        } else {
+          p.hasEdit = true;
+        }
 
         if (!partner.pairedId) {
           partner.pairedId = p.id;
