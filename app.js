@@ -2039,6 +2039,8 @@ initFavorites();
 filterAndSort();
 updateAllStats();
 
+
+
 // ═══════════════════════════════════════
 // SERVICE WORKER REGISTRATION
 // ═══════════════════════════════════════

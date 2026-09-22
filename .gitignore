@@ -1,1 +1,13 @@
 .DS_Store
+*.obj
+*.mtl
+*.glb
+*.max
+body.jpg
+camera_geometries.json
+textures/
+textures_clean/
+OBJLoader.js
+GLTFLoader.js
+MTLLoader.js
+canon_camera.png

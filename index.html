@@ -145,26 +145,40 @@
   </nav>
 
   <!-- ═══════════ HERO ═══════════ -->
-  <section class="hero">
-    <p class="hero-eyebrow">Küratöryel Fotoğraf Değerlendirmesi</p>
-    <h1 class="hero-title">Canon PowerShot <em>A570 IS</em></h1>
-    <p class="hero-desc">62 karelik koleksiyonun teknik, kompozisyonel ve atmosferik analizini keşfedin. Her fotoğraf profesyonel bir küratör gözüyle değerlendirildi.</p>
-    <div class="hero-stats">
-      <div class="hero-stat">
-        <div class="hero-stat-num" id="heroTotal" data-count="62">62</div>
-        <div class="hero-stat-label">Fotoğraf</div>
+  <section class="hero" id="heroSection">
+    <div class="hero-container">
+      <div class="hero-content">
+        <p class="hero-eyebrow">Küratöryel Fotoğraf Değerlendirmesi</p>
+        <h1 class="hero-title">Canon PowerShot <em>A570 IS</em></h1>
+        <p class="hero-desc">62 karelik koleksiyonun teknik, kompozisyonel ve atmosferik analizini keşfedin. Her fotoğraf profesyonel bir küratör gözüyle değerlendirildi.</p>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="hero-stat-num" id="heroTotal" data-count="62">62</div>
+            <div class="hero-stat-label">Fotoğraf</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num" id="heroStar" data-count="19">19</div>
+            <div class="hero-stat-label">Yıldızlı (7+)</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num" id="heroEdit" data-count="12">12</div>
+            <div class="hero-stat-label">Özel Edit</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num" id="heroMax" data-count="9.3">9.3</div>
+            <div class="hero-stat-label">En Yüksek Puan</div>
+          </div>
+        </div>
       </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num" id="heroStar" data-count="19">19</div>
-        <div class="hero-stat-label">Yıldızlı (7+)</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num" id="heroEdit" data-count="12">12</div>
-        <div class="hero-stat-label">Özel Edit</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num" id="heroMax" data-count="9.3">9.3</div>
-        <div class="hero-stat-label">En Yüksek Puan</div>
+
+      <!-- True 3D WebGL Canon PowerShot A570 IS Camera Stage -->
+      <div class="hero-camera-stage" id="heroCameraStage" role="button" tabindex="0" aria-label="Canon PowerShot A570 IS 3D Kamera - Çevirin veya flaşı patlatmak için tıklayın" title="3D Kamera - Çevirin veya flaşı patlatmak için tıklayın!">
+        <div class="camera-ambient-glow"></div>
+        <canvas id="camera3DCanvas" class="camera-3d-canvas"></canvas>
+
+        <!-- Cinematic Xenon Flash Burst Flare -->
+        <div class="camera-flash-flare" id="flashFlare"></div>
+        <div class="camera-flash-beam" id="flashBeam"></div>
       </div>
     </div>
     <div class="scroll-hint"><span></span></div>
@@ -1059,6 +1073,9 @@
   <!-- ═══════════ TOAST ═══════════ -->
   <div class="toast" id="toast"></div>
 
+  <script src="three.min.js" defer></script>
+  <script src="textures_data.js" defer></script>
+  <script src="camera3d.js" defer></script>
   <script src="data.js" defer></script>
   <script src="app.js" defer></script>
   <!-- ═══════════ MOBİL ALT GEZİNME ÇUBUĞU (BOTTOM NAVIGATION) ═══════════ -->
