@@ -4372,5 +4372,30 @@ const staticPhotosData = [
       "özel seri"
     ],
     "hasEdit": false
+  },
+  {
+    "id": "IMG_0151_1.jpg",
+    "tur": "Özel Seri & Fine-Art / Dikey Ağaç Dokusu & Zümrüt Bakışlı Kedi Portresi (Revize v1)",
+    "tek_score": 9.2,
+    "tek_desc": "Yatay ham çekimin 90 derece dikey portrait oryantasyonuna çevrilip kusursuz bir altın oran kırpması yapılmış. Kedinin yüzündeki tüy ayrıntıları, bıyıkları, burun dokusu ve büyüleyici yeşil/kehribar gözlerindeki mikro-kontrast olağanüstü netlik ve keskinlik kazanmış. Ağaç kabuğunun yosunlu dokusundaki pürüzler ve derinlik sıfır yapay gürültü ile ön plana çıkarılmış.",
+    "komp_score": 9.2,
+    "komp_desc": "Sağ kenarda yükselen masif, yosunlu ağaç gövdesi doğal ve heykelsi bir dikey çerçeve oluşturuyor. Kedinin doğrudan kadraja kilitlenen vakur bakışları tam merkez-alt odak dengesine oturtulmuş. Arka plandaki dikey park derinliği ve yumuşak bokeh sahneye ferah bir katmanlı derinlik katıyor.",
+    "col_score": 9.1,
+    "col_desc": "Canlı çimen yeşilleri ve arka plan bokeh'i ile kedinin zümrüt/kehribar göz rengi arasında kusursuz bir renk harmonisi yakalanmış. Köşelerdeki hafif sinematik vinyet dikkati doğrudan kedinin asil yüzüne toplarken, ağaç kabuğundaki derin koyu gölgeler ve sıcak ton geçişleri klasik analog film estetiğini yaşatıyor.",
+    "gen_score": 9.2,
+    "ozet": "Ham fotoğraftaki potansiyeli dikey oryantasyon düzeltmesi, mükemmel odak kurgusu, ağaç gövdesinin güçlü kadraj kullanımı ve dengeli renk/kontrast ayarlarıyla zirveye taşıyan birinci sınıf bir revizyon. Kesinlikle galerinin en etkileyici hayvan portrelerinden biri ve yıldızlı fine-art koleksiyonunun hak edilmiş bir parçası.",
+    "exif": {
+      "mode": "Manuel Düzenleme (Post-Process & Crop)",
+      "shutter": "1/160s",
+      "aperture": "f/2.8",
+      "iso": "ISO 80",
+      "focal": "6.6mm",
+      "bias": "+0.0 EV",
+      "flash": "Kapalı",
+      "date": "2026:09:20 14:09:39"
+    },
+    "thumbUrl": "thumbs/IMG_0151_1.jpg",
+    "fullUrl": "thumbs/IMG_0151_1.jpg",
+    "file_size": 1114167
   }
 ];
