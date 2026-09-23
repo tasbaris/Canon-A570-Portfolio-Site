@@ -515,17 +515,12 @@ function createCardElement(p, idx) {
     fallbackSrc += '-rw';
   }
 
-  let pairBadgeHtml = '';
-  if (p.pairedId) {
-    pairBadgeHtml = `<button class="card-compare-btn" title="Önce / Sonra Karşılaştır (C)" onclick="event.stopPropagation(); openCompareForPhotos('${p.beforeId || p.pairedId}', '${p.afterId || p.id}');">🌓 Karşılaştır</button>`;
-  }
-
   card.innerHTML = `
         <div class="card-frame">
           <button class="card-fav-btn ${isFav ? 'active' : ''}" data-id="${p.id}" title="${isFav ? 'Favorilerden çıkar' : 'Favorilere ekle'}" aria-label="${isFav ? 'Favorilerden çıkar' : 'Favorilere ekle'}" onclick="event.stopPropagation(); toggleFavorite('${p.id}');">
             <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
           </button>
-          <div class="card-badges-left">${pairBadgeHtml}</div>
+          <div class="card-badges-left"></div>
           <img class="card-img" src="${imgSrc}" loading="${isEager ? 'eager' : 'lazy'}" fetchpriority="${isEager ? 'high' : 'auto'}" decoding="async" alt="${p.id}" onload="this.classList.add('loaded'); if (this.parentElement) this.parentElement.classList.add('img-loaded');" onerror="this.onerror=null; this.src='${fallbackSrc}';">
           <div class="card-badge ${badgeClass}"><svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" style="display:inline-block;vertical-align:-1px;margin-right:2px;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>${p.gen_score.toFixed(1)}</div>
           <div class="card-overlay"><span class="card-overlay-text">Detayları Gör</span></div>
@@ -780,7 +775,13 @@ function openModal(index, direction) {
   resetZoom();
   closeCompareStage();
   if (mCompare) {
-    if (p.pairedId) {
+    const pairTarget = p.pairedId || p.pair_id || (p.id === 'IMG_0150_1.jpg' ? 'IMG_0150.JPG' : (p.id === 'IMG_0150.JPG' ? 'IMG_0150_1.jpg' : null));
+    if (pairTarget) {
+      if (!p.pairedId) {
+        p.pairedId = pairTarget;
+        p.beforeId = (p.isEdit || /_\d+\./.test(p.id)) ? pairTarget : p.id;
+        p.afterId = (p.isEdit || /_\d+\./.test(p.id)) ? p.id : pairTarget;
+      }
       mCompare.style.display = 'inline-flex';
     } else {
       mCompare.style.display = 'none';
@@ -955,13 +956,14 @@ function buildPhotoPairs(photoList) {
     }
   });
 
-  // Özel Tanımlı Eşleşmeler (IMG_0054 ham / IMG_0053 kurgu)
+  // Özel Tanımlı Eşleşmeler (IMG_0054 ham / IMG_0053 kurgu, IMG_0150 / IMG_0150_1)
   const specialPairs = [
-    { before: 'IMG_0054.JPG', after: 'IMG_0053.JPG' }
+    { before: 'IMG_0054.JPG', after: 'IMG_0053.JPG' },
+    { before: 'IMG_0150.JPG', after: 'IMG_0150_1.jpg' }
   ];
   specialPairs.forEach(sp => {
-    const b = photoList.find(x => x.id === sp.before);
-    const a = photoList.find(x => x.id === sp.after);
+    const b = photoList.find(x => x.id.toLowerCase() === sp.before.toLowerCase());
+    const a = photoList.find(x => x.id.toLowerCase() === sp.after.toLowerCase());
     if (b && a) {
       b.pairedId = a.id;
       b.beforeId = b.id;
@@ -978,9 +980,9 @@ function buildPhotoPairs(photoList) {
   // pair_id niteliği tanımlanmış fotoğrafları bağla
   photoList.forEach(p => {
     if (p.pair_id && !p.pairedId) {
-      const partner = photoList.find(x => x.id === p.pair_id);
+      const partner = photoList.find(x => x.id.toLowerCase() === p.pair_id.toLowerCase());
       if (partner) {
-        const isAfter = p.isEdit || p.is_edit || p.id === 'IMG_0053.JPG';
+        const isAfter = p.isEdit || p.is_edit || p.id === 'IMG_0053.JPG' || /_\d+\./.test(p.id);
         p.pairedId = partner.id;
         p.beforeId = isAfter ? partner.id : p.id;
         p.afterId = isAfter ? p.id : partner.id;
@@ -1008,12 +1010,17 @@ let isSplitting = false;
 function openCompareStage() {
   if (activeIdx < 0 || !filteredPhotos[activeIdx]) return;
   const p = filteredPhotos[activeIdx];
-  if (!p.pairedId) return;
+  const pairTarget = p.pairedId || p.pair_id || (p.id === 'IMG_0150_1.jpg' ? 'IMG_0150.JPG' : (p.id === 'IMG_0150.JPG' ? 'IMG_0150_1.jpg' : null));
+  if (!pairTarget) return;
 
-  const bPhoto = photos.find(x => x.id === (p.beforeId || p.id));
-  const aPhoto = photos.find(x => x.id === (p.afterId || p.pairedId));
-  cmpBeforeImg.src = (bPhoto && bPhoto.fullUrl) ? bPhoto.fullUrl : ((bPhoto && bPhoto.thumbUrl) ? bPhoto.thumbUrl : ('thumbs/' + (p.beforeId || p.id)));
-  cmpAfterImg.src = (aPhoto && aPhoto.fullUrl) ? aPhoto.fullUrl : ((aPhoto && aPhoto.thumbUrl) ? aPhoto.thumbUrl : ('thumbs/' + (p.afterId || p.pairedId)));
+  const bId = p.beforeId || (p.isEdit || /_\d+\./.test(p.id) ? pairTarget : p.id);
+  const aId = p.afterId || (p.isEdit || /_\d+\./.test(p.id) ? p.id : pairTarget);
+
+  const bPhoto = photos.find(x => x.id.toLowerCase() === bId.toLowerCase());
+  const aPhoto = photos.find(x => x.id.toLowerCase() === aId.toLowerCase());
+
+  cmpBeforeImg.src = (bPhoto && bPhoto.fullUrl) ? bPhoto.fullUrl : ((bPhoto && bPhoto.thumbUrl) ? bPhoto.thumbUrl : ('thumbs/' + bId));
+  cmpAfterImg.src = (aPhoto && aPhoto.fullUrl) ? aPhoto.fullUrl : ((aPhoto && aPhoto.thumbUrl) ? aPhoto.thumbUrl : ('thumbs/' + aId));
   cmpContainer.style.setProperty('--split-x', '50%');
 
   compareStage.style.display = 'flex';
