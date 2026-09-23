@@ -18,7 +18,8 @@ const staticPhotosData = [
       "focal": "23.2mm",
       "bias": "+0.0 EV",
       "flash": "Kapalı",
-      "date": "1980:01:01 00:03:04"
+      "date": "1980:01:01 00:03:04",
+      "resolution": "6216 × 4648"
     },
     "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczPYnpk_U0Fc0tCPMR9LQLpwrT9emQKh_NLvYmslZPD3wl7ZmqHcfP5re5S6POHoPfR0x0UiPMr4KRkih8QESmEhuPtZj5NAjzLfqx7fxHP4Pa_CJpI=w600-h600",
     "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczPYnpk_U0Fc0tCPMR9LQLpwrT9emQKh_NLvYmslZPD3wl7ZmqHcfP5re5S6POHoPfR0x0UiPMr4KRkih8QESmEhuPtZj5NAjzLfqx7fxHP4Pa_CJpI=s0",
@@ -60,7 +61,8 @@ const staticPhotosData = [
       "yatay",
       "çiçek"
     ],
-    "hasEdit": false
+    "hasEdit": false,
+    "resolution": "6216 × 4648"
   },
   {
     "id": "CRW_0006.jpg",
@@ -81,7 +83,8 @@ const staticPhotosData = [
       "focal": "23.2mm",
       "bias": "-1.3 EV",
       "flash": "Kapalı",
-      "date": "1980:01:01 00:04:12"
+      "date": "1980:01:01 00:04:12",
+      "resolution": "4575 × 6119"
     },
     "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczOdW4FHT6BtBi_X--cvG6x_ukMYd7l3PRLrp5xLdXiNLVBNz_XmLBGaJy4sGcPP_tOFUu7PE_rLuPNE8NchJn6Mp12f2a5QeC78xdDCTdmtu8TNu6M=w600-h600",
     "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczOdW4FHT6BtBi_X--cvG6x_ukMYd7l3PRLrp5xLdXiNLVBNz_XmLBGaJy4sGcPP_tOFUu7PE_rLuPNE8NchJn6Mp12f2a5QeC78xdDCTdmtu8TNu6M=s0",
@@ -120,7 +123,8 @@ const staticPhotosData = [
       "yıldızlı",
       "şehir"
     ],
-    "hasEdit": true
+    "hasEdit": true,
+    "resolution": "4575 × 6119"
   },
   {
     "id": "CRW_0006_1.jpg",
@@ -141,7 +145,8 @@ const staticPhotosData = [
       "bias": "Color Grade: Sinematik Retro Sokak & Kırpılmış Kadraj",
       "flash": "Kapalı",
       "mode": "Manuel Düzenleme (Post-Process)",
-      "date": "1980:01:01 00:04:12 (Revize v1)"
+      "date": "1980:01:01 00:04:12 (Revize v1)",
+      "resolution": "3439 × 4526"
     },
     "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczOo3jV873yeH1Dwt1U-qQFiTEydyOV5pMUvZsl39Gcph5CaoQqwA61u6Jdf35kD9uhB4fzxEtI18G4Rt_IduSCwid7fJXrVmzDujj1L9QxRnlcPojA=w600-h600",
     "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczOo3jV873yeH1Dwt1U-qQFiTEydyOV5pMUvZsl39Gcph5CaoQqwA61u6Jdf35kD9uhB4fzxEtI18G4Rt_IduSCwid7fJXrVmzDujj1L9QxRnlcPojA=s0",
@@ -176,7 +181,8 @@ const staticPhotosData = [
       "yıldızlı",
       "özel seri"
     ],
-    "hasEdit": false
+    "hasEdit": false,
+    "resolution": "3439 × 4526"
   },
   {
     "id": "CRW_0062.jpg",
@@ -197,7 +203,8 @@ const staticPhotosData = [
       "focal": "23.2mm",
       "bias": "+0.0 EV",
       "flash": "Kapalı",
-      "date": "1980:01:01 00:00:28"
+      "date": "1980:01:01 00:00:28",
+      "resolution": "6109 × 4582"
     },
     "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczOeyvj6G_RLmTfznUKhmM8cVYL53fPQh4PLKZqIpeiHfkgyaGll08HD6eTVQCbUXEW1nyp1xoKZgJACGUXWN61BdTapsMZVjk7a5DmajinauEMNbc4=w600-h600",
     "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczOeyvj6G_RLmTfznUKhmM8cVYL53fPQh4PLKZqIpeiHfkgyaGll08HD6eTVQCbUXEW1nyp1xoKZgJACGUXWN61BdTapsMZVjk7a5DmajinauEMNbc4=s0",
@@ -245,7 +252,8 @@ const staticPhotosData = [
       "özel seri",
       "şehir"
     ],
-    "hasEdit": false
+    "hasEdit": false,
+    "resolution": "6109 × 4582"
   },
   {
     "id": "IMG_0003.JPG",
@@ -266,7 +274,8 @@ const staticPhotosData = [
       "focal": "23.2mm",
       "bias": "+0.0 EV",
       "flash": "Kapalı",
-      "date": "1980:01:01 00:01:20"
+      "date": "1980:01:01 00:01:20",
+      "resolution": "3072 × 2304"
     },
     "ai_metadata": {
       "status": "completed",
@@ -352,7 +361,8 @@ const staticPhotosData = [
       "yıldızlı",
       "şehir"
     ],
-    "hasEdit": true
+    "hasEdit": true,
+    "resolution": "3072 × 2304"
   },
   {
     "id": "IMG_0003_1.jpg",
@@ -373,7 +383,8 @@ const staticPhotosData = [
       "focal": "23.2mm",
       "bias": "+0.0 EV",
       "flash": "Kapalı",
-      "date": "1980:01:01 00:01:20"
+      "date": "1980:01:01 00:01:20",
+      "resolution": "3072 × 2304"
     },
     "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczMDK3YJdWj0LstweZmP04FWfI5hkf9AX2iewExpiePkhV6zlcBe7-CIrTr0EAxXldYBmKvH66qut5N2UbPLsqDAOJ2zm7J_jNCnYD-7hiagBCeE3sk=w600-h600",
     "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczMDK3YJdWj0LstweZmP04FWfI5hkf9AX2iewExpiePkhV6zlcBe7-CIrTr0EAxXldYBmKvH66qut5N2UbPLsqDAOJ2zm7J_jNCnYD-7hiagBCeE3sk=s0",
@@ -414,7 +425,8 @@ const staticPhotosData = [
       "özel seri",
       "şehir"
     ],
-    "hasEdit": false
+    "hasEdit": false,
+    "resolution": "3072 × 2304"
   },
   {
     "id": "IMG_0012.JPG",
@@ -435,7 +447,8 @@ const staticPhotosData = [
       "focal": "5.8mm",
       "bias": "+0.0 EV",
       "flash": "Kapalı",
-      "date": "1980:01:01 00:00:51"
+      "date": "1980:01:01 00:00:51",
+      "resolution": "3072 × 2304"
     },
     "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczOqGkBklp8VMdy1v0_vzkayBaCVXgNf0AAGofb-aVPh10DnYMozakDwRsNvipBPAAqhS9rKOL7OyWgZv2PDFUYp1TEIfr_baGxEfpvv6GyRIS8EcbA=w600-h600",
     "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczOqGkBklp8VMdy1v0_vzkayBaCVXgNf0AAGofb-aVPh10DnYMozakDwRsNvipBPAAqhS9rKOL7OyWgZv2PDFUYp1TEIfr_baGxEfpvv6GyRIS8EcbA=s0",
@@ -470,7 +483,8 @@ const staticPhotosData = [
       "still life",
       "yatay"
     ],
-    "hasEdit": false
+    "hasEdit": false,
+    "resolution": "3072 × 2304"
   },
   {
     "id": "IMG_0014.JPG",
@@ -491,7 +505,8 @@ const staticPhotosData = [
       "focal": "23.2mm",
       "bias": "+0.0 EV",
       "flash": "Kapalı",
-      "date": "1980:01:01 00:01:34"
+      "date": "1980:01:01 00:01:34",
+      "resolution": "3072 × 2304"
     },
     "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczMVNmMHnUuo7fLnae2Pde_ZtwdK0hEMPIsl5cBvAAhOFIlkLMNSPE7zHVibC8dB8wQbin9LxplRqKioeOYvOPLDTzrMvKplvveSvz_NklBpE7PpXE4=w600-h600",
     "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczMVNmMHnUuo7fLnae2Pde_ZtwdK0hEMPIsl5cBvAAhOFIlkLMNSPE7zHVibC8dB8wQbin9LxplRqKioeOYvOPLDTzrMvKplvveSvz_NklBpE7PpXE4=s0",
@@ -541,7 +556,8 @@ const staticPhotosData = [
       "uzay",
       "yatay"
     ],
-    "hasEdit": false
+    "hasEdit": false,
+    "resolution": "3072 × 2304"
   },
   {
     "id": "IMG_0015.JPG",
@@ -562,7 +578,8 @@ const staticPhotosData = [
       "focal": "23.2mm",
       "bias": "+0.0 EV",
       "flash": "Kapalı",
-      "date": "1980:01:01 00:03:47"
+      "date": "1980:01:01 00:03:47",
+      "resolution": "3072 × 2304"
     },
     "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczNxYekMR9nsXG4RxmOeQg8_2ZgM0blM3bdM9pree7hOz2PFx-Qn3jz0fQ0gZyrJ6OnmcqXGv1A_kEA14hSNnlRCkf4-jbYzpuHmf-2t6zJYLUApy74=w600-h600",
     "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczNxYekMR9nsXG4RxmOeQg8_2ZgM0blM3bdM9pree7hOz2PFx-Qn3jz0fQ0gZyrJ6OnmcqXGv1A_kEA14hSNnlRCkf4-jbYzpuHmf-2t6zJYLUApy74=s0",
@@ -598,7 +615,8 @@ const staticPhotosData = [
       "yol",
       "şehir"
     ],
-    "hasEdit": true
+    "hasEdit": true,
+    "resolution": "3072 × 2304"
   },
   {
     "id": "IMG_0015_1.jpg",
@@ -619,7 +637,8 @@ const staticPhotosData = [
       "focal": "23.2mm",
       "bias": "+0.0 EV",
       "flash": "Kapalı",
-      "date": "1980:01:01 00:03:47"
+      "date": "1980:01:01 00:03:47",
+      "resolution": "3072 × 2304"
     },
     "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczNoxmicLDCujByv2hVYEIjRAojaGIE_7_2TIXx9dVDFlxCWrCaZfSCfE2adM1zXvgemmCpa-pTdony1FreXp6xjGtbh7ocNw8tWEE_sPB6KwGXdxiU=w600-h600",
     "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczNoxmicLDCujByv2hVYEIjRAojaGIE_7_2TIXx9dVDFlxCWrCaZfSCfE2adM1zXvgemmCpa-pTdony1FreXp6xjGtbh7ocNw8tWEE_sPB6KwGXdxiU=s0",
@@ -662,7 +681,8 @@ const staticPhotosData = [
       "özel seri",
       "şehir"
     ],
-    "hasEdit": false
+    "hasEdit": false,
+    "resolution": "3072 × 2304"
   },
   {
     "id": "IMG_0020.JPG",
@@ -683,7 +703,8 @@ const staticPhotosData = [
       "focal": "23.2mm",
       "bias": "+0.0 EV",
       "flash": "Kapalı",
-      "date": "1980:01:01 00:07:38"
+      "date": "1980:01:01 00:07:38",
+      "resolution": "3072 × 2304"
     },
     "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczN_25YnHQGWQFsHd1RF2Z2mq1BFmsFmWJU469nFc-aRDO-7Gv4tEOKPZhPRvtI2n3PTM3fgL6tLxaHMfkD2QOB8s1drtMfxHT5o6G0J99nByFYXCZE=w600-h600",
     "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczN_25YnHQGWQFsHd1RF2Z2mq1BFmsFmWJU469nFc-aRDO-7Gv4tEOKPZhPRvtI2n3PTM3fgL6tLxaHMfkD2QOB8s1drtMfxHT5o6G0J99nByFYXCZE=s0",
@@ -729,7 +750,8 @@ const staticPhotosData = [
       "yatay",
       "yeşil"
     ],
-    "hasEdit": false
+    "hasEdit": false,
+    "resolution": "3072 × 2304"
   },
   {
     "id": "IMG_0022.JPG",
@@ -750,7 +772,8 @@ const staticPhotosData = [
       "focal": "23.2mm",
       "bias": "+0.0 EV",
       "flash": "Kapalı",
-      "date": "1980:01:01 00:09:55"
+      "date": "1980:01:01 00:09:55",
+      "resolution": "3072 × 2304"
     },
     "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczOGb8Qa0FJOGSQlvMXz7kYPDvtqdW9CF-MbYohvqchUpBn174FlPVEfY0sM8Y_ja3FtF2PeIokjQ1JVe74qbEEsX4ZAqYd_yp1FC4c1e5h3gQ36nHk=w600-h600",
     "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczOGb8Qa0FJOGSQlvMXz7kYPDvtqdW9CF-MbYohvqchUpBn174FlPVEfY0sM8Y_ja3FtF2PeIokjQ1JVe74qbEEsX4ZAqYd_yp1FC4c1e5h3gQ36nHk=s0",
@@ -792,7 +815,8 @@ const staticPhotosData = [
       "yaşam",
       "şehir"
     ],
-    "hasEdit": false
+    "hasEdit": false,
+    "resolution": "3072 × 2304"
   },
   {
     "id": "IMG_0030.JPG",
@@ -813,7 +837,8 @@ const staticPhotosData = [
       "focal": "7.9mm",
       "bias": "+0.0 EV",
       "flash": "Kapalı",
-      "date": "1980:01:01 00:12:30"
+      "date": "1980:01:01 00:12:30",
+      "resolution": "3072 × 2304"
     },
     "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczNF-gFdnlwnwz92hzcdruPR3jHRJonz5x_dTwjQz7Zu0t1e0dIj0drz59DVWFPgseJLxXvU4O-Cb0c-J3QnCL2Ei8u1Y7GviDFBJ66OjnstrLwc-vM=w600-h600",
     "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczNF-gFdnlwnwz92hzcdruPR3jHRJonz5x_dTwjQz7Zu0t1e0dIj0drz59DVWFPgseJLxXvU4O-Cb0c-J3QnCL2Ei8u1Y7GviDFBJ66OjnstrLwc-vM=s0",
@@ -855,7 +880,8 @@ const staticPhotosData = [
       "yıldızlı",
       "ışık"
     ],
-    "hasEdit": true
+    "hasEdit": true,
+    "resolution": "3072 × 2304"
   },
   {
     "id": "IMG_0030_1.jpg",
@@ -876,7 +902,8 @@ const staticPhotosData = [
       "focal": "7.9mm",
       "bias": "Color Grade & Dikey Kadraj: Sıcak Amber & Dramatik Gölge Ritmi",
       "flash": "Kapalı",
-      "date": "2026:09:21 09:38:00 (Revize v1)"
+      "date": "2026:09:21 09:38:00 (Revize v1)",
+      "resolution": "2304 × 3072"
     },
     "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczNQ0qybBdlcBy-wZnjwSCpyDONCL0RK_97nHNV35hwIIiG8gvYymso4m_eQSuMvPMv665UkJ22MUQeDz3aGt0B9sAkRc9UyN4Bf3x9B7NYkTs1mGBM=w600-h600",
     "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczNQ0qybBdlcBy-wZnjwSCpyDONCL0RK_97nHNV35hwIIiG8gvYymso4m_eQSuMvPMv665UkJ22MUQeDz3aGt0B9sAkRc9UyN4Bf3x9B7NYkTs1mGBM=s0",
@@ -911,7 +938,8 @@ const staticPhotosData = [
       "zirve",
       "özel seri"
     ],
-    "hasEdit": false
+    "hasEdit": false,
+    "resolution": "2304 × 3072"
   },
   {
     "id": "IMG_0033.JPG",
@@ -932,7 +960,8 @@ const staticPhotosData = [
       "focal": "23.2mm",
       "bias": "+0.0 EV",
       "flash": "Kapalı",
-      "date": "1980:01:01 00:13:32"
+      "date": "1980:01:01 00:13:32",
+      "resolution": "3072 × 2304"
     },
     "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczNxw6jUoLre2qcfdBbrJ9yDARwNV7MJQutEugOpIOjLnBfP8g34cwZRl89mp9X8GRWCNQZEZg-Uw2QpHGemyF17RFKfzGJPJ3bxolRBSu0xieTQNhM=w600-h600",
     "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczNxw6jUoLre2qcfdBbrJ9yDARwNV7MJQutEugOpIOjLnBfP8g34cwZRl89mp9X8GRWCNQZEZg-Uw2QpHGemyF17RFKfzGJPJ3bxolRBSu0xieTQNhM=s0",
@@ -964,7 +993,8 @@ const staticPhotosData = [
       "yatay",
       "zirve"
     ],
-    "hasEdit": false
+    "hasEdit": false,
+    "resolution": "3072 × 2304"
   },
   {
     "id": "IMG_0039.JPG",
@@ -985,7 +1015,8 @@ const staticPhotosData = [
       "focal": "23.2mm",
       "bias": "+0.0 EV",
       "flash": "Kapalı",
-      "date": "1980:01:01 00:02:40"
+      "date": "1980:01:01 00:02:40",
+      "resolution": "3072 × 2304"
     },
     "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczM1grYtfjvwLxMKVYmleYyXqR91RdzCqXJPiqmECcCuf8ZYVVOeBiVLePoy4GX-TcUWyLV-PSyecgpDqtO_JPTwjtVQ2e1SqLyEx7l7TlSsjL_Omfg=w600-h600",
     "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczM1grYtfjvwLxMKVYmleYyXqR91RdzCqXJPiqmECcCuf8ZYVVOeBiVLePoy4GX-TcUWyLV-PSyecgpDqtO_JPTwjtVQ2e1SqLyEx7l7TlSsjL_Omfg=s0",
@@ -1024,7 +1055,8 @@ const staticPhotosData = [
       "zirve",
       "şehir"
     ],
-    "hasEdit": false
+    "hasEdit": false,
+    "resolution": "3072 × 2304"
   },
   {
     "id": "IMG_0040.JPG",
@@ -1045,7 +1077,8 @@ const staticPhotosData = [
       "focal": "23.2mm",
       "bias": "+0.0 EV",
       "flash": "Kapalı",
-      "date": "1980:01:01 00:02:51"
+      "date": "1980:01:01 00:02:51",
+      "resolution": "3072 × 2304"
     },
     "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczMmWeOAl4RuH_AYAdTj70T5tzhQtlKvgLRJFHtYC0upiLLNNS8kDcbLbTSfG9ell4e_vMxlDnnx1OAt7sLmEhGhHKgUq8gcajG-esYurXlvZafsJZk=w600-h600",
     "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczMmWeOAl4RuH_AYAdTj70T5tzhQtlKvgLRJFHtYC0upiLLNNS8kDcbLbTSfG9ell4e_vMxlDnnx1OAt7sLmEhGhHKgUq8gcajG-esYurXlvZafsJZk=s0",
@@ -1094,7 +1127,8 @@ const staticPhotosData = [
       "zirve",
       "şehir"
     ],
-    "hasEdit": false
+    "hasEdit": false,
+    "resolution": "3072 × 2304"
   },
   {
     "id": "IMG_0041.JPG",
@@ -1115,7 +1149,8 @@ const staticPhotosData = [
       "focal": "23.2mm",
       "bias": "+0.0 EV",
       "flash": "Kapalı",
-      "date": "1980:01:01 00:03:07"
+      "date": "1980:01:01 00:03:07",
+      "resolution": "3072 × 2304"
     },
     "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczMwMzEhtDYE2Ui3eG3HbD4Xzb_oIeSk7wkox71oIcXz27oSTFZns5dGaLu1Q7BrKyp_vbHBCuCwofXY6oK3Ae8WXJKv5zeRPaU1zA9Y-BgTp0JZB1I=w600-h600",
     "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczMwMzEhtDYE2Ui3eG3HbD4Xzb_oIeSk7wkox71oIcXz27oSTFZns5dGaLu1Q7BrKyp_vbHBCuCwofXY6oK3Ae8WXJKv5zeRPaU1zA9Y-BgTp0JZB1I=s0",
@@ -1152,7 +1187,8 @@ const staticPhotosData = [
       "yaşam",
       "yıldızlı"
     ],
-    "hasEdit": false
+    "hasEdit": false,
+    "resolution": "3072 × 2304"
   },
   {
     "id": "IMG_0043.JPG",
@@ -1173,7 +1209,8 @@ const staticPhotosData = [
       "focal": "23.2mm",
       "bias": "+0.0 EV",
       "flash": "Kapalı",
-      "date": "1980:01:01 00:00:47"
+      "date": "1980:01:01 00:00:47",
+      "resolution": "3072 × 2304"
     },
     "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczPqfH4jErC2B2YKuJGdjimrvUSzV87Ff0iLFk5zSbHeoyaujhvGN4H26dxwPYiS-fblivsDMFg51hgK6xDOa8Jvu03naPE9MfTI0HvYohZOjlI5EiE=w600-h600",
     "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczPqfH4jErC2B2YKuJGdjimrvUSzV87Ff0iLFk5zSbHeoyaujhvGN4H26dxwPYiS-fblivsDMFg51hgK6xDOa8Jvu03naPE9MfTI0HvYohZOjlI5EiE=s0",
@@ -1204,7 +1241,8 @@ const staticPhotosData = [
       "yatay",
       "şehir"
     ],
-    "hasEdit": false
+    "hasEdit": false,
+    "resolution": "3072 × 2304"
   },
   {
     "id": "IMG_0047.JPG",
@@ -1225,7 +1263,8 @@ const staticPhotosData = [
       "focal": "23.2mm",
       "bias": "+0.0 EV",
       "flash": "Kapalı",
-      "date": "1980:01:01 00:11:11"
+      "date": "1980:01:01 00:11:11",
+      "resolution": "3072 × 2304"
     },
     "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczNbvJ7xhRVpzl8W7nLKP7WNVum7oR5g7C9JzIZ9jE9k5mWd1whPZgPwMjJfM4gaKiV5pKJUs9XqN2FQqY4eenQcBtbD9vK6nyinF7Qsh64B6zkYItM=w600-h600",
     "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczNbvJ7xhRVpzl8W7nLKP7WNVum7oR5g7C9JzIZ9jE9k5mWd1whPZgPwMjJfM4gaKiV5pKJUs9XqN2FQqY4eenQcBtbD9vK6nyinF7Qsh64B6zkYItM=s0",
@@ -1258,7 +1297,8 @@ const staticPhotosData = [
       "ışık izi",
       "şehir ışıkları"
     ],
-    "hasEdit": false
+    "hasEdit": false,
+    "resolution": "3072 × 2304"
   },
   {
     "id": "IMG_0050.JPG",
@@ -1279,7 +1319,8 @@ const staticPhotosData = [
       "focal": "23.2mm",
       "bias": "+0.0 EV",
       "flash": "Kapalı",
-      "date": "1980:01:01 00:10:17"
+      "date": "1980:01:01 00:10:17",
+      "resolution": "3072 × 2304"
     },
     "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczOZEDve8zhnYcJXisFmoVCVSbj6EBeL5QVsoAu8sGxHC-Pwt0X4uKM2Zfy9AzK3lzStDOYEloycxEpPTF6SxE816PFABr1fw5ogi4gQYpuVcidp5c4=w600-h600",
     "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczOZEDve8zhnYcJXisFmoVCVSbj6EBeL5QVsoAu8sGxHC-Pwt0X4uKM2Zfy9AzK3lzStDOYEloycxEpPTF6SxE816PFABr1fw5ogi4gQYpuVcidp5c4=s0",
@@ -1312,7 +1353,8 @@ const staticPhotosData = [
       "ışık izi",
       "şehir ışıkları"
     ],
-    "hasEdit": false
+    "hasEdit": false,
+    "resolution": "3072 × 2304"
   },
   {
     "id": "IMG_0053.JPG",
@@ -1333,7 +1375,8 @@ const staticPhotosData = [
       "focal": "23.2mm",
       "bias": "+0.0 EV",
       "flash": "Kapalı",
-      "date": "1980:01:01 00:00:25"
+      "date": "1980:01:01 00:00:25",
+      "resolution": "2304 × 3072"
     },
     "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczNqXGjTj3szAaU9KdiGgHHYw8bkoGfKyXo8C-mzVkx4fqG7273PiWVzGq1aUCE1L-8zzVJ8iQHx_yf2QNsIStYGjZC-SJ8vzxGzN-pE-l9Wq2eGVA4=w600-h600",
     "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczNqXGjTj3szAaU9KdiGgHHYw8bkoGfKyXo8C-mzVkx4fqG7273PiWVzGq1aUCE1L-8zzVJ8iQHx_yf2QNsIStYGjZC-SJ8vzxGzN-pE-l9Wq2eGVA4=s0",
@@ -1386,7 +1429,8 @@ const staticPhotosData = [
       "yıldızlı",
       "özel seri"
     ],
-    "hasEdit": false
+    "hasEdit": false,
+    "resolution": "2304 × 3072"
   },
   {
     "id": "IMG_0054.JPG",
@@ -1407,7 +1451,8 @@ const staticPhotosData = [
       "focal": "16.0mm",
       "bias": "+0.0 EV",
       "flash": "Kapalı",
-      "date": "1980:01:01 00:00:15"
+      "date": "1980:01:01 00:00:15",
+      "resolution": "2304 × 3072"
     },
     "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczMaVfjJK8IU6gbb_SmdDEZ1khNNgORBcS9I5h7VSSjVBmr0GwCR3RCW-ZVLD06bKl6UjjsuEV8K0-mvmyzfPPwkYYDGdOS2msFmkcaFNRmvhN9c1fo=w600-h600",
     "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczMaVfjJK8IU6gbb_SmdDEZ1khNNgORBcS9I5h7VSSjVBmr0GwCR3RCW-ZVLD06bKl6UjjsuEV8K0-mvmyzfPPwkYYDGdOS2msFmkcaFNRmvhN9c1fo=s0",
@@ -1431,7 +1476,8 @@ const staticPhotosData = [
       "noflash",
       "yatay"
     ],
-    "hasEdit": true
+    "hasEdit": true,
+    "resolution": "2304 × 3072"
   },
   {
     "id": "IMG_0056.JPG",
@@ -1452,7 +1498,8 @@ const staticPhotosData = [
       "focal": "12.7mm",
       "bias": "+0.0 EV",
       "flash": "Kapalı",
-      "date": "1980:01:01 00:00:17"
+      "date": "1980:01:01 00:00:17",
+      "resolution": "3072 × 2304"
     },
     "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczM8kJIm0MDY-vIHafhlJMYWSYEOaGYppgY_zJNFpWI-j5WvcYiHZyRcPAJDwRJSyCyGU0feebppCjHOPcnVCJ9NIDULfchN_Bv59riJmW2DRCEAnTE=w600-h600",
     "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczM8kJIm0MDY-vIHafhlJMYWSYEOaGYppgY_zJNFpWI-j5WvcYiHZyRcPAJDwRJSyCyGU0feebppCjHOPcnVCJ9NIDULfchN_Bv59riJmW2DRCEAnTE=s0",
@@ -1478,7 +1525,8 @@ const staticPhotosData = [
       "yatay",
       "yıldızlı"
     ],
-    "hasEdit": false
+    "hasEdit": false,
+    "resolution": "3072 × 2304"
   },
   {
     "id": "IMG_0058.JPG",
@@ -1499,7 +1547,8 @@ const staticPhotosData = [
       "focal": "16.0mm",
       "bias": "+0.0 EV",
       "flash": "Kapalı",
-      "date": "1980:01:01 00:00:28"
+      "date": "1980:01:01 00:00:28",
+      "resolution": "3072 × 2304"
     },
     "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczMzZOU-nS-Mes5NTjrzvTfkLU4PQdFqYf0eQXQoiZ2U27w_pFIsBhq37ZP7rf20LNH8SgpAqoU6Wwhv3asDSsmaGVAkvPNPPEPIZlc1-VWtiwfxERc=w600-h600",
     "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczMzZOU-nS-Mes5NTjrzvTfkLU4PQdFqYf0eQXQoiZ2U27w_pFIsBhq37ZP7rf20LNH8SgpAqoU6Wwhv3asDSsmaGVAkvPNPPEPIZlc1-VWtiwfxERc=s0",
@@ -1538,7 +1587,8 @@ const staticPhotosData = [
       "yaşam",
       "yıldızlı"
     ],
-    "hasEdit": false
+    "hasEdit": false,
+    "resolution": "3072 × 2304"
   },
   {
     "id": "IMG_0060.JPG",
@@ -1559,7 +1609,8 @@ const staticPhotosData = [
       "focal": "5.8mm",
       "bias": "+0.0 EV",
       "flash": "Kapalı",
-      "date": "2007:01:04 00:00:49"
+      "date": "2007:01:04 00:00:49",
+      "resolution": "3072 × 2304"
     },
     "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczPPqZ3VCz3chk61EICNXr1NK7xdU4sJq1jVWP9wmYQm2mGyM6PPQxz8ctQI1IrmKZJnAWoPvPTItcvzvzmcVp1kE0cQ41mIAaCbUpMw-TBT-d2rnPo=w600-h600",
     "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczPPqZ3VCz3chk61EICNXr1NK7xdU4sJq1jVWP9wmYQm2mGyM6PPQxz8ctQI1IrmKZJnAWoPvPTItcvzvzmcVp1kE0cQ41mIAaCbUpMw-TBT-d2rnPo=s0",
@@ -1588,7 +1639,8 @@ const staticPhotosData = [
       "noflash",
       "yatay"
     ],
-    "hasEdit": false
+    "hasEdit": false,
+    "resolution": "3072 × 2304"
   },
   {
     "id": "IMG_0066.JPG",
@@ -1609,7 +1661,8 @@ const staticPhotosData = [
       "focal": "5.8mm",
       "bias": "+0.0 EV",
       "flash": "Kapalı",
-      "date": "2007:01:04 00:04:56"
+      "date": "2007:01:04 00:04:56",
+      "resolution": "3072 × 2304"
     },
     "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczP54Wzxz5deXDfsyoRTBjSgcNduC8xUATjyPmmSFUZRC0O2ONWxxmeO7KLojqD5lkbc72WieUgoyN6ZPN1mdQQTIJlojjj-HUDJ3Clw1OtH_x5sm6U=w600-h600",
     "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczP54Wzxz5deXDfsyoRTBjSgcNduC8xUATjyPmmSFUZRC0O2ONWxxmeO7KLojqD5lkbc72WieUgoyN6ZPN1mdQQTIJlojjj-HUDJ3Clw1OtH_x5sm6U=s0",
@@ -1653,7 +1706,8 @@ const staticPhotosData = [
       "yıldızlı",
       "şehir"
     ],
-    "hasEdit": false
+    "hasEdit": false,
+    "resolution": "3072 × 2304"
   },
   {
     "id": "IMG_0073.JPG",
@@ -1674,7 +1728,8 @@ const staticPhotosData = [
       "focal": "5.8mm",
       "bias": "+0.0 EV",
       "flash": "Kapalı",
-      "date": "2026:09:03 09:26:03"
+      "date": "2026:09:03 09:26:03",
+      "resolution": "3072 × 2304"
     },
     "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczMLhyOmN6hXF2DIBvT4oFhGDsnbfjg-SJMebXFur0JpWqOGA8hQn8Ovwkz-6wUlZmznh-lXK0UOZ8jqkpyiEomwPNYetX8xhQ2rjuZqIjg_xzis4qA=w600-h600",
     "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczMLhyOmN6hXF2DIBvT4oFhGDsnbfjg-SJMebXFur0JpWqOGA8hQn8Ovwkz-6wUlZmznh-lXK0UOZ8jqkpyiEomwPNYetX8xhQ2rjuZqIjg_xzis4qA=s0",
@@ -1730,7 +1785,8 @@ const staticPhotosData = [
       "çizgiler",
       "şehir"
     ],
-    "hasEdit": false
+    "hasEdit": false,
+    "resolution": "3072 × 2304"
   },
   {
     "id": "IMG_0074.JPG",
@@ -1751,7 +1807,8 @@ const staticPhotosData = [
       "focal": "5.8mm",
       "bias": "+0.0 EV",
       "flash": "Kapalı",
-      "date": "2026:09:03 09:26:04"
+      "date": "2026:09:03 09:26:04",
+      "resolution": "3072 × 2304"
     },
     "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczO9WofMdA9Q3cYForsnHdTdal3ZIoIyW4ftZM-G-uc0kVLZFqCCqrAIvZss2NsS0T4rzAL2Bt4d9SUhAmW43PCmfJ3B7B7jlU_7jjqGfan_c_j_xF4=w600-h600",
     "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczO9WofMdA9Q3cYForsnHdTdal3ZIoIyW4ftZM-G-uc0kVLZFqCCqrAIvZss2NsS0T4rzAL2Bt4d9SUhAmW43PCmfJ3B7B7jlU_7jjqGfan_c_j_xF4=s0",
@@ -1795,7 +1852,8 @@ const staticPhotosData = [
       "çizgiler",
       "şehir"
     ],
-    "hasEdit": false
+    "hasEdit": false,
+    "resolution": "3072 × 2304"
   },
   {
     "id": "IMG_0075.JPG",
@@ -1816,7 +1874,8 @@ const staticPhotosData = [
       "focal": "23.2mm",
       "bias": "+0.0 EV",
       "flash": "Kapalı",
-      "date": "2026:09:03 11:32:09"
+      "date": "2026:09:03 11:32:09",
+      "resolution": "3072 × 2304"
     },
     "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczPWuQU7Xr7scdvrwdgAfostqAxBM_IY0Lp4yVdhbEE_7pPKguAPtdJJKssV5yHCa9xy0g7anctE7dBLoxMrNMwviLy6SR07sArYucNXfUJuqS-1EE4=w600-h600",
     "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczPWuQU7Xr7scdvrwdgAfostqAxBM_IY0Lp4yVdhbEE_7pPKguAPtdJJKssV5yHCa9xy0g7anctE7dBLoxMrNMwviLy6SR07sArYucNXfUJuqS-1EE4=s0",
@@ -1861,7 +1920,8 @@ const staticPhotosData = [
       "yatay",
       "şehir"
     ],
-    "hasEdit": false
+    "hasEdit": false,
+    "resolution": "3072 × 2304"
   },
   {
     "id": "IMG_0076.JPG",
@@ -1882,7 +1942,8 @@ const staticPhotosData = [
       "focal": "23.2mm",
       "bias": "+0.0 EV",
       "flash": "Kapalı",
-      "date": "2026:09:03 11:32:32"
+      "date": "2026:09:03 11:32:32",
+      "resolution": "3072 × 2304"
     },
     "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczNLRh07ohtI9aRiAKugur4cAS70yrOGDNC8BOgX-DYzOC-sVW0CUvzNG4RD9tJs410gxkJVa2d0hylNLq1VrucH5H7n3bRDtm3BPjejOXtlRVzT7i0=w600-h600",
     "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczNLRh07ohtI9aRiAKugur4cAS70yrOGDNC8BOgX-DYzOC-sVW0CUvzNG4RD9tJs410gxkJVa2d0hylNLq1VrucH5H7n3bRDtm3BPjejOXtlRVzT7i0=s0",
@@ -1920,7 +1981,8 @@ const staticPhotosData = [
       "vapur",
       "yatay"
     ],
-    "hasEdit": false
+    "hasEdit": false,
+    "resolution": "3072 × 2304"
   },
   {
     "id": "IMG_0080.JPG",
@@ -1941,7 +2003,8 @@ const staticPhotosData = [
       "focal": "23.2mm",
       "bias": "+0.0 EV",
       "flash": "Kapalı",
-      "date": "2026:09:13 17:12:45"
+      "date": "2026:09:13 17:12:45",
+      "resolution": "3072 × 2304"
     },
     "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczOQSpwkbwsJgAF_YGvJPPsFkvwApz3WZYovzTs35z4PYRamAeYX949ES8TeB5zjx331g4WaVGmvxcrrcOcaaRxcC0CXB459I1FNqWOm1gCHWa6V4LI=w600-h600",
     "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczOQSpwkbwsJgAF_YGvJPPsFkvwApz3WZYovzTs35z4PYRamAeYX949ES8TeB5zjx331g4WaVGmvxcrrcOcaaRxcC0CXB459I1FNqWOm1gCHWa6V4LI=s0",
@@ -1988,7 +2051,8 @@ const staticPhotosData = [
       "yatay",
       "yüksek gerilim"
     ],
-    "hasEdit": false
+    "hasEdit": false,
+    "resolution": "3072 × 2304"
   },
   {
     "id": "IMG_0081.JPG",
@@ -2009,7 +2073,8 @@ const staticPhotosData = [
       "focal": "23.2mm",
       "bias": "+0.0 EV",
       "flash": "Kapalı",
-      "date": "2026:09:13 17:13:00"
+      "date": "2026:09:13 17:13:00",
+      "resolution": "3072 × 2304"
     },
     "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczPHYy1QTMXnFEW0KkAauu5gVwExe_CgwXbE1HV03cdv7O04uFMGOOF7NqF0K-IEvaMH-w4pZP364t2pTwhuRfLEr_DyTf4t1amfV8yhnoBDMoR607U=w600-h600",
     "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczPHYy1QTMXnFEW0KkAauu5gVwExe_CgwXbE1HV03cdv7O04uFMGOOF7NqF0K-IEvaMH-w4pZP364t2pTwhuRfLEr_DyTf4t1amfV8yhnoBDMoR607U=s0",
@@ -2048,7 +2113,8 @@ const staticPhotosData = [
       "zirve",
       "şehir"
     ],
-    "hasEdit": false
+    "hasEdit": false,
+    "resolution": "3072 × 2304"
   },
   {
     "id": "IMG_0082.JPG",
@@ -2069,7 +2135,8 @@ const staticPhotosData = [
       "focal": "23.2mm",
       "bias": "+0.0 EV",
       "flash": "Kapalı",
-      "date": "2026:09:13 17:13:11"
+      "date": "2026:09:13 17:13:11",
+      "resolution": "3072 × 2304"
     },
     "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczPWUpdLe8RHQyjze2zmH4wPXx14Sgo1BvLTTzUTIim9JUI1kkFouxsHIW_xqXLqFXb1sWmWpnTfsvIKK3SEn31YdjCNWqbuyEtzzg9RBTsg1fMCKQ4=w600-h600",
     "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczPWUpdLe8RHQyjze2zmH4wPXx14Sgo1BvLTTzUTIim9JUI1kkFouxsHIW_xqXLqFXb1sWmWpnTfsvIKK3SEn31YdjCNWqbuyEtzzg9RBTsg1fMCKQ4=s0",
@@ -2100,7 +2167,8 @@ const staticPhotosData = [
       "yatay",
       "yüksek gerilim"
     ],
-    "hasEdit": false
+    "hasEdit": false,
+    "resolution": "3072 × 2304"
   },
   {
     "id": "IMG_0083.JPG",
@@ -2121,7 +2189,8 @@ const staticPhotosData = [
       "focal": "5.8mm",
       "bias": "+0.0 EV",
       "flash": "Kapalı",
-      "date": "2026:09:13 17:14:30"
+      "date": "2026:09:13 17:14:30",
+      "resolution": "3072 × 2304"
     },
     "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczOztzaDWIjEYvOqhwt_hjTZt25mmLq4bZUS6wgwX2xPS4qDN2xnSk7qgIfTx4SchfaVABdMNRRBgLC5M_JhhchxjwRYHcK2f3JibdmPVp67UDRCVGA=w600-h600",
     "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczOztzaDWIjEYvOqhwt_hjTZt25mmLq4bZUS6wgwX2xPS4qDN2xnSk7qgIfTx4SchfaVABdMNRRBgLC5M_JhhchxjwRYHcK2f3JibdmPVp67UDRCVGA=s0",
@@ -2163,7 +2232,8 @@ const staticPhotosData = [
       "zirve",
       "şehir"
     ],
-    "hasEdit": false
+    "hasEdit": false,
+    "resolution": "3072 × 2304"
   },
   {
     "id": "IMG_0090.JPG",
@@ -2184,7 +2254,8 @@ const staticPhotosData = [
       "focal": "23.2mm",
       "bias": "+0.0 EV",
       "flash": "Kapalı",
-      "date": "2026:09:13 17:18:06"
+      "date": "2026:09:13 17:18:06",
+      "resolution": "3072 × 2304"
     },
     "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczNp77PBppNqlDOKV_aVlEw9wMnrscYK8WVxnST7DCBNpC936CBQVRgPhAzo4cyFSqwGhbZEUCZs7zIjG_rFgyljgHloBHW1dKWKnQ4kBfiXI0MdHRY=w600-h600",
     "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczNp77PBppNqlDOKV_aVlEw9wMnrscYK8WVxnST7DCBNpC936CBQVRgPhAzo4cyFSqwGhbZEUCZs7zIjG_rFgyljgHloBHW1dKWKnQ4kBfiXI0MdHRY=s0",
@@ -2229,7 +2300,8 @@ const staticPhotosData = [
       "zirve",
       "şehir"
     ],
-    "hasEdit": false
+    "hasEdit": false,
+    "resolution": "3072 × 2304"
   },
   {
     "id": "IMG_0093.JPG",
@@ -2250,7 +2322,8 @@ const staticPhotosData = [
       "focal": "23.2mm",
       "bias": "+0.0 EV",
       "flash": "Kapalı",
-      "date": "2026:09:13 17:19:38"
+      "date": "2026:09:13 17:19:38",
+      "resolution": "3072 × 2304"
     },
     "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczOQsrWuRT158Pxxl5LifbAsDiM7ZsRvEQXyTJFRHx60-PeOMcOWeVu5KtDKCQkpnsREsyUNjkRUbwXhWOoEYPN-jo86Boy2DcVEo5y6L68DjjAsnao=w600-h600",
     "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczOQsrWuRT158Pxxl5LifbAsDiM7ZsRvEQXyTJFRHx60-PeOMcOWeVu5KtDKCQkpnsREsyUNjkRUbwXhWOoEYPN-jo86Boy2DcVEo5y6L68DjjAsnao=s0",
@@ -2281,7 +2354,8 @@ const staticPhotosData = [
       "yaban hayatı",
       "yatay"
     ],
-    "hasEdit": false
+    "hasEdit": false,
+    "resolution": "3072 × 2304"
   },
   {
     "id": "IMG_0094.JPG",
@@ -2302,7 +2376,8 @@ const staticPhotosData = [
       "focal": "12.7mm",
       "bias": "+0.0 EV",
       "flash": "Kapalı",
-      "date": "2026:09:13 17:45:44"
+      "date": "2026:09:13 17:45:44",
+      "resolution": "3072 × 2304"
     },
     "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczP0xRX_WvlZGOOAImKp7IzcFzyTxaZ38HQIF603NsWf6zBA5b0qx4iiRE6xiM-mfszvx515uSQAgX0r068s2WlgaKDpiXqg6z1hfQQZKFHcn5F9OAU=w600-h600",
     "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczP0xRX_WvlZGOOAImKp7IzcFzyTxaZ38HQIF603NsWf6zBA5b0qx4iiRE6xiM-mfszvx515uSQAgX0r068s2WlgaKDpiXqg6z1hfQQZKFHcn5F9OAU=s0",
@@ -2342,7 +2417,8 @@ const staticPhotosData = [
       "yeşil",
       "çizgiler"
     ],
-    "hasEdit": false
+    "hasEdit": false,
+    "resolution": "3072 × 2304"
   },
   {
     "id": "IMG_0096.JPG",
@@ -2363,7 +2439,8 @@ const staticPhotosData = [
       "focal": "23.2mm",
       "bias": "+0.0 EV",
       "flash": "Kapalı",
-      "date": "2026:09:13 17:49:47"
+      "date": "2026:09:13 17:49:47",
+      "resolution": "3072 × 2304"
     },
     "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczM4pnYu-p2AAZQsmbyFLr5Z0XgztFs-sAkoqyn43ysQsfk_4-gwpvHe_BVGZswgFEck26C3rOv65UHKhx6tsR4-6BHowHOhyMRutOvGEtxQT-WhojU=w600-h600",
     "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczM4pnYu-p2AAZQsmbyFLr5Z0XgztFs-sAkoqyn43ysQsfk_4-gwpvHe_BVGZswgFEck26C3rOv65UHKhx6tsR4-6BHowHOhyMRutOvGEtxQT-WhojU=s0",
@@ -2410,7 +2487,8 @@ const staticPhotosData = [
       "çizgiler",
       "şehir"
     ],
-    "hasEdit": false
+    "hasEdit": false,
+    "resolution": "3072 × 2304"
   },
   {
     "id": "IMG_0097.JPG",
@@ -2431,7 +2509,8 @@ const staticPhotosData = [
       "focal": "23.2mm",
       "bias": "+0.0 EV",
       "flash": "Kapalı",
-      "date": "2026:09:13 17:49:54"
+      "date": "2026:09:13 17:49:54",
+      "resolution": "3072 × 2304"
     },
     "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczNFDpoYk2JrWqHmU7_6x7msDV3n-mdfn_27UkndOYAKsH7WZeNKFcZKEpNyGIV5jAFhIIQzqTQs_yYZnNgFdQED-Y-aUttZpXzJVBR0XuENzAKl-aI=w600-h600",
     "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczNFDpoYk2JrWqHmU7_6x7msDV3n-mdfn_27UkndOYAKsH7WZeNKFcZKEpNyGIV5jAFhIIQzqTQs_yYZnNgFdQED-Y-aUttZpXzJVBR0XuENzAKl-aI=s0",
@@ -2489,7 +2568,8 @@ const staticPhotosData = [
       "zirve",
       "şehir"
     ],
-    "hasEdit": false
+    "hasEdit": false,
+    "resolution": "3072 × 2304"
   },
   {
     "id": "IMG_0098.JPG",
@@ -2510,7 +2590,8 @@ const staticPhotosData = [
       "focal": "23.2mm",
       "bias": "+0.0 EV",
       "flash": "Kapalı",
-      "date": "2026:09:13 17:50:06"
+      "date": "2026:09:13 17:50:06",
+      "resolution": "3072 × 2304"
     },
     "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczMKuxXlteZ4V4B8lHK5K7xcSiZaex5dfZnuV39-BF_ispP9u61Egi_kf-dCRJKolUUhSn9EyUdfglQaja-AmAdJImXuQepGqjZdCNq5MzNm8KLThVE=w600-h600",
     "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczMKuxXlteZ4V4B8lHK5K7xcSiZaex5dfZnuV39-BF_ispP9u61Egi_kf-dCRJKolUUhSn9EyUdfglQaja-AmAdJImXuQepGqjZdCNq5MzNm8KLThVE=s0",
@@ -2549,7 +2630,8 @@ const staticPhotosData = [
       "uzay",
       "yatay"
     ],
-    "hasEdit": false
+    "hasEdit": false,
+    "resolution": "3072 × 2304"
   },
   {
     "id": "IMG_0099.JPG",
@@ -2570,7 +2652,8 @@ const staticPhotosData = [
       "focal": "12.7mm",
       "bias": "+0.0 EV",
       "flash": "Kapalı",
-      "date": "2026:09:13 17:50:26"
+      "date": "2026:09:13 17:50:26",
+      "resolution": "3072 × 2304"
     },
     "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczPvTQWmPLVxJLs58Ei-PiLGVTSGTf3hHEjGmi3Sf7FsrL-pVH-3qfJgEN1nTspkzGtQxZ4KN-FpatqTrvjyMeacVcqbFNfrRbNHtarJyl-VYZ8YTrY=w600-h600",
     "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczPvTQWmPLVxJLs58Ei-PiLGVTSGTf3hHEjGmi3Sf7FsrL-pVH-3qfJgEN1nTspkzGtQxZ4KN-FpatqTrvjyMeacVcqbFNfrRbNHtarJyl-VYZ8YTrY=s0",
@@ -2599,7 +2682,8 @@ const staticPhotosData = [
       "noflash",
       "yatay"
     ],
-    "hasEdit": false
+    "hasEdit": false,
+    "resolution": "3072 × 2304"
   },
   {
     "id": "IMG_0100.JPG",
@@ -2620,7 +2704,8 @@ const staticPhotosData = [
       "focal": "12.7mm",
       "bias": "+0.0 EV",
       "flash": "Kapalı",
-      "date": "2026:09:13 17:50:30"
+      "date": "2026:09:13 17:50:30",
+      "resolution": "3072 × 2304"
     },
     "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczOtX8-5GAxe0lqeDjokUFNvJpH--EB_p-8N1um-XyhOz48gYmae197yr_L5Ufb0bjmP6mZX7jdUmgi0vfaYo-L_O4SUSk9IvPUT6jtqqkhdHvaApfM=w600-h600",
     "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczOtX8-5GAxe0lqeDjokUFNvJpH--EB_p-8N1um-XyhOz48gYmae197yr_L5Ufb0bjmP6mZX7jdUmgi0vfaYo-L_O4SUSk9IvPUT6jtqqkhdHvaApfM=s0",
@@ -2653,7 +2738,8 @@ const staticPhotosData = [
       "yatay",
       "çizgiler"
     ],
-    "hasEdit": false
+    "hasEdit": false,
+    "resolution": "3072 × 2304"
   },
   {
     "id": "IMG_0102.JPG",
@@ -2674,7 +2760,8 @@ const staticPhotosData = [
       "focal": "23.2mm",
       "bias": "+0.0 EV",
       "flash": "Kapalı",
-      "date": "2026:09:13 17:50:51"
+      "date": "2026:09:13 17:50:51",
+      "resolution": "3072 × 2304"
     },
     "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczNxFW42KzDIJ34uajYZhYKGFqlsAjAEsSPgCjJe3GYTKcngazhc8QCsfD5NZvo83U5GBswq4ZufN-6AykeGM1KGQYnEczmaj73REbqeO1vmebso3HA=w600-h600",
     "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczNxFW42KzDIJ34uajYZhYKGFqlsAjAEsSPgCjJe3GYTKcngazhc8QCsfD5NZvo83U5GBswq4ZufN-6AykeGM1KGQYnEczmaj73REbqeO1vmebso3HA=s0",
@@ -2720,7 +2807,8 @@ const staticPhotosData = [
       "yatay",
       "yüksek gerilim"
     ],
-    "hasEdit": false
+    "hasEdit": false,
+    "resolution": "3072 × 2304"
   },
   {
     "id": "IMG_0103.JPG",
@@ -2741,7 +2829,8 @@ const staticPhotosData = [
       "focal": "23.2mm",
       "bias": "+0.0 EV",
       "flash": "Kapalı",
-      "date": "2026:09:13 17:50:58"
+      "date": "2026:09:13 17:50:58",
+      "resolution": "3072 × 2304"
     },
     "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczOlrTPSgGGN9D5zn6N2xZehrXzbtrI4UlhRow9zsFLqCByczNb_sn4ZFxMASHHbDYH26mGFZ08xqhKwiMNfnPOhnTrJOsw6yDN9c_eOxR01jUchW-Q=w600-h600",
     "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczOlrTPSgGGN9D5zn6N2xZehrXzbtrI4UlhRow9zsFLqCByczNb_sn4ZFxMASHHbDYH26mGFZ08xqhKwiMNfnPOhnTrJOsw6yDN9c_eOxR01jUchW-Q=s0",
@@ -2772,7 +2861,8 @@ const staticPhotosData = [
       "yatay",
       "yüksek gerilim"
     ],
-    "hasEdit": false
+    "hasEdit": false,
+    "resolution": "3072 × 2304"
   },
   {
     "id": "IMG_0104.JPG",
@@ -2793,7 +2883,8 @@ const staticPhotosData = [
       "focal": "5.8mm",
       "bias": "+0.0 EV",
       "flash": "Kapalı",
-      "date": "2026:09:13 17:51:38"
+      "date": "2026:09:13 17:51:38",
+      "resolution": "3072 × 2304"
     },
     "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczPmp752C76Ug2rSGrAJjwdt8wRSvbdk2BYSj8kxhAbuG88VjI2CJt0hovpAJ06d4ISaZ67a7-Q_bjTtqjcsDBqOZTZX1FKGO1aHLT9MF5XukI6lxfo=w600-h600",
     "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczPmp752C76Ug2rSGrAJjwdt8wRSvbdk2BYSj8kxhAbuG88VjI2CJt0hovpAJ06d4ISaZ67a7-Q_bjTtqjcsDBqOZTZX1FKGO1aHLT9MF5XukI6lxfo=s0",
@@ -2845,7 +2936,8 @@ const staticPhotosData = [
       "yıldızlı",
       "çizgiler"
     ],
-    "hasEdit": false
+    "hasEdit": false,
+    "resolution": "3072 × 2304"
   },
   {
     "id": "IMG_0106.JPG",
@@ -2866,7 +2958,8 @@ const staticPhotosData = [
       "focal": "23.2mm",
       "bias": "+0.0 EV",
       "flash": "Kapalı",
-      "date": "2026:09:13 17:53:06"
+      "date": "2026:09:13 17:53:06",
+      "resolution": "3072 × 2304"
     },
     "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczMGRuI_BRYnQHSD9680BrNE3_8gTLQWT0jlrxgkdURlxPW2jAq1Aa3IDlyCFq_XDZxD-gkqfK9TIXc0Jpbg1St1RWVtOU7EKe3xdtHiOrjuUD7Yofc=w600-h600",
     "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczMGRuI_BRYnQHSD9680BrNE3_8gTLQWT0jlrxgkdURlxPW2jAq1Aa3IDlyCFq_XDZxD-gkqfK9TIXc0Jpbg1St1RWVtOU7EKe3xdtHiOrjuUD7Yofc=s0",
@@ -2903,7 +2996,8 @@ const staticPhotosData = [
       "yeşil",
       "zirve"
     ],
-    "hasEdit": true
+    "hasEdit": true,
+    "resolution": "3072 × 2304"
   },
   {
     "id": "IMG_0106_1.jpg",
@@ -2924,7 +3018,8 @@ const staticPhotosData = [
       "focal": "23.2mm",
       "bias": "+0.0 EV",
       "flash": "Kapalı",
-      "date": "2026:09:13 17:53:06 (Revize v1)"
+      "date": "2026:09:13 17:53:06 (Revize v1)",
+      "resolution": "3072 × 2304"
     },
     "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczNqx3YxQz89e2NoBI7Lbg7PgmqF_bmod92UgvNnPnhhpVqcKZ2c5-q34kJL6AkFk90M2rJq0xePXWMaOPQNrmj984u_TrwwUGKAHUuxKIIyNYaSJ_E=w600-h600",
     "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczNqx3YxQz89e2NoBI7Lbg7PgmqF_bmod92UgvNnPnhhpVqcKZ2c5-q34kJL6AkFk90M2rJq0xePXWMaOPQNrmj984u_TrwwUGKAHUuxKIIyNYaSJ_E=s0",
@@ -2968,7 +3063,8 @@ const staticPhotosData = [
       "zirve",
       "özel seri"
     ],
-    "hasEdit": false
+    "hasEdit": false,
+    "resolution": "3072 × 2304"
   },
   {
     "id": "IMG_0107.JPG",
@@ -2989,7 +3085,8 @@ const staticPhotosData = [
       "focal": "23.2mm",
       "bias": "+0.0 EV",
       "flash": "Kapalı",
-      "date": "2026:09:13 17:53:37"
+      "date": "2026:09:13 17:53:37",
+      "resolution": "3072 × 2304"
     },
     "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczNd4EP-JDPbRWTmDG2v04oR-mP1krbuFev7Bn-wOpoAVUDkH1ckzatF4yqY7buFJX_ZzjY-d3jjR0oIUA43tiGqS0Zq0B6cj8LLbwMti2xvid_zcsI=w600-h600",
     "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczNd4EP-JDPbRWTmDG2v04oR-mP1krbuFev7Bn-wOpoAVUDkH1ckzatF4yqY7buFJX_ZzjY-d3jjR0oIUA43tiGqS0Zq0B6cj8LLbwMti2xvid_zcsI=s0",
@@ -3021,7 +3118,8 @@ const staticPhotosData = [
       "yatay",
       "zirve"
     ],
-    "hasEdit": false
+    "hasEdit": false,
+    "resolution": "3072 × 2304"
   },
   {
     "id": "IMG_0108.JPG",
@@ -3042,7 +3140,8 @@ const staticPhotosData = [
       "focal": "23.2mm",
       "bias": "+0.0 EV",
       "flash": "Kapalı",
-      "date": "2026:09:13 17:53:42"
+      "date": "2026:09:13 17:53:42",
+      "resolution": "3072 × 2304"
     },
     "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczMWrPMxhsVREVss_BX8RyXb5t2gAGMwT1k0TrCp7F1Z_sA4wElBeiVOyezcbg1MoxLKNj-yK6CtMe_yX9MAwGljG6GDJgbql0H8z7gTe7AXuM1Bmb8=w600-h600",
     "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczMWrPMxhsVREVss_BX8RyXb5t2gAGMwT1k0TrCp7F1Z_sA4wElBeiVOyezcbg1MoxLKNj-yK6CtMe_yX9MAwGljG6GDJgbql0H8z7gTe7AXuM1Bmb8=s0",
@@ -3079,7 +3178,8 @@ const staticPhotosData = [
       "yeşil",
       "zirve"
     ],
-    "hasEdit": false
+    "hasEdit": false,
+    "resolution": "3072 × 2304"
   },
   {
     "id": "IMG_0109.JPG",
@@ -3100,7 +3200,8 @@ const staticPhotosData = [
       "focal": "23.2mm",
       "bias": "+0.0 EV",
       "flash": "Kapalı",
-      "date": "2026:09:13 17:57:43"
+      "date": "2026:09:13 17:57:43",
+      "resolution": "3072 × 2304"
     },
     "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczPipIwZ8fqX5JI476g5xKFOk2Wm4AixDkyQNk85BFWlFEOlKmk-KEQtdJ2AzmSVp48Q6zxlo8WMU7vbK3qywfmEFHdeRjC1-W3l53wdoZLBeJiSJwk=w600-h600",
     "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczPipIwZ8fqX5JI476g5xKFOk2Wm4AixDkyQNk85BFWlFEOlKmk-KEQtdJ2AzmSVp48Q6zxlo8WMU7vbK3qywfmEFHdeRjC1-W3l53wdoZLBeJiSJwk=s0",
@@ -3132,7 +3233,8 @@ const staticPhotosData = [
       "yatay",
       "zirve"
     ],
-    "hasEdit": false
+    "hasEdit": false,
+    "resolution": "3072 × 2304"
   },
   {
     "id": "IMG_0110.JPG",
@@ -3153,7 +3255,8 @@ const staticPhotosData = [
       "focal": "23.2mm",
       "bias": "-1.7 EV",
       "flash": "Kapalı",
-      "date": "2026:09:13 17:58:09"
+      "date": "2026:09:13 17:58:09",
+      "resolution": "3072 × 2304"
     },
     "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczM31YXVMuUjzWWtfFZaPpRB91JFXrJlfpFiE3OVH7P-wWqIpwJ6_xW8-mjFOn-vOaumYn7RtKbqYb3Oe8cXDiYzQnv547iApCnsaojXkCn3Qh9o5eI=w600-h600",
     "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczM31YXVMuUjzWWtfFZaPpRB91JFXrJlfpFiE3OVH7P-wWqIpwJ6_xW8-mjFOn-vOaumYn7RtKbqYb3Oe8cXDiYzQnv547iApCnsaojXkCn3Qh9o5eI=s0",
@@ -3183,7 +3286,8 @@ const staticPhotosData = [
       "yatay",
       "yeşil"
     ],
-    "hasEdit": false
+    "hasEdit": false,
+    "resolution": "3072 × 2304"
   },
   {
     "id": "IMG_0111.JPG",
@@ -3204,7 +3308,8 @@ const staticPhotosData = [
       "focal": "23.2mm",
       "bias": "+0.0 EV",
       "flash": "Kapalı",
-      "date": "2026:09:13 18:00:09"
+      "date": "2026:09:13 18:00:09",
+      "resolution": "3072 × 2304"
     },
     "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczNduh1FcjUz1_46cBXzLS-WdV7qxSywbTQaWccWrZ5Li9yRf_prsHWEEW3FW4OReZvMKSHo0_tJHmuX2Arc8t33CothPgIpfg3aITu2fy_4mVjGvh8=w600-h600",
     "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczNduh1FcjUz1_46cBXzLS-WdV7qxSywbTQaWccWrZ5Li9yRf_prsHWEEW3FW4OReZvMKSHo0_tJHmuX2Arc8t33CothPgIpfg3aITu2fy_4mVjGvh8=s0",
@@ -3227,7 +3332,8 @@ const staticPhotosData = [
       "noflash",
       "yatay"
     ],
-    "hasEdit": false
+    "hasEdit": false,
+    "resolution": "3072 × 2304"
   },
   {
     "id": "IMG_0112.JPG",
@@ -3248,7 +3354,8 @@ const staticPhotosData = [
       "focal": "23.2mm",
       "bias": "+0.0 EV",
       "flash": "Kapalı",
-      "date": "2026:09:13 18:00:23"
+      "date": "2026:09:13 18:00:23",
+      "resolution": "3072 × 2304"
     },
     "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczOZkx2W-3T3EnDAgHFNx9bNKpNXbNlHIRpkXn3Z96nVXQDqNB_eps4OC6gkCHh3uN--d1OPeUT5CZS2B_hhJblStDLKlaqbVopMWuUdge7Akaxing8=w600-h600",
     "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczOZkx2W-3T3EnDAgHFNx9bNKpNXbNlHIRpkXn3Z96nVXQDqNB_eps4OC6gkCHh3uN--d1OPeUT5CZS2B_hhJblStDLKlaqbVopMWuUdge7Akaxing8=s0",
@@ -3280,7 +3387,8 @@ const staticPhotosData = [
       "yatay",
       "zirve"
     ],
-    "hasEdit": false
+    "hasEdit": false,
+    "resolution": "3072 × 2304"
   },
   {
     "id": "IMG_0129.JPG",
@@ -3301,7 +3409,8 @@ const staticPhotosData = [
       "focal": "23.2mm",
       "bias": "+0.0 EV",
       "flash": "Kapalı",
-      "date": "2026:09:19 12:51:16"
+      "date": "2026:09:19 12:51:16",
+      "resolution": "3072 × 2304"
     },
     "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczMxfe_3TCaZ9L6MqyqQO6AGDmDcj-zt5KjiiTL3Z1ihBfYfgkF49gKSYBGdwTUd3zQ9om3ZZpQtJNHTm-XDF-B00-6ae8lepebGMNh2Pw2VLJbKY2M=w600-h600",
     "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczMxfe_3TCaZ9L6MqyqQO6AGDmDcj-zt5KjiiTL3Z1ihBfYfgkF49gKSYBGdwTUd3zQ9om3ZZpQtJNHTm-XDF-B00-6ae8lepebGMNh2Pw2VLJbKY2M=s0",
@@ -3337,7 +3446,8 @@ const staticPhotosData = [
       "yatay",
       "yeşil"
     ],
-    "hasEdit": false
+    "hasEdit": false,
+    "resolution": "3072 × 2304"
   },
   {
     "id": "IMG_0133.JPG",
@@ -3358,7 +3468,8 @@ const staticPhotosData = [
       "focal": "23.2mm",
       "bias": "+0.0 EV",
       "flash": "Kapalı",
-      "date": "2026:09:19 12:51:53"
+      "date": "2026:09:19 12:51:53",
+      "resolution": "3072 × 2304"
     },
     "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczOLx2S34fXqjZ-UlRjwPit4yB5xVPxMK7E_mRMLTQ3uSOxMYwGoN3nXZxNjz_IAO8OXn8yDPmpN6QrvMheR5mCf3Ho27DOCdFvF9yzF3naWVVCuVPw=w600-h600",
     "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczOLx2S34fXqjZ-UlRjwPit4yB5xVPxMK7E_mRMLTQ3uSOxMYwGoN3nXZxNjz_IAO8OXn8yDPmpN6QrvMheR5mCf3Ho27DOCdFvF9yzF3naWVVCuVPw=s0",
@@ -3394,7 +3505,8 @@ const staticPhotosData = [
       "yatay",
       "yeşil"
     ],
-    "hasEdit": false
+    "hasEdit": false,
+    "resolution": "3072 × 2304"
   },
   {
     "id": "IMG_0134.JPG",
@@ -3415,7 +3527,8 @@ const staticPhotosData = [
       "focal": "9.9mm",
       "bias": "+0.0 EV",
       "flash": "Kapalı",
-      "date": "2026:09:19 13:03:47"
+      "date": "2026:09:19 13:03:47",
+      "resolution": "3072 × 2304"
     },
     "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczPvIfIYG4BrSUS21pg3e-oGJhxbkQL7kCytJRjPADCny_cGSwIusaZCPqJsLUqggcAz7Xo6S2Vx3XxhQje5yUcO-0GFJohj5KglZQDGhmbCzEYtuPU=w600-h600",
     "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczPvIfIYG4BrSUS21pg3e-oGJhxbkQL7kCytJRjPADCny_cGSwIusaZCPqJsLUqggcAz7Xo6S2Vx3XxhQje5yUcO-0GFJohj5KglZQDGhmbCzEYtuPU=s0",
@@ -3438,7 +3551,8 @@ const staticPhotosData = [
       "noflash",
       "yatay"
     ],
-    "hasEdit": false
+    "hasEdit": false,
+    "resolution": "3072 × 2304"
   },
   {
     "id": "IMG_0135.JPG",
@@ -3459,7 +3573,8 @@ const staticPhotosData = [
       "focal": "6.6mm",
       "bias": "+0.0 EV",
       "flash": "Kapalı",
-      "date": "2026:09:19 13:03:57"
+      "date": "2026:09:19 13:03:57",
+      "resolution": "3072 × 2304"
     },
     "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczNkJpasbatR2GD3RU3lko6dkj5IYLzmBWgDE0jiJkziqR9UpEmNvc7roy-c7UIuL5EenI5y4LVzsXWTFNhHdjTglIybwbXNvpBsVDtpFXoC4AFgXtU=w600-h600",
     "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczNkJpasbatR2GD3RU3lko6dkj5IYLzmBWgDE0jiJkziqR9UpEmNvc7roy-c7UIuL5EenI5y4LVzsXWTFNhHdjTglIybwbXNvpBsVDtpFXoC4AFgXtU=s0",
@@ -3489,7 +3604,8 @@ const staticPhotosData = [
       "yatay",
       "yeşil"
     ],
-    "hasEdit": false
+    "hasEdit": false,
+    "resolution": "3072 × 2304"
   },
   {
     "id": "IMG_0138.JPG",
@@ -3510,7 +3626,8 @@ const staticPhotosData = [
       "focal": "6.6mm",
       "bias": "+0.0 EV",
       "flash": "Kapalı",
-      "date": "2026:09:19 13:04:23"
+      "date": "2026:09:19 13:04:23",
+      "resolution": "3072 × 2304"
     },
     "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczOExoiEenq8lCiHCz35kJ91jYiky93nTvGJ0A41buwwgkijUdfRpD-HRGVLuNb90LzAGDHvHmgUketYzSCVN37OXBvjwJYO7e82uYyfLA6flJj2loI=w600-h600",
     "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczOExoiEenq8lCiHCz35kJ91jYiky93nTvGJ0A41buwwgkijUdfRpD-HRGVLuNb90LzAGDHvHmgUketYzSCVN37OXBvjwJYO7e82uYyfLA6flJj2loI=s0",
@@ -3539,7 +3656,8 @@ const staticPhotosData = [
       "noflash",
       "yatay"
     ],
-    "hasEdit": false
+    "hasEdit": false,
+    "resolution": "3072 × 2304"
   },
   {
     "id": "IMG_0139.JPG",
@@ -3560,7 +3678,8 @@ const staticPhotosData = [
       "focal": "12.7mm",
       "bias": "+0.0 EV",
       "flash": "Kapalı",
-      "date": "2026:09:19 13:07:48"
+      "date": "2026:09:19 13:07:48",
+      "resolution": "3072 × 2304"
     },
     "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczPj-PDfa6ITv8jGOtGRVFCg-xo5o3Sp3uhCsLhKWzD-z9WF05seIvP8Is6JY30xaA5eAkzchwzHQfyA9opt81zyM1c4CcKg6-iegP4PkpBKJdoS3f0=w600-h600",
     "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczPj-PDfa6ITv8jGOtGRVFCg-xo5o3Sp3uhCsLhKWzD-z9WF05seIvP8Is6JY30xaA5eAkzchwzHQfyA9opt81zyM1c4CcKg6-iegP4PkpBKJdoS3f0=s0",
@@ -3590,7 +3709,8 @@ const staticPhotosData = [
       "yatay",
       "yeşil"
     ],
-    "hasEdit": false
+    "hasEdit": false,
+    "resolution": "3072 × 2304"
   },
   {
     "id": "IMG_0141.JPG",
@@ -3611,7 +3731,8 @@ const staticPhotosData = [
       "focal": "23.2mm",
       "bias": "+0.0 EV",
       "flash": "Kapalı",
-      "date": "2026:09:19 13:12:29"
+      "date": "2026:09:19 13:12:29",
+      "resolution": "3072 × 2304"
     },
     "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczNnA5EqL6OxB3eY26P2vDIWTJhEt6W5fLkwWnbmypkuw8s35BeAkC8msPkyHvVz7s2pCDLSRFCDWh4LqG_W-cX1fSFddOjaTBOABjvk_tPzHoihErs=w600-h600",
     "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczNnA5EqL6OxB3eY26P2vDIWTJhEt6W5fLkwWnbmypkuw8s35BeAkC8msPkyHvVz7s2pCDLSRFCDWh4LqG_W-cX1fSFddOjaTBOABjvk_tPzHoihErs=s0",
@@ -3651,7 +3772,8 @@ const staticPhotosData = [
       "yatay",
       "yıldızlı"
     ],
-    "hasEdit": false
+    "hasEdit": false,
+    "resolution": "3072 × 2304"
   },
   {
     "id": "IMG_0142.JPG",
@@ -3672,7 +3794,8 @@ const staticPhotosData = [
       "focal": "23.2mm",
       "bias": "+0.0 EV",
       "flash": "Kapalı",
-      "date": "2026:09:19 13:12:48"
+      "date": "2026:09:19 13:12:48",
+      "resolution": "3072 × 2304"
     },
     "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczOzXChpANnutKm8iDaf80reNqHloVlyKDNSu_1tUgmugJtfFvTZ0ARoe8_3mtqTiJZqcnl0n3BZQQNZJeBdU7WXxLvkd_GduIFhg9F_LXuQLAjqUEA=w600-h600",
     "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczOzXChpANnutKm8iDaf80reNqHloVlyKDNSu_1tUgmugJtfFvTZ0ARoe8_3mtqTiJZqcnl0n3BZQQNZJeBdU7WXxLvkd_GduIFhg9F_LXuQLAjqUEA=s0",
@@ -3728,7 +3851,8 @@ const staticPhotosData = [
       "vertical",
       "yıldızlı"
     ],
-    "hasEdit": false
+    "hasEdit": false,
+    "resolution": "3072 × 2304"
   },
   {
     "id": "IMG_0143.JPG",
@@ -3749,7 +3873,8 @@ const staticPhotosData = [
       "focal": "23.2mm",
       "bias": "-1.7 EV",
       "flash": "Kapalı",
-      "date": "2026:09:19 13:13:17"
+      "date": "2026:09:19 13:13:17",
+      "resolution": "3072 × 2304"
     },
     "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczPiljJuw5tgDj8SGkFunuVAS7m6zQmpXOH0HDqSSor-59ySylox0OwzAfIJ3hhFDTroaOD0c8u59UA_m2MDczQqgMwJLjtR93quQswhVOJ550rgWtU=w600-h600",
     "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczPiljJuw5tgDj8SGkFunuVAS7m6zQmpXOH0HDqSSor-59ySylox0OwzAfIJ3hhFDTroaOD0c8u59UA_m2MDczQqgMwJLjtR93quQswhVOJ550rgWtU=s0",
@@ -3797,7 +3922,8 @@ const staticPhotosData = [
       "yıldızlı",
       "şehir"
     ],
-    "hasEdit": true
+    "hasEdit": true,
+    "resolution": "3072 × 2304"
   },
   {
     "id": "IMG_0143_1.jpg",
@@ -3818,7 +3944,8 @@ const staticPhotosData = [
       "focal": "23.2mm",
       "bias": "Color Grade: Sıcak Sinematik / Kodak Film",
       "flash": "Kapalı",
-      "date": "2026:09:19 13:13:17 (Revize v1)"
+      "date": "2026:09:19 13:13:17 (Revize v1)",
+      "resolution": "3072 × 2304"
     },
     "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczPighh_xwuYgf2XxyKLgTT8R_so0ep4s8dK_nqbF35NN_f8Gd9xEcSeaVKcK4yN6l-4u46WLAHO4StewAa16P-_IVnjf34T1KNqRm-e5fzQuHZ18eQ=w600-h600",
     "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczPighh_xwuYgf2XxyKLgTT8R_so0ep4s8dK_nqbF35NN_f8Gd9xEcSeaVKcK4yN6l-4u46WLAHO4StewAa16P-_IVnjf34T1KNqRm-e5fzQuHZ18eQ=s0",
@@ -3853,7 +3980,8 @@ const staticPhotosData = [
       "zirve",
       "özel seri"
     ],
-    "hasEdit": false
+    "hasEdit": false,
+    "resolution": "3072 × 2304"
   },
   {
     "id": "IMG_0143_2.jpg",
@@ -3874,7 +4002,8 @@ const staticPhotosData = [
       "focal": "23.2mm",
       "bias": "Color Grade: Modern Teal & Cool Cyan",
       "flash": "Kapalı",
-      "date": "2026:09:19 13:13:17 (Revize v2)"
+      "date": "2026:09:19 13:13:17 (Revize v2)",
+      "resolution": "3072 × 2304"
     },
     "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczPZu_lRyZaI2JESPf0XAAaaJ4rTDUT2nLyQRYZhg64YaoIsBGJeHw1exXetVK4nZ29h1b0zlv_oC_Wn5igbO-nxfkWEzoIquN2v-rNBR0OzZQIXISw=w600-h600",
     "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczPZu_lRyZaI2JESPf0XAAaaJ4rTDUT2nLyQRYZhg64YaoIsBGJeHw1exXetVK4nZ29h1b0zlv_oC_Wn5igbO-nxfkWEzoIquN2v-rNBR0OzZQIXISw=s0",
@@ -3907,7 +4036,8 @@ const staticPhotosData = [
       "yıldızlı",
       "özel seri"
     ],
-    "hasEdit": false
+    "hasEdit": false,
+    "resolution": "3072 × 2304"
   },
   {
     "id": "IMG_0149.JPG",
@@ -3928,7 +4058,8 @@ const staticPhotosData = [
       "bias": "+0.0 EV",
       "flash": "Kapalı",
       "mode": "Tanımsız / Otomatik",
-      "date": "2026:09:20 14:09:12"
+      "date": "2026:09:20 14:09:12",
+      "resolution": "3072 × 2304"
     },
     "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczPBAV2FoGsoKPpCU7tCJ6Fke5yMsib_Ib7uAdbR4UJ82-1AK6HBooTVvrbclnhUEU-QTAuSP0L2kQia5FYPtXzJD9ZcaxWBr0wZ-GiDmyIgDjf66R8=w600-h600",
     "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczPBAV2FoGsoKPpCU7tCJ6Fke5yMsib_Ib7uAdbR4UJ82-1AK6HBooTVvrbclnhUEU-QTAuSP0L2kQia5FYPtXzJD9ZcaxWBr0wZ-GiDmyIgDjf66R8=s0",
@@ -3966,7 +4097,8 @@ const staticPhotosData = [
       "yatay",
       "yıldızlı"
     ],
-    "hasEdit": true
+    "hasEdit": true,
+    "resolution": "3072 × 2304"
   },
   {
     "id": "IMG_0149_1.jpg",
@@ -3987,7 +4119,8 @@ const staticPhotosData = [
       "bias": "Color Grade: Zengin Kontrast & Canlı Çimenler",
       "flash": "Kapalı",
       "mode": "Manuel Düzenleme (Post-Process)",
-      "date": "2026:09:20 14:09:12 (Revize v1)"
+      "date": "2026:09:20 14:09:12 (Revize v1)",
+      "resolution": "3072 × 2304"
     },
     "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczMm6HNvwZ7wJAXRWjpctticfBSMk1-_m23QzDFg8BjyKmuVwOMJYEQRMijSGlzIQCsykdjhlsUNtY8Ibm9-9pKHv9X0Td_60a9bCuutXJedRLxj3rA=w600-h600",
     "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczMm6HNvwZ7wJAXRWjpctticfBSMk1-_m23QzDFg8BjyKmuVwOMJYEQRMijSGlzIQCsykdjhlsUNtY8Ibm9-9pKHv9X0Td_60a9bCuutXJedRLxj3rA=s0",
@@ -4036,7 +4169,8 @@ const staticPhotosData = [
       "zirve",
       "özel seri"
     ],
-    "hasEdit": false
+    "hasEdit": false,
+    "resolution": "3072 × 2304"
   },
   {
     "id": "IMG_0150.JPG",
@@ -4057,7 +4191,8 @@ const staticPhotosData = [
       "bias": "+0.0 EV",
       "flash": "Kapalı",
       "mode": "Tanımsız / Otomatik",
-      "date": "2026:09:20 14:09:24"
+      "date": "2026:09:20 14:09:24",
+      "resolution": "3072 × 2304"
     },
     "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczP6GOIOoSkUxhDk_Fb7UTXyi-sIojAqqm-UAKhBsNqK7GM8AMvTG1Ot4LakwF-_d2UIRWIwBNfxS39lisvmDFRJ63VD-G7NI4kSZjzgYgGVdMLL2lI=w600-h600",
     "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczP6GOIOoSkUxhDk_Fb7UTXyi-sIojAqqm-UAKhBsNqK7GM8AMvTG1Ot4LakwF-_d2UIRWIwBNfxS39lisvmDFRJ63VD-G7NI4kSZjzgYgGVdMLL2lI=s0",
@@ -4095,7 +4230,8 @@ const staticPhotosData = [
       "yatay",
       "yıldızlı"
     ],
-    "hasEdit": true
+    "hasEdit": true,
+    "resolution": "3072 × 2304"
   },
   {
     "id": "IMG_0150_1.jpg",
@@ -4116,7 +4252,8 @@ const staticPhotosData = [
       "bias": "Color Grade & Dikey Kadraj: Altın Gözler & Amber Bokeh",
       "flash": "Kapalı",
       "mode": "Manuel Düzenleme (Post-Process)",
-      "date": "2026:09:20 14:09:24 (Revize v1)"
+      "date": "2026:09:20 14:09:24 (Revize v1)",
+      "resolution": "2304 × 3072"
     },
     "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczPbYOWfte9CHl2l6ZGLbIOtip0TDaVQoyC0KNWNoMb3hiU16YFM9SPmdMlQOcmtkXsGpMq7NBSzRPykTCmzUwzF-9wdwpZucp8ule608oJ8O-knwmU=w600-h600",
     "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczPbYOWfte9CHl2l6ZGLbIOtip0TDaVQoyC0KNWNoMb3hiU16YFM9SPmdMlQOcmtkXsGpMq7NBSzRPykTCmzUwzF-9wdwpZucp8ule608oJ8O-knwmU=s0",
@@ -4164,7 +4301,8 @@ const staticPhotosData = [
       "zirve",
       "özel seri"
     ],
-    "hasEdit": false
+    "hasEdit": false,
+    "resolution": "2304 × 3072"
   },
   {
     "id": "IMG_0154.JPG",
@@ -4185,7 +4323,8 @@ const staticPhotosData = [
       "bias": "+0.0 EV",
       "flash": "Kapalı",
       "mode": "Tanımsız / Otomatik",
-      "date": "2026:09:20 14:10:03"
+      "date": "2026:09:20 14:10:03",
+      "resolution": "3072 × 2304"
     },
     "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczPAMoGtiRbls2EppOuAsFkLt9e4EL0P8qlP54wQl2MkzRrvCXIFrPp4bwX8z-WGQR9jip5G3SS9kL65jd3a0cMnLGy1_lNVAYM1Y8gItBUz7t6lrg4=w600-h600",
     "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczPAMoGtiRbls2EppOuAsFkLt9e4EL0P8qlP54wQl2MkzRrvCXIFrPp4bwX8z-WGQR9jip5G3SS9kL65jd3a0cMnLGy1_lNVAYM1Y8gItBUz7t6lrg4=s0",
@@ -4228,7 +4367,8 @@ const staticPhotosData = [
       "yeşil",
       "yıldızlı"
     ],
-    "hasEdit": false
+    "hasEdit": false,
+    "resolution": "3072 × 2304"
   },
   {
     "id": "IMG_0190.JPG",
@@ -4249,7 +4389,8 @@ const staticPhotosData = [
       "focal": "5.8mm",
       "bias": "+0.0 EV",
       "flash": "Açık",
-      "date": "2026:09:21 12:17:54"
+      "date": "2026:09:21 12:17:54",
+      "resolution": "3072 × 2304"
     },
     "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczOMz1FnyVO6GETbwMDOuJMQE6QVfqZrsmk584Tktck4ttW7MX5BD6qJuWRcnUZqEoREJ-F8cVovzZnXSn9U9g4FCeqflhWcHfb6W_KOYxOyvY8kOnw=w600-h600",
     "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczOMz1FnyVO6GETbwMDOuJMQE6QVfqZrsmk584Tktck4ttW7MX5BD6qJuWRcnUZqEoREJ-F8cVovzZnXSn9U9g4FCeqflhWcHfb6W_KOYxOyvY8kOnw=s0",
@@ -4291,7 +4432,8 @@ const staticPhotosData = [
       "teller",
       "yatay"
     ],
-    "hasEdit": true
+    "hasEdit": true,
+    "resolution": "3072 × 2304"
   },
   {
     "id": "IMG_0190_1.jpg",
@@ -4312,7 +4454,8 @@ const staticPhotosData = [
       "focal": "5.8mm",
       "bias": "Color Grade & Arka Plan Karartma: Dramatik Stüdyo Enstrüman Portresi",
       "flash": "Açık (Orijinal)",
-      "date": "2026:09:21 21:02:12 (Revize v1)"
+      "date": "2026:09:21 21:02:12 (Revize v1)",
+      "resolution": "3072 × 2304"
     },
     "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczODFl9k8bL29ey9NdVMMFXjQL7cWt47nCS60viUT3SFdl5aLcI1yK0kCleXXNQQZ3BZvGgSKMPWFzlt_7AxbH-Z3z7QlNr6MTv7s1LseDLQ80wXo98=w600-h600",
     "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczODFl9k8bL29ey9NdVMMFXjQL7cWt47nCS60viUT3SFdl5aLcI1yK0kCleXXNQQZ3BZvGgSKMPWFzlt_7AxbH-Z3z7QlNr6MTv7s1LseDLQ80wXo98=s0",
@@ -4371,7 +4514,8 @@ const staticPhotosData = [
       "yıldızlı",
       "özel seri"
     ],
-    "hasEdit": false
+    "hasEdit": false,
+    "resolution": "3072 × 2304"
   },
   {
     "id": "IMG_0151_1.jpg",
@@ -4392,7 +4536,8 @@ const staticPhotosData = [
       "focal": "6.6mm",
       "bias": "+0.0 EV",
       "flash": "Kapalı",
-      "date": "2026:09:20 14:09:39"
+      "date": "2026:09:20 14:09:39",
+      "resolution": "1025 × 1368"
     },
     "thumbUrl": "https://lh3.googleusercontent.com/pw/AP1GczNMP-MBBwShMaGpveDs6KiWhEnMGEVA4eE0C_y3C303aqKbvAYyIv7WkgCUBO1d2sguOwcFZj-BDwSJXGSIyuqkjkMxiWIjguyBzW-zRCjL-5hMWS4=w450-h600",
     "fullUrl": "https://lh3.googleusercontent.com/pw/AP1GczNMP-MBBwShMaGpveDs6KiWhEnMGEVA4eE0C_y3C303aqKbvAYyIv7WkgCUBO1d2sguOwcFZj-BDwSJXGSIyuqkjkMxiWIjguyBzW-zRCjL-5hMWS4=s0",
@@ -4439,6 +4584,7 @@ const staticPhotosData = [
       "yıldızlı",
       "zirve",
       "özel seri"
-    ]
+    ],
+    "resolution": "1025 × 1368"
   }
 ];
