@@ -775,7 +775,7 @@ function openModal(index, direction) {
   resetZoom();
   closeCompareStage();
   if (mCompare) {
-    const pairTarget = p.pairedId || p.pair_id || (p.id === 'IMG_0150_1.jpg' ? 'IMG_0150.JPG' : (p.id === 'IMG_0150.JPG' ? 'IMG_0150_1.jpg' : null));
+    const pairTarget = p.pairedId || p.pair_id || (p.id === 'IMG_0150_1.jpg' ? 'IMG_0150.JPG' : (p.id === 'IMG_0150.JPG' ? 'IMG_0150_1.jpg' : (p.id === 'IMG_0151_1.jpg' ? 'IMG_0151.JPG' : (p.id === 'IMG_0151.JPG' ? 'IMG_0151_1.jpg' : null))));
     if (pairTarget) {
       if (!p.pairedId) {
         p.pairedId = pairTarget;
@@ -793,7 +793,7 @@ function openModal(index, direction) {
     mImg.style.transition = 'transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease';
     mImg.style.transform = 'translateX(0)';
     const isCloudPhoto = p.source === 'gphotos' || p.source === 'google_photos' || !!p.fullUrl || String(p.id).startsWith('gphoto_');
-    mImg.src = (isCloudPhoto && p.fullUrl) ? p.fullUrl : ((isCloudPhoto && p.thumbUrl) ? p.thumbUrl : ('../' + p.id));
+    mImg.src = (isCloudPhoto && p.fullUrl) ? p.fullUrl : ((isCloudPhoto && p.thumbUrl) ? p.thumbUrl : ('thumbs/' + p.id));
     lightbox.classList.add('open');
     document.body.style.overflow = 'hidden';
   } else {
@@ -959,7 +959,8 @@ function buildPhotoPairs(photoList) {
   // Özel Tanımlı Eşleşmeler (IMG_0054 ham / IMG_0053 kurgu, IMG_0150 / IMG_0150_1)
   const specialPairs = [
     { before: 'IMG_0054.JPG', after: 'IMG_0053.JPG' },
-    { before: 'IMG_0150.JPG', after: 'IMG_0150_1.jpg' }
+    { before: 'IMG_0150.JPG', after: 'IMG_0150_1.jpg' },
+    { before: 'IMG_0151.JPG', after: 'IMG_0151_1.jpg' }
   ];
   specialPairs.forEach(sp => {
     const b = photoList.find(x => x.id.toLowerCase() === sp.before.toLowerCase());
@@ -1010,7 +1011,7 @@ let isSplitting = false;
 function openCompareStage() {
   if (activeIdx < 0 || !filteredPhotos[activeIdx]) return;
   const p = filteredPhotos[activeIdx];
-  const pairTarget = p.pairedId || p.pair_id || (p.id === 'IMG_0150_1.jpg' ? 'IMG_0150.JPG' : (p.id === 'IMG_0150.JPG' ? 'IMG_0150_1.jpg' : null));
+  const pairTarget = p.pairedId || p.pair_id || (p.id === 'IMG_0150_1.jpg' ? 'IMG_0150.JPG' : (p.id === 'IMG_0150.JPG' ? 'IMG_0150_1.jpg' : (p.id === 'IMG_0151_1.jpg' ? 'IMG_0151.JPG' : (p.id === 'IMG_0151.JPG' ? 'IMG_0151_1.jpg' : null))));
   if (!pairTarget) return;
 
   const bId = p.beforeId || (p.isEdit || /_\d+\./.test(p.id) ? pairTarget : p.id);
@@ -1594,9 +1595,8 @@ if (learningTabsBar) {
 // Open Photo in Lightbox by ID
 function openModalById(id) {
   closeLearningModal();
-  // Ensure photo is accessible in filteredPhotos
-  const existsInFiltered = filteredPhotos.some(p => p.id === id);
-  if (!existsInFiltered) {
+  let targetIdx = filteredPhotos.findIndex(p => p.id.toLowerCase() === id.toLowerCase());
+  if (targetIdx === -1) {
     activeFilter = 'all';
     searchQuery = '';
     if (searchInput) searchInput.value = '';
@@ -1604,9 +1604,17 @@ function openModalById(id) {
       filterChips.querySelectorAll('.chip').forEach(c => c.classList.toggle('active', c.dataset.filter === 'all'));
     }
     filterAndSort();
+    targetIdx = filteredPhotos.findIndex(p => p.id.toLowerCase() === id.toLowerCase());
   }
 
-  const targetIdx = filteredPhotos.findIndex(p => p.id === id);
+  if (targetIdx === -1) {
+    const foundPhoto = photos.find(p => p.id.toLowerCase() === id.toLowerCase());
+    if (foundPhoto) {
+      filteredPhotos.unshift(foundPhoto);
+      targetIdx = 0;
+    }
+  }
+
   if (targetIdx !== -1) {
     openModal(targetIdx);
     showToast(`${id} galeride açıldı`);
@@ -1618,15 +1626,26 @@ function openModalById(id) {
 // Open Compare Stage directly for two photos
 function openCompareForPhotos(origId, editId) {
   closeLearningModal();
-  activeFilter = 'all';
-  searchQuery = '';
-  if (searchInput) searchInput.value = '';
-  if (filterChips) {
-    filterChips.querySelectorAll('.chip').forEach(c => c.classList.toggle('active', c.dataset.filter === 'all'));
+  let targetIdx = filteredPhotos.findIndex(p => p.id.toLowerCase() === editId.toLowerCase() || p.id.toLowerCase() === origId.toLowerCase());
+  if (targetIdx === -1) {
+    activeFilter = 'all';
+    searchQuery = '';
+    if (searchInput) searchInput.value = '';
+    if (filterChips) {
+      filterChips.querySelectorAll('.chip').forEach(c => c.classList.toggle('active', c.dataset.filter === 'all'));
+    }
+    filterAndSort();
+    targetIdx = filteredPhotos.findIndex(p => p.id.toLowerCase() === editId.toLowerCase() || p.id.toLowerCase() === origId.toLowerCase());
   }
-  filterAndSort();
 
-  const targetIdx = filteredPhotos.findIndex(p => p.id === editId || p.id === origId);
+  if (targetIdx === -1) {
+    const foundPhoto = photos.find(p => p.id.toLowerCase() === editId.toLowerCase() || p.id.toLowerCase() === origId.toLowerCase());
+    if (foundPhoto) {
+      filteredPhotos.unshift(foundPhoto);
+      targetIdx = 0;
+    }
+  }
+
   if (targetIdx !== -1) {
     openModal(targetIdx);
     setTimeout(() => {
