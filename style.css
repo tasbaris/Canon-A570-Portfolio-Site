@@ -1791,6 +1791,11 @@
       border-radius: 6px;
       font-size: 12px;
     }
+    .improvement-status-banner.critic-status {
+      background: rgba(239, 68, 68, 0.08);
+      border: 1px solid rgba(239, 68, 68, 0.25);
+      color: #fca5a5;
+    }
     .improvement-status-banner.edit-status {
       background: rgba(76, 175, 80, 0.1);
       border: 1px solid rgba(76, 175, 80, 0.3);
@@ -1808,7 +1813,8 @@
     }
     .status-info span {
       font-size: 11px;
-      opacity: 0.85;
+      opacity: 0.9;
+      line-height: 1.4;
     }
     .improvement-grid {
       display: flex;
@@ -1820,6 +1826,10 @@
       border: 1px solid rgba(255, 255, 255, 0.05);
       border-radius: 6px;
       padding: 9px 11px;
+    }
+    .improvement-card.critic-card {
+      border-left: 3px solid #ef4444;
+      background: rgba(239, 68, 68, 0.03);
     }
     .improvement-card-header {
       display: flex;
@@ -1837,6 +1847,16 @@
       text-transform: uppercase;
       color: var(--text-primary);
     }
+    .imp-penalty {
+      margin-left: auto;
+      font-size: 10px;
+      font-weight: 700;
+      color: #ef4444;
+      background: rgba(239, 68, 68, 0.12);
+      padding: 2px 6px;
+      border-radius: 4px;
+      border: 1px solid rgba(239, 68, 68, 0.25);
+    }
     .imp-desc {
       font-size: 12px;
       line-height: 1.5;
@@ -1849,6 +1869,12 @@
       border-radius: 0 6px 6px 0;
       padding: 9px 11px;
     }
+    .improvement-action-box.critic-box {
+      background: rgba(245, 158, 11, 0.06);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 6px 6px 0;
+      padding: 10px 14px;
+    }
     .imp-action-title {
       display: flex;
       align-items: center;
@@ -1856,6 +1882,22 @@
       font-size: 11px;
       font-weight: 700;
       color: var(--gold);
+      margin-bottom: 4px;
+    }
+    .imp-action-text {
+      font-size: 12px;
+      line-height: 1.5;
+      color: var(--text-primary);
+      margin: 0;
+    }
+    .imp-action-list {
+      margin: 6px 0 0 16px;
+      padding: 0;
+      font-size: 12px;
+      line-height: 1.6;
+      color: var(--text-primary);
+    }
+    .imp-action-list li {
       margin-bottom: 4px;
     }
     .imp-action-text {

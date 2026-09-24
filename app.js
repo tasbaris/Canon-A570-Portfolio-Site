@@ -707,213 +707,289 @@ const mImprovementContent = document.getElementById('mImprovementContent');
 
 function generatePhotoCritique(p) {
   const pid = p.id || '';
+  const score = Number(p.gen_score || 0);
+  const lostTotal = Math.max(0, 10 - score).toFixed(1);
+  const kompScore = Number(p.komp_score || score);
+  const lostKomp = Math.max(0, 10 - kompScore).toFixed(1);
+  const tekScore = Number(p.tek_score || score);
+  const lostTek = Math.max(0, 10 - tekScore).toFixed(1);
+  const colScore = Number(p.col_score || score);
+  const lostCol = Math.max(0, 10 - colScore).toFixed(1);
+
   const tur = (p.tur || '').toLowerCase();
   const ozet = (p.ozet || '').toLowerCase();
   const tekD = (p.tek_desc || '').toLowerCase();
   const kompD = (p.komp_desc || '').toLowerCase();
   const colD = (p.col_desc || '').toLowerCase();
-  const isEdit = Boolean(p.is_edit || p.isEdit || /_\d+\./.test(pid) || /(?:IMG|CRW)_\d+_(\d+)\./i.test(pid));
+  const isEdit = Boolean(p.is_edit || p.isEdit || /(?:IMG|CRW)_\d+_(\d+)\./i.test(pid));
 
   const searchText = `${tur} ${ozet} ${pid} ${kompD} ${tekD} ${colD}`;
 
-  let pozlama = '';
-  let maskeleme = '';
-  let kadraj = '';
-  let renk = '';
+  let kadrajFlaw = '';
+  let pozlamaFlaw = '';
+  let maskelemeFlaw = '';
+  let renkFlaw = '';
+  let recete = [];
 
   if (searchText.includes('bayrak') || searchText.includes('0056') || tur.includes('bayrak')) {
     if (isEdit) {
-      pozlama = 'Pozlama ve ışık dengesi optimize edilmiş; arkadan süzülen güneş ışığı patlama yapmadan aktarılmış. İleri düzey ayar: Highlights: -15, Shadows: +10 ile CCD mikro-kontrastı korunmalı.';
-      maskeleme = '1) Bayrağa Radyal/Fırça Maskesi: +12 Clarity ve +8 Doygunluk ile dikiş ve kumaş dokusu parlatılmış. 2) Gökyüzüne Lineer Gradyan: -0.2 EV ve +10 Dehaze ile zengin kobalt tonu korunmuş.';
-      kadraj = '90° dikey rotasyon başarıyla yapılmış, anıtsal dikey simetri sağlanmış. 4:5 sergi oranına tam uyumlu.';
-      renk = 'Derin gök mavisi (Hue -5, Sat +15) ile bayrağın doymuş kırmızısı (Red Hue +2, Sat +12) arasında kusursuz Color Blocking yakalanmış.';
+      kadrajFlaw = `Kadraj dikey 4:5 oranına getirilmiş olsa da, bayrağın kumaş dokusuna ve dalgalanan kıvrımlarına %8-10 daha fazla yakınlaşılmalıydı (daha sıkı crop). Sağ tarafta kalan ağaç yapraklarının kadraj köşesinde yarattığı hafif asimetri temizlenmeliydi. (-${lostKomp} Puan)`;
+      pozlamaFlaw = `Güneş ışığının kumaşın en tepe noktasından süzüldüğü parlama bölgesinde çok hafif bir ton sıkışması kalmış. Highlights -15 daha kısılıp Whites -8 dengelenerek lif dokusu tam puanlık mikro-kontrasta kavuşturulmalıydı. (-${lostTek} Puan)`;
+      maskelemeFlaw = `Bayrağın alt gölgede kalan köşelerine lokal fırça maskesiyle +8 shadow ve +5 clarity basılarak kırmızı tonunun homojen derinliği sağlanmalıydı.`;
+      renkFlaw = `Gök mavisi ile bayrak kırmızısı arasındaki geçiş hattında mikroskobik renk saçaklanması mevcut. HSL Kırmızı ve Mavi sınırları daha keskin izole edilmeliydi. (-${lostCol} Puan)`;
+      recete = [
+        'Kadrajı %8 oranında yakınlaştırarak (crop) sağ kenardaki yaprak fazlalıklarını çerçeve dışına at.',
+        'Tepe parlaklığındaki mikro sıkışma için Highlights -15 ve Whites -8 kıs.',
+        'Bayrağın gölge kıvrımlarına fırça maskesiyle +8 Shadows bas.',
+        'Baskı için 300 DPI keskinlik çıkış profili tanımla.'
+      ];
     } else {
-      pozlama = 'Güneş ışığının kumaştan süzülüşündeki yarı saydamlığı (translucency) korumak için Highlights: -30 kısılmalı, alt sokaktaki gölgeleri açmak için Shadows: +22, Exposure: -0.1 EV dengelenmeli.';
-      maskeleme = '1) Gökyüzüne Lineer Gradyan Maske: Üstten aşağı -0.35 EV pozlama kıs ve +15 Dehaze basarak mavi göğü derinleştir. 2) Bayrağa Fırça Maskesi: +18 Clarity ve +12 Doygunluk vererek kumaşın dokusunu ve hilal-yıldızı öne çıkar.';
-      kadraj = 'Saat yönünde 90° dikey kadraja döndürülmeli. Alt kenardaki cadde karmaşası %15 kırpılarak (crop) bayrak kadrajın merkezine anıtsal biçimde yerleştirilmeli.';
-      renk = 'HSL Kırmızı: Saturation +15, Luminance -5 ile bayrağa tok bir al kırmızı ton verilmeli. HSL Mavi: Saturation +18, Luminance -8 ile gökyüzü mavisi zenginleştirilmeli.';
+      kadrajFlaw = `Kamera yatay tutulmuş ve dev bayrak yan yatmış! Kadraj gereksiz yere aşırı geniş, alt sokaktaki binalar ve boşluklar dikkati dağıtıyor. Acilen saat yönünde 90° dikey çevrilmeli ve alt/üst kenarlardan %15-20 kırpma (crop) yapılarak bayrak merkeze anıtsal biçimde yerleştirilmeli, konuya yakınlaşılmalıdır. (-${lostKomp} Puan)`;
+      pozlamaFlaw = `Arkadan gelen sert güneş ışığı kumaşın merkezinde parlama patlaması yaratıyor; alt sokaktaki gölgeler ise çamurlaşmış. Highlights acilen -35 kısılmalı, sokak gölgeleri Shadows +22 ve Exposure -0.15 EV ile kurtarılmalıdır. (-${lostTek} Puan)`;
+      maskelemeFlaw = `Gökyüzü ile bayrak birbirine karışıyor. Üstten aşağı Lineer Gradyan Maske çekilip gökyüzü -0.35 EV karartılmalı ve +15 Dehaze basılmalı; bayrağa ise Fırça Maskesiyle +18 Clarity ve +12 Doygunluk verilmelidir.`;
+      renkFlaw = `Kırmızı kanalında ham doygunluk patlaması var, gökyüzü mavisi ise soluk kalmış. HSL Kırmızı Sat +15 / Lum -5 ve HSL Mavi Sat +18 ile renk blokları ayrıştırılmalıdır. (-${lostCol} Puan)`;
+      recete = [
+        'Saat yönünde 90° dikey döndür ve %15-20 crop ile ana bayrak motifine kilitlen.',
+        'Pozlamayı -0.15 EV düşür, patlayan açık tonları kurtarmak için Highlights: -35 çek.',
+        'Gökyüzüne lineer gradyan maske, bayrağa radyal fırça maskesi çekip dokuyu öne çıkar.',
+        'HSL paneliyle gök mavisi ve bayrak kırmızısını birbirinden kopar.'
+      ];
     }
   } else if (searchText.includes('kedi') || searchText.includes('cat') || searchText.includes('0150') || searchText.includes('0151')) {
     if (isEdit) {
-      pozlama = 'Pozlama ve tüy dokusu kontrastı kusursuz dengelenmiş. İleri düzey: Highlights: -10, Shadows: +10 ile gözlerdeki ışık pırıltısı korunmalı.';
-      maskeleme = 'Kedinin gözlerine uygulanan Radyal Maske (+22 Clarity, +15 Sharpness, +10 Saturation) bakışları odak noktası yapmış. Arka plan yumuşak bokeh vinyetiyle desteklenmiş.';
-      kadraj = 'Yatay çekim 90° dikey portrait oranına çevrilmiş; ağaç gövdesi doğal bir sütun çerçeve oluşturuyor.';
-      renk = 'Kodak Portra sıcak kehribar tonlaması (Highlights Warm +12, Amber Bokeh Sat +15) gözlerle kusursuz uyum içinde.';
+      kadrajFlaw = `Dikey portrait oryantasyonuna geçilmiş olsa da, üst kısımdaki yaprak boşluğu kedinin bakış gücünü hafifçe seyreltiyor. Kadraj üstten %5 daha kırpılarak (crop) kedinin delici bakışlarına daha agresif odaklanılmalıydı. (-${lostKomp} Puan)`;
+      pozlamaFlaw = `Göz bebeklerindeki ışık pırıltısı iyi korunmuş; ancak burun ucu ve göğüsteki en parlak beyaz tüy alanlarında Highlights -10 daha kısılarak tüy mikro-detayları kusursuzlaştırılabilirdi. (-${lostTek} Puan)`;
+      maskelemeFlaw = `Arka plan bokeh geçişi fırça maskesiyle -8 clarity daha yumuşatılarak kedi arka plandan bir kademe daha dramatik şekilde izole edilebilirdi.`;
+      renkFlaw = `Arka plan bokeh alanındaki yeşillerde hafif sıcak ton sapması var; Green Hue +5 ile doğal çim tonuna kilitlenmeliydi. (-${lostCol} Puan)`;
+      recete = [
+        'Üst yaprak boşluğunu %5 kırparak bakışları tam altın orana oturt.',
+        'Burun ucundaki beyaz tüy parlaklığı için Highlights -10 çek.',
+        'Arka planı fırça maskesiyle -8 clarity daha yumuşat.',
+        'Gözlerdeki kehribar tonunu HSL Yellow/Orange kanalında sabitle.'
+      ];
     } else {
-      pozlama = 'Tüy dokularındaki beyaz parlamaları dizginlemek için Highlights: -30 kısılmalı, gölgede kalan pati ve göğüs tüyleri için Shadows: +25 açılmalı.';
-      maskeleme = '1) Kedinin gözlerine Radyal Maske: +25 Keskinlik, +20 Clarity, +15 Doygunluk ve +0.25 EV pozlama ile gözler parlatılmalı. 2) Arka plana Fırça/Gradyan Maske: -0.4 EV karartılıp -12 Clarity ile kedi arka plandan izole edilmeli.';
-      kadraj = 'Gereksiz yan boşluklar atılmalı; 90° dikey rotasyon ve sıkı 4:5 portre crop yapılarak kedinin bakışları üst 1/3 altın oran çizgisine çekilmeli.';
-      renk = 'HSL Sarı/Turuncu: Saturation +18, Luminance +10 (gözlerdeki kehribar/zümrüt canlılığı). Yeşillerde Green Hue +8 (doğal çim tonu), Köşe Vinyeti: -18.';
+      kadrajFlaw = `Kadraj çok geniş ve yatay çekilmiş! Kedinin etrafında gereksiz devasa boşluklar ve dikkat dağıtan ağaç dalı parçaları var. Kadraj 90° dikey çevrilmeli, %25-30 agresif crop yapılarak kedi portresine iyice yakınlaşılmalı ve gözler üst 1/3 çizgisine kilitlenmelidir. (-${lostKomp} Puan)`;
+      pozlamaFlaw = `Beyaz tüy bölgelerinde güneş parlaması detayları yok etmiş; gölgedeki pati ve boyun tüyleri ise kararmış. Highlights: -30 kısılmalı, Shadows: +25 açılarak tüy dokusu kurtarılmalıdır. (-${lostTek} Puan)`;
+      maskelemeFlaw = `Kedinin gözleri arka plan çimleriyle yarışıyor, konu öne çıkamıyor. Gözlere acilen Radyal Maske atılıp (+25 Keskinlik, +20 Clarity, +0.25 EV) parlatılmalı; arka plana gradyan maske çekilip -0.4 EV karartılmalıdır.`;
+      renkFlaw = `Gözlerdeki zümrüt/kehribar rengi soluk ve cansız kalmış; yeşil çimler sararmış. HSL Sarı/Turuncu Sat +18 basılmalı, lens vinyeti -18 ile bakışlar merkeze çekilmelidir. (-${lostCol} Puan)`;
+      recete = [
+        '90° dikey çevir ve %25-30 sıkı portre crop yap (gözlere yakınlaş).',
+        'Highlights: -30 kıs, Shadows: +25 açarak tüylerdeki dinamik aralığı kurtar.',
+        'Gözlere radyal maske çekip keskinlik bas, arka planı -0.4 EV karart.',
+        'HSL Sarı/Yeşil ayarıyla gözleri parlat ve köşe vinyeti uygula.'
+      ];
     }
   } else if (searchText.includes('gitar') || searchText.includes('guitar') || searchText.includes('0190')) {
     if (isEdit) {
-      pozlama = 'Flaş sertliği stüdyo spot ışığına dönüştürülmüş. İleri düzey: Metal aksam ve teller üzerinde Whites: +8 ile parlaklık vurgulanabilir.';
-      maskeleme = 'Arka plan maskesiyle oda siyaha gömülmüş (Exposure -2.0 EV); gövde ve tellere Radyal Maske ile +20 Clarity uygulanmış.';
-      kadraj = 'Monitör ve oda kirliliği kırpılarak saf enstrüman portresi kadrajı elde edilmiş.';
-      renk = 'Metalik kırmızı boya ve akçaağaç sap için sıcak amber/bordo Color Grade kusursuz.';
+      kadrajFlaw = `Arka plan temizlenmiş olsa da sapın bittiği üst kısımda hafif gereksiz boşluk kalmış; kadraj %5 daha yakınlaştırılarak teller ve manyetik detayları ön plana fırlatılabilirdi. (-${lostKomp} Puan)`;
+      pozlamaFlaw = `Flaş sertliği dizginlenmiş; ancak metal aksam ve tel yansımalarında Whites -8 ile ekstra parlama kontrolü sağlanabilirdi. (-${lostTek} Puan)`;
+      maskelemeFlaw = `Gövdenin alt sınırındaki karanlık gölge geçiş hattı fırça maskesiyle 2 piksel daha yumuşatılabilirdi.`;
+      renkFlaw = `Metalik kırmızı boyanın en parlak noktasında mikro doygunluk dengesizliği var; Red Luminance -4 ile toklaştırılabilirdi. (-${lostCol} Puan)`;
+      recete = [
+        'Sap kısmındaki boşluğu %5 kırparak gövde ve tellere daha çok kilitlen.',
+        'Metal aksam parlaması için Whites -8 ve Highlights -10 çek.',
+        'Gövde kenarındaki siyah geçişi fırça ile yumuşat.',
+        'Kırmızı gövde tonunu Red Luminance -4 ile derinleştir.'
+      ];
     } else {
-      pozlama = 'Flaşın oluşturduğu sert yansımayı gidermek için Highlights: -35 kısılmalı, metalik kırmızı boya ve klavye detayları için Shadows: +15 açılmalı, Genel Pozlama: -0.2 EV.';
-      maskeleme = '1) Gitar dışındaki arka plana Çevreleme Maskesi: Exposure -1.8 EV ve Shadows -40 ile oda tamamen siyaha gömülmeli (stüdyo spot ışığı etkisi). 2) Gövdeye ve tellere Radyal Maske: +22 Clarity, +18 Texture basılmalı.';
-      kadraj = 'Kadraj kenarındaki monitör, masa ve oda karmaşası %20 crop yapılarak temizlenmeli; gitarın diyagonal hattı sol alttan sağ üste yönlendirilmeli.';
-      renk = 'Metalik kırmızı için Red Saturation +20, Akçaağaç sap için Yellow Hue -5, Saturation +15. Sıcak tungsten tonlaması (Color Temp +6).';
+      kadrajFlaw = `Kadrajda sağda ve arkada monitör, çalışma masası ve oda dağınıklığı görünüyor; kompozisyon kirlenmiş! %20-25 kırpma (crop) yapılarak gitara ve tellere yakınlaşılmalı, diyagonal hat arıtılmalıdır. (-${lostKomp} Puan)`;
+      pozlamaFlaw = `Dahili flaş gitarın vernikli metalik gövdesinde çok sert ve çiğ bir parlama patlatmış. Highlights acilen -40 kısılmalı, klavye ve tel detayları için Shadows +18 açılmalı, Genel Pozlama: -0.2 EV olmalıdır. (-${lostTek} Puan)`;
+      maskelemeFlaw = `Gitar sıradan bir odada duruyor hissi veriyor. Gitar dışındaki tüm alana Ters Çevreleme Maskesi çekilip Exposure -1.8 EV ve Shadows -40 ile oda tamamen siyaha gömülmeli; gitara ise Radyal Maske (+22 Clarity, +18 Texture) uygulanmalıdır.`;
+      renkFlaw = `Flaşın yarattığı soğuk çiğlik ahşap sıcaklığını öldürmüş. Renk Sıcaklığı +6 artırılmalı, HSL Kırmızı Sat +20 ve Ahşap sap için Yellow Sat +15 ile sıcak enstrüman dokusu verilmelidir. (-${lostCol} Puan)`;
+      recete = [
+        'Arka plandaki masa ve monitörü %20 crop ile kesip at.',
+        'Flaş parlamasını yok etmek için Highlights: -40 ve Exposure: -0.2 EV çek.',
+        'Odayı ters maskeyle -1.8 EV siyaha gömüp stüdyo spot ışığı hissi yarat.',
+        'Sıcaklık +6 artırıp kırmızı gövdeyi ve ahşap sapı HSL ile parlat.'
+      ];
     }
   } else if (searchText.includes('begonvil') || searchText.includes('çiçek') || searchText.includes('botanik') || searchText.includes('0004')) {
     if (isEdit) {
-      pozlama = 'Çiçek taç yapraklarındaki parlama kontrol altında. İleri düzey: Highlights: -10, Shadows: +15.';
-      maskeleme = 'Çiçek kümesine Radyal Maske ile +18 Clarity ve +10 Texture verilmiş.';
-      kadraj = 'Çatı bloğu elenmiş, begonvillerin diyagonal akışı merkeze oturtulmuş.';
-      renk = 'Fuşya/Macenta doygunluğu dengeli, yeşil yapraklarda doğal klorofil tonu korunmuş.';
+      kadrajFlaw = `Sac çatı temizlenmiş olsa da sol üstteki boş taş duvar alanı biraz fazla yer kaplıyor; çiçeklerin yoğunluğuna %7 daha yakınlaşılabilirdi (daha sıkı crop). (-${lostKomp} Puan)`;
+      pozlamaFlaw = `Taş duvarın güneş alan en parlak tepe noktasında Highlights -12 daha kısılarak taş dokusu belirginleştirilebilirdi. (-${lostTek} Puan)`;
+      maskelemeFlaw = `Çiçek taç yapraklarına lokal radyal maske ile +10 clarity ve +6 texture daha eklenebilirdi.`;
+      renkFlaw = `Fuşya çiçeklerin gölgede kalan yapraklarındaki macenta doygunluğu mikro HSL ayarıyla bir tık daha dengelenebilirdi. (-${lostCol} Puan)`;
+      recete = [
+        'Sol üstteki boş duvarı %7 kırparak çiçek kümesine daha çok yaklaş.',
+        'Duvar tepe parlaklığı için Highlights -12 kıs.',
+        'Çiçek yapraklarına radyal maske ile +10 clarity bas.',
+        'Fuşya ve yaprak yeşili kontrastını HSL panelinde kilitler.'
+      ];
     } else {
-      pozlama = 'Taç yapraklardaki parlak güneş patlamalarını kurtarmak için Highlights: -35 kısılmalı, gölgede kalan yaprak ve duvar dokuları için Shadows: +22 açılmalı, Exposure: -0.15 EV.';
-      maskeleme = '1) Çiçek kümesine Radyal Maske: +20 Clarity, +15 Texture ve +0.15 EV ile begonviller parlatılmalı. 2) Sağ alttaki çatı bloğu ve boş duvar alanına Fırça Maskesi: -0.5 EV karartılarak doğal bir derinlik vinyeti yaratılmalı.';
-      kadraj = 'Sağ alttaki çatı kiremitleri ve dikkat dağıtan boşluklar kadraj dışı kalacak şekilde %15 crop yapılmalı; çiçeklerin duvardaki yayılımı diyagonal eksene oturtulmalı.';
-      renk = 'Magenta/Fuşya Saturation: +15, Yeşil yaprakların sararmaması için Green Hue: +8, Köşelerdeki sert vinyeti yumuşatmak için +20 Lens Vignette Correction.';
+      kadrajFlaw = `Sağ alt köşeyi çirkin bir sac çatı parçası işgal ediyor! Kompozisyonun doğal zarafeti bozulmuş ve kadraj geniş kalmış. Sağ alttan ve kenarlardan %15-20 crop yapılarak çatı kadraj dışına atılmalı ve çiçeklerin duvardaki S-kıvrımına yakınlaşılmalıdır. (-${lostKomp} Puan)`;
+      pozlamaFlaw = `Sert öğle güneşi taş duvarda ve çiçeklerin ışık alan noktalarında parlama patlaması yaratmış; gölgeler ise detay kaybetmiş. Highlights: -35 kısılmalı, Shadows: +22 açılmalı, Exposure: -0.15 EV dengelenmelidir. (-${lostTek} Puan)`;
+      maskelemeFlaw = `Köşelerde aşırı sert ve rahatsız edici bir optik vinyet lekesi var. Lens Vignette düzeltmesi yapılmalı; çiçek kümesine Radyal Maske (+20 Clarity, +15 Texture) atılarak duvardan koparılmalıdır.`;
+      renkFlaw = `Yüksek kontrast görüntüyü yapaylaştırmış, yeşil yapraklar sararmış. Magenta Sat +15 dengelenmeli, yapraklar için Green Hue +8 çekilmeli ve vinyet açılmalıdır. (-${lostCol} Puan)`;
+      recete = [
+        'Sağ alttaki sac çatıyı %15-20 crop ile kesip at, çiçeklerin S-hattına kilitlen.',
+        'Sert güneş patlamasını gidermek için Highlights: -35, Exposure: -0.15 EV yap.',
+        'Köşelerdeki sert vinyeti temizle, çiçek kümesine radyal netlik bas.',
+        'Yeşil yaprakları Green Hue +8 ile doğal çim tonuna getir.'
+      ];
     }
   } else if (searchText.includes('gece') || searchText.includes('ışık izi') || searchText.includes('uzun pozlama')) {
     if (isEdit) {
-      pozlama = 'Işık izleri ve karanlık gökyüzü dengesi kurulmuş. İleri düzey: Highlights: -15, Shadows: +10.';
-      maskeleme = 'Işık kaynaklarına hafif mist/bloom etkisi verilmiş, zemin gürültüsü temizlenmiş.';
-      kadraj = 'Diyagonal ışık izi aksı kadrajı boydan boya dengeliyor.';
-      renk = 'Cyberpunk / Sinematik Gece paleti (Cyan & Amber) başarıyla oturtulmuş.';
+      kadrajFlaw = `Işık izlerinin kadrajdan çıkış noktasında hafif simetri sapması var; kadraj %5 dengelenebilirdi. (-${lostKomp} Puan)`;
+      pozlamaFlaw = `Işık izlerinin en yoğun çekirdek noktasında Highlights -12 daha çekilerek renk çekirdeği korunabilirdi. (-${lostTek} Puan)`;
+      maskelemeFlaw = `Karanlık gökyüzü alanında mikro parazit temizleme maskesi bir kademe daha güçlendirilebilirdi.`;
+      renkFlaw = `Cyan ve Amber ayrımı son derece iyi, ancak camgöbeği doygunluğu %3 kısılabilir. (-${lostCol} Puan)`;
+      recete = [
+        'Kadraj çıkış noktasındaki asimetriyi %5 crop ile düzelt.',
+        'Işık izi merkezindeki aşırı parlama için Highlights -12 çek.',
+        'Gökyüzündeki mikro greni temizle.',
+        'Cyan/Amber tonlamasını sabitle.'
+      ];
     } else {
-      pozlama = 'Sokak lambaları ve araba farlarındaki patlamaları dizginlemek için Highlights: -45 kısılmalı, karanlıkta kalan yol ve bina dokuları için Shadows: +30 açılmalı, Pozlama: -0.25 EV.';
-      maskeleme = '1) Işık kaynaklarına Radyal Maske: Dehaze +15, Clarity -8 basarak sinematik bir halelenme (mist/bloom) oluşturulmalı. 2) Karanlık gökyüzü alanına Maske: Noise Reduction +25 ve Doygunluk -15 ile gren temizlenmeli.';
-      kadraj = 'Ufuk çizgisi teraziye alınmalı; ön plandaki boş asfalt %10 kırpılarak ışık izlerinin kadrajın köşelerinden merkeze aktığı dinamik bir diyagonal hat kurulmalı.';
-      renk = 'Sinematik Gece Tonu: Soğuk mavi/camgöbeği (Cyan Temp -8), sokak lambaları ve ışık izleri için sıcak altın/turuncu (Orange Hue -5, Sat +15).';
+      kadrajFlaw = `Ön plandaki karanlık ve boş asfalt gereksiz yer kaplıyor, ana konudan uzak kalınmış. Kadraj alttan %15 kırpılmalı (crop), ışık izlerinin köşelerden başlayıp ufka aktığı dinamik diyagonal perspektif kurulmalıdır. (-${lostKomp} Puan)`;
+      pozlamaFlaw = `Sokak lambaları ve araba farlarının merkezinde aşırı beyaz patlaması var; karanlık bina dokuları ise kaybolmuş. Highlights acilen -45 kısılmalı, Shadows +30 açılmalı, Pozlama -0.25 EV olmalıdır. (-${lostTek} Puan)`;
+      maskelemeFlaw = `Işık kaynaklarında çiğ parlama var. Işıklara Radyal Maske (Dehaze +15, Clarity -8) çekilerek sinematik mist/bloom etkisi verilmeli; gökyüzüne maske çekilip Noise Reduction +25 ile gren yok edilmelidir.`;
+      renkFlaw = `Sarı sokak ışıkları genel kadrajı kızıllaştırmış. Sinematik Gece Paleti için Renk Sıcaklığı -8 (Cyan/Soğuk Mavi) yapılmalı, ışık izleri Orange Sat +15 ile altın rengine boyanmalıdır. (-${lostCol} Puan)`;
+      recete = [
+        'Ön plandaki boş asfaltı %15 crop ile kes, ışık izi diyagonaline kilitlen.',
+        'Highlights: -45 kıs, Shadows: +30 açarak dinamik aralığı kurtar.',
+        'Işıklara mist/bloom maskesi uygula, karanlık gökyüzündeki greni temizle.',
+        'Cyan ve Amber sinematik renk ayrımını uygula.'
+      ];
     }
   } else if (searchText.includes('sokak') || searchText.includes('mimari') || searchText.includes('kentsel') || searchText.includes('şehir') || searchText.includes('bina')) {
     if (isEdit) {
-      pozlama = 'Bina cepheleri ve sokak derinliği dengeli. İleri düzey: Highlights: -10, Shadows: +15 ile kentsel doku derinliği artırılabilir.';
-      maskeleme = 'Gökyüzü lineer gradyanla zenginleştirilmiş, sokak dokularına clarity basılmış.';
-      kadraj = 'Gereksiz araç ve kablo karmaşası ayıklanarak arıtılmış sokak geometrisi sağlanmış.';
-      renk = '90lar analog film sokak paleti (Warm Amber & Soft Teal) sinematik bir his veriyor.';
+      kadrajFlaw = `Perspektif düzeltilmiş olsa da dikey mimari hatlarda 0.8° mikro distorsiyon kalmış; mimari eksen tam kilitlenmeliydi. (-${lostKomp} Puan)`;
+      pozlamaFlaw = `Bina gölgelerindeki koyu alanlarda Shadows +12 ile kentsel doku bir kademe daha açılabilirdi. (-${lostTek} Puan)`;
+      maskelemeFlaw = `Gökyüzü gradyan maskesi ile bina çatısı arasındaki kenar geçişi fırça ile daha kusursuz taranabilirdi.`;
+      renkFlaw = `Analog tonlama başarılı; gölge kanallarındaki mavi ton doygunluğu %4 dengelenebilir. (-${lostCol} Puan)`;
+      recete = [
+        'Mimari dikey hatları 0.8° teraziye kilitle.',
+        'Bina cephe gölgelerini Shadows +12 ile aç.',
+        'Gökyüzü maske sınırını fırça ile kusursuzlaştır.',
+        'Analog film renk paletini 300 DPI baskıya hazırla.'
+      ];
     } else {
-      pozlama = 'Parlak gökyüzü ile gölgede kalan sokak seviyesi arasındaki uçurumu kapatmak için Highlights: -40 kısılmalı, bina cepheleri ve zemin için Shadows: +30 açılmalı, Whites: -12.';
-      maskeleme = '1) Gökyüzüne Lineer Gradyan Maske: Temp -10 (derin gök mavisi), Highlights -35, Dehaze +12. 2) Sokaktaki ana mimariye veya araca Fırça Maskesi: Shadows +25, Clarity +18 basılarak kentsel doku belirginleştirilmeli.';
-      kadraj = 'Ufuk çizgisi 1.2° teraziye alınmalı; kadrajın altındaki kablo veya çöp kutusu gibi kirlilikler %10-15 kırpılarak (crop) mimari ritim ve dikey perspektif güçlendirilmeli.';
-      renk = 'Klasik 90lar Analog Sokak Paleti: Shadows Cool Blue/Teal (+8), Highlights Warm Amber (+12), Vibrance +12, Saturation -5 ile nostaljik film estetiği yakalanmalı.';
+      kadrajFlaw = `Ufuk çizgisi eğik ve kadrajın alt/yan kenarlarında dikkat dağıtan kablolar, araçlar veya çöp kutuları var. Ufuk 1.2° teraziye alınmalı, %12-18 crop yapılarak ana mimariye/özneye yakınlaşılmalı ve sokak geometrisi güçlendirilmelidir. (-${lostKomp} Puan)`;
+      pozlamaFlaw = `Parlak gökyüzü ile gölgede kalan sokak seviyesi arasında uçurum var. Gökyüzü patlarken binalar kararmış. Highlights: -40 kısılmalı, bina cepheleri için Shadows: +30 açılmalı, Whites: -12 olmalıdır. (-${lostTek} Puan)`;
+      maskelemeFlaw = `Gökyüzüne Lineer Gradyan Maske (Temp -10, Highlights -35, Dehaze +12) uygulanmalı; sokaktaki ana mimariye/özneye Fırça Maskesi (Shadows +25, Clarity +18) basılarak kentsel doku öne çıkarılmalıdır.`;
+      renkFlaw = `90lar analog film hissi eksik; renkler çiğ ve WB kayması var. Gölgelere Cool Teal (+8), aydınlıklara Warm Amber (+12) verilerek nostaljik sokak kontrastı yaratılmalıdır. (-${lostCol} Puan)`;
+      recete = [
+        'Ufuk çizgisini 1.2° düzelt ve alt kenardaki kirlilikleri %15 crop ile kes.',
+        'Highlights: -40 kıs, Shadows: +30 açarak sokak cephesini aydınlat.',
+        'Gökyüzüne lineer gradyan çek, ana objeye radyal netlik bas.',
+        'Analog Teal & Amber split toning uygulayarak sinematik hava kat.'
+      ];
     }
   } else {
     if (isEdit) {
-      pozlama = 'Pozlama ve kontrast dengeli. İleri düzey: Highlights: -10, Shadows: +10, Whites: -5.';
-      maskeleme = 'Ana ilgi merkezine radyal netlik verilmiş, kenarlar yumuşak vinyetle desteklenmiş.';
-      kadraj = 'Altın oran kompozisyonu ve odak dengesi stabilize edilmiş.';
-      renk = 'Analog film sıcaklığı ve renk harmonisi başarıyla korunmuş.';
+      kadrajFlaw = `Kompozisyon dengeli olsa da ana ilgi merkezine %5-8 daha yaklaşılıp (crop) kenar boşlukları kusursuzlaştırılabilirdi. (-${lostKomp} Puan)`;
+      pozlamaFlaw = `Aşırı parlak tepe noktalarında mikro ton sıkışması var; Highlights -10, Shadows +10 ile dinamik aralık zirveye taşınabilirdi. (-${lostTek} Puan)`;
+      maskelemeFlaw = `Ana objeye lokal radyal maske ile +12 clarity ve arka plana yumuşak vinyet uygulanabilirdi.`;
+      renkFlaw = `Renk sıcaklığı ve doygunluk mikro seviyede kalibre edilmeli; kanallar arasındaki kontrast dengelenmelidir. (-${lostCol} Puan)`;
+      recete = [
+        'Ana ilgi merkezine %6 daha yakınlaşarak (crop) kenar paylarını sıfırla.',
+        'Tepe ışıklarını Highlights -10 ile dizginle.',
+        'Radyal maske ile odak noktasına +12 clarity ver.',
+        'Renk ayrımını HSL panelinde sabitle.'
+      ];
     } else {
-      pozlama = 'Highlights: -30 (parlak alanları kurtar), Shadows: +22 (gölge detaylarını aç), Whites: -10, Blacks: +5 ile CCD sensörün dinamik aralığı maksimuma çıkarılmalı.';
-      maskeleme = '1) Ana ilgi merkezine Radyal Maske: +18 Clarity, +15 Sharpness, +0.2 EV. 2) Arka plana ve kenarlara Gradyan Maske: -0.35 EV karartma ile odak merkezi güçlendirilmeli.';
-      kadraj = 'Gereksiz kenar boşlukları ve dikkat dağıtıcı detaylar kırpılmalı (crop), ufuk/terazi çizgisi sıfırlanmalı ve altın oran (Rule of Thirds) kurgusu kurulmalı.';
-      renk = 'Temp: +5 (sıcak analog hissi), Tint: +3 (hafif macenta), Vibrance: +15, Saturation: -5, Köşe Vinyeti: -15 ile sinematik odaklama.';
+      kadrajFlaw = `Kadraj gereksiz geniş tutulmuş ve ana konudan uzak kalınmış! Kenarlardaki dikkat dağıtıcı detaylar kompozisyon gücünü kırıyor. %15-20 crop yapılarak ana konuya yaklaşılmalı ve ufuk çizgisi teraziye alınmalıdır. (-${lostKomp} Puan)`;
+      pozlamaFlaw = `Işık patlamaları ve gölge kayıpları: Parlak alanlarda (highlights) detaylar uçmuş, gölgeler çamurlaşmış. Exposure -0.15 EV, Highlights -35 çekilmeli, Shadows +25 ile gölgeler kurtarılmalıdır. (-${lostTek} Puan)`;
+      maskelemeFlaw = `İzolasyon eksikliği: Ana obje arka plandan kopamıyor. Radyal maske çekilip obje netleştirilmeli (+20 clarity), lineer gradyan ile gökyüzü/arka plan karartılmalıdır (-0.35 EV).`;
+      renkFlaw = `Renk sapması ve gren: Renk kanalları ham veya aşırı doygun, CCD sensörün kenar detaylarında gren/yumuşama var. HSL kanalları dengelenmeli, renk sıcaklığı ve vinyet düzeltilmelidir. (-${lostCol} Puan)`;
+      recete = [
+        'Gereksiz kenar boşluklarını %15-20 crop ile kırp ve ana konuya yakınlaş.',
+        'Highlights: -35 kıs, Shadows: +25 açarak sensörün dinamik aralığını aç.',
+        'Radyal maske ile ana objeyi izole et ve arka planı karart.',
+        'Sıcaklık +5, Doygunluk +10 ve köşe vinyeti ile sinematik odak kur.'
+      ];
     }
   }
 
-  return { pozlama, maskeleme, kadraj, renk, isEdit };
+  return {
+    score,
+    lostTotal,
+    lostKomp,
+    lostTek,
+    lostCol,
+    kadrajFlaw,
+    pozlamaFlaw,
+    maskelemeFlaw,
+    renkFlaw,
+    recete,
+    isEdit
+  };
 }
 
 function renderImprovementGuide(p) {
   if (!mImprovementContent) return;
   const critique = generatePhotoCritique(p);
   const isEdit = critique.isEdit;
-  const pairTarget = p.pairedId || p.pair_id || (p.id === 'IMG_0150_1.jpg' ? 'IMG_0150.JPG' : (p.id === 'IMG_0150.JPG' ? 'IMG_0150_1.jpg' : (p.id === 'IMG_0151_1.jpg' ? 'IMG_0151.JPG' : (p.id === 'IMG_0151.JPG' ? 'IMG_0151_1.jpg' : null))));
-  const hasEdit = p.hasEdit || (!isEdit && pairTarget !== null) || (!isEdit && photos.some(other => other.id !== p.id && other.id.replace(/_\d+\./, '.').toLowerCase() === p.id.toLowerCase()));
 
   if (mImprovementBadge) {
-    if (isEdit) {
-      mImprovementBadge.textContent = 'Revize v1 (Edit)';
-      mImprovementBadge.style.color = '#81c784';
-      mImprovementBadge.style.borderColor = 'rgba(76, 175, 80, 0.35)';
-      mImprovementBadge.style.background = 'rgba(76, 175, 80, 0.12)';
-    } else if (hasEdit) {
-      mImprovementBadge.textContent = 'Edit Mevcut';
-      mImprovementBadge.style.color = '#ffd54f';
-      mImprovementBadge.style.borderColor = 'rgba(255, 193, 7, 0.35)';
-      mImprovementBadge.style.background = 'rgba(255, 193, 7, 0.12)';
-    } else {
-      mImprovementBadge.textContent = 'Düzenleme & Eleştiri';
-      mImprovementBadge.style.color = 'var(--gold)';
-      mImprovementBadge.style.borderColor = 'rgba(255, 215, 0, 0.25)';
-      mImprovementBadge.style.background = 'rgba(255, 215, 0, 0.12)';
-    }
-  }
-
-  let rawAdvice = '';
-  if (p.ozet) {
-    const sentences = p.ozet.split(/(?<=[.!?])\s+/);
-    if (sentences.length > 1) {
-      rawAdvice = sentences.slice(1).join(' ');
-    } else {
-      rawAdvice = p.ozet;
-    }
+    mImprovementBadge.textContent = `-${critique.lostTotal} Puan Kusur Analizi`;
+    mImprovementBadge.style.color = '#ff6b6b';
+    mImprovementBadge.style.borderColor = 'rgba(255, 107, 107, 0.35)';
+    mImprovementBadge.style.background = 'rgba(255, 107, 107, 0.12)';
   }
 
   let html = '';
 
-  if (isEdit) {
-    html += `
-      <div class="improvement-status-banner edit-status">
-        <span class="status-icon">✨</span>
-        <div class="status-info">
-          <strong>Küratör Revizyonu Tamamlandı</strong>
-          <span>Ham çekimdeki kadraj oryantasyonu, dinamik aralık ve renk dengesi optimize edilerek başyapıt seviyesine ulaştırılmıştır.</span>
-        </div>
-      </div>
-    `;
-  } else if (hasEdit) {
-    html += `
-      <div class="improvement-status-banner raw-has-edit">
-        <span class="status-icon">💡</span>
-        <div class="status-info">
-          <strong>Düzenlenmiş (Editli) Versiyon Mevcut!</strong>
-          <span>Aşağıdaki eleştiriler ve düzenleme reçetesi doğrultusunda hazırlanmış revize versiyonu 'Karşılaştır' ile inceleyebilirsiniz.</span>
-        </div>
-      </div>
-    `;
-  }
-
   html += `
-    <div class="improvement-grid">
-      <div class="improvement-card">
-        <div class="improvement-card-header">
-          <span class="imp-icon">🎚️</span>
-          <span class="imp-title">Pozlama & Işık Dengesi</span>
-        </div>
-        <p class="imp-desc">${critique.pozlama}</p>
-      </div>
-
-      <div class="improvement-card">
-        <div class="improvement-card-header">
-          <span class="imp-icon">🎭</span>
-          <span class="imp-title">Maskeleme & Yerel Müdahaleler</span>
-        </div>
-        <p class="imp-desc">${critique.maskeleme}</p>
-      </div>
-
-      <div class="improvement-card">
-        <div class="improvement-card-header">
-          <span class="imp-icon">📐</span>
-          <span class="imp-title">Kadraj, Açı & Kırpma (Crop)</span>
-        </div>
-        <p class="imp-desc">${critique.kadraj}</p>
-      </div>
-
-      <div class="improvement-card">
-        <div class="improvement-card-header">
-          <span class="imp-icon">🎨</span>
-          <span class="imp-title">Color Grade & Renk Reçetesi</span>
-        </div>
-        <p class="imp-desc">${critique.renk}</p>
+    <div class="improvement-status-banner critic-status">
+      <span class="status-icon">⚠️</span>
+      <div class="status-info">
+        <strong>Küratör & Eleştirmen Raporu: Bu Fotoğraf Neden 10/10 Değil?</strong>
+        <span>Genel Puan: <strong>${critique.score.toFixed(1)} / 10</strong> — Tam puandan düşülen <strong>-${critique.lostTotal} puan</strong>; kadraj/yakınlaşma eksiklikleri, kontrolsüz ışık ve gölgeler, yerel maskeleme ve renk kusurlarından kırılmıştır.</span>
       </div>
     </div>
   `;
 
-  if (rawAdvice) {
-    html += `
-      <div class="improvement-action-box">
-        <div class="imp-action-title">
-          <span class="imp-icon">🎯</span>
-          <span>${isEdit ? 'İleri Düzey Küratör Notu & Baskı Rehberi:' : 'Küratör Eleştirisi & Uygulama Planı:'}</span>
+  html += `
+    <div class="improvement-grid">
+      <div class="improvement-card critic-card">
+        <div class="improvement-card-header">
+          <span class="imp-icon">📐</span>
+          <span class="imp-title">Kadraj, Yakınlaşma & Kırpma (Crop) Kusurları</span>
+          <span class="imp-penalty">-${critique.lostKomp} Puan</span>
         </div>
-        <p class="imp-action-text">${rawAdvice}</p>
+        <p class="imp-desc">${critique.kadrajFlaw}</p>
+      </div>
+
+      <div class="improvement-card critic-card">
+        <div class="improvement-card-header">
+          <span class="imp-icon">🎚️</span>
+          <span class="imp-title">Pozlama, Işık & Dinamik Aralık Hataları</span>
+          <span class="imp-penalty">-${critique.lostTek} Puan</span>
+        </div>
+        <p class="imp-desc">${critique.pozlamaFlaw}</p>
+      </div>
+
+      <div class="improvement-card critic-card">
+        <div class="improvement-card-header">
+          <span class="imp-icon">🎭</span>
+          <span class="imp-title">Maskeleme & İzolasyon Eksiklikleri</span>
+          <span class="imp-penalty">Yerel Müdahale</span>
+        </div>
+        <p class="imp-desc">${critique.maskelemeFlaw}</p>
+      </div>
+
+      <div class="improvement-card critic-card">
+        <div class="improvement-card-header">
+          <span class="imp-icon">🎨</span>
+          <span class="imp-title">Renk, Kontrast, Doku & Gren Bozulmaları</span>
+          <span class="imp-penalty">-${critique.lostCol} Puan</span>
+        </div>
+        <p class="imp-desc">${critique.renkFlaw}</p>
+      </div>
+    </div>
+  `;
+
+  if (critique.recete && critique.recete.length > 0) {
+    html += `
+      <div class="improvement-action-box critic-box">
+        <div class="imp-action-title">
+          <span class="imp-icon">⚡</span>
+          <span>Eleştirmenin Düzeltme & Kurtarma Reçetesi (Tam Puan İçin Yapılacaklar):</span>
+        </div>
+        <ol class="imp-action-list">
+          ${critique.recete.map(step => `<li>${step}</li>`).join('')}
+        </ol>
       </div>
     `;
   }
