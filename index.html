@@ -38,7 +38,7 @@
   <!-- LCP Image Preload -->
   <link rel="preload" as="image" href="https://lh3.googleusercontent.com/pw/AP1GczPbYOWfte9CHl2l6ZGLbIOtip0TDaVQoyC0KNWNoMb3hiU16YFM9SPmdMlQOcmtkXsGpMq7NBSzRPykTCmzUwzF-9wdwpZucp8ule608oJ8O-knwmU=w600-h600-rw" fetchpriority="high">
 
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=20260924_2">
 </head>
 
 <body>
@@ -423,6 +423,30 @@
             </div>
           </div>
 
+          <!-- GELİŞTİRİLMESİ GEREKEN KISIMLAR & İYİLEŞTİRME REHBERİ (AÇILIR / KAPANIR) -->
+          <details class="improvement-accordion" id="mImprovementDetails" open>
+            <summary class="improvement-summary">
+              <div class="improvement-summary-title">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                </svg>
+                <span>Geliştirilmesi Gereken Kısımlar & İyileştirme Rehberi</span>
+              </div>
+              <span class="improvement-badge" id="mImprovementBadge">Analiz</span>
+              <svg class="improvement-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </summary>
+            <div class="improvement-body" id="mImprovementContent">
+              <!-- JS ile dinamik doldurulur -->
+            </div>
+          </details>
+
+          <div class="curator-note">
+            <div class="curator-label">Küratör Notu</div>
+            <p class="curator-text" id="mOzet">-</p>
+          </div>
+
           <div class="exif-section">
             <div class="section-label">Kamera & EXIF Verisi</div>
             <div class="exif-grid">
@@ -473,30 +497,6 @@
               <p class="criteria-desc" id="mColD">-</p>
             </div>
           </div>
-
-          <div class="curator-note">
-            <div class="curator-label">Küratör Notu</div>
-            <p class="curator-text" id="mOzet">-</p>
-          </div>
-
-          <!-- GELİŞTİRİLMESİ GEREKEN KISIMLAR & İYİLEŞTİRME REHBERİ (AÇILIR / KAPANIR) -->
-          <details class="improvement-accordion" id="mImprovementDetails" open>
-            <summary class="improvement-summary">
-              <div class="improvement-summary-title">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
-                </svg>
-                <span>Geliştirilmesi Gereken Kısımlar & İyileştirme Rehberi</span>
-              </div>
-              <span class="improvement-badge" id="mImprovementBadge">Analiz</span>
-              <svg class="improvement-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polyline points="6 9 12 15 18 9"></polyline>
-              </svg>
-            </summary>
-            <div class="improvement-body" id="mImprovementContent">
-              <!-- JS ile dinamik doldurulur -->
-            </div>
-          </details>
 
         </div>
       </div>
@@ -1181,8 +1181,8 @@
   <script src="three.min.js" defer></script>
   <script src="textures_data.js" defer></script>
   <script src="camera3d.js" defer></script>
-  <script src="data.js" defer></script>
-  <script src="app.js" defer></script>
+  <script src="data.js?v=20260924_2" defer></script>
+  <script src="app.js?v=20260924_2" defer></script>
   <!-- ═══════════ MOBİL ALT GEZİNME ÇUBUĞU (BOTTOM NAVIGATION) ═══════════ -->
   <nav class="bottom-nav" id="bottomNav" aria-label="Mobil Alt Gezinme">
     <button class="bottom-nav-item active" data-nav="gallery" id="bNavGallery">
