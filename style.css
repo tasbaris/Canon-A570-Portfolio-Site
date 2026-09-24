@@ -1719,31 +1719,151 @@
       .hero-title { font-size: 28px; }
     }
   
-    .minimap {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      width: 160px;
-      height: 107px;
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center;
-      border: 2px solid rgba(255,255,255,0.2);
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-      display: none;
-      z-index: 100;
+    /* Geliştirilmesi Gereken Kısımlar (Collapsible Accordion) */
+    .improvement-accordion {
+      margin-top: 14px;
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
       overflow: hidden;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
     }
-    .minimap.visible { display: block; }
-    .minimap-box {
-      position: absolute;
-      border: 2px solid var(--gold);
-      background: rgba(255, 215, 0, 0.2);
-      width: 33.33%;
-      height: 33.33%;
-      transform: translate(-50%, -50%);
-      pointer-events: none;
+    .improvement-accordion[open] {
+      border-color: rgba(255, 215, 0, 0.35);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    }
+    .improvement-summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 14px;
+      cursor: pointer;
+      user-select: none;
+      background: rgba(255, 255, 255, 0.02);
+      transition: background 0.2s ease;
+      list-style: none;
+    }
+    .improvement-summary::-webkit-details-marker {
+      display: none;
+    }
+    .improvement-summary:hover {
+      background: rgba(255, 255, 255, 0.05);
+    }
+    .improvement-summary-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .improvement-badge {
+      font-size: 10px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 10px;
+      background: rgba(255, 215, 0, 0.12);
+      color: var(--gold);
+      border: 1px solid rgba(255, 215, 0, 0.25);
+    }
+    .improvement-chevron {
+      color: var(--text-muted);
+      transition: transform 0.25s ease;
+    }
+    .improvement-accordion[open] .improvement-chevron {
+      transform: rotate(180deg);
+      color: var(--gold);
+    }
+    .improvement-body {
+      padding: 12px 14px;
+      border-top: 1px solid var(--border-color);
+      background: rgba(0, 0, 0, 0.15);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .improvement-status-banner {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+    }
+    .improvement-status-banner.edit-status {
+      background: rgba(76, 175, 80, 0.1);
+      border: 1px solid rgba(76, 175, 80, 0.3);
+      color: #81c784;
+    }
+    .improvement-status-banner.raw-has-edit {
+      background: rgba(255, 193, 7, 0.1);
+      border: 1px solid rgba(255, 193, 7, 0.3);
+      color: #ffd54f;
+    }
+    .status-info strong {
+      display: block;
+      font-size: 12px;
+      margin-bottom: 2px;
+    }
+    .status-info span {
+      font-size: 11px;
+      opacity: 0.85;
+    }
+    .improvement-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .improvement-card {
+      background: var(--bg-secondary);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 6px;
+      padding: 9px 11px;
+    }
+    .improvement-card-header {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 4px;
+    }
+    .imp-icon {
+      font-size: 13px;
+    }
+    .imp-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: var(--text-primary);
+    }
+    .imp-desc {
+      font-size: 12px;
+      line-height: 1.5;
+      color: var(--text-secondary);
+      margin: 0;
+    }
+    .improvement-action-box {
+      background: rgba(255, 215, 0, 0.05);
+      border-left: 2px solid var(--gold);
+      border-radius: 0 6px 6px 0;
+      padding: 9px 11px;
+    }
+    .imp-action-title {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 4px;
+    }
+    .imp-action-text {
+      font-size: 12px;
+      line-height: 1.5;
+      color: var(--text-primary);
+      margin: 0;
     }
 
   

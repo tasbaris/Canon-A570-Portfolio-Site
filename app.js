@@ -660,20 +660,12 @@ if (mDel) {
 
 // Zoom & Pan Logic
 const modalCanvas = document.getElementById('modalCanvas');
-const minimap = document.getElementById('minimap');
-const minimapBox = document.getElementById('minimapBox');
 
 mImg.addEventListener('click', (e) => {
   e.stopPropagation();
   mImg.classList.toggle('zoomed');
 
   if (mImg.classList.contains('zoomed')) {
-    const cRect = modalCanvas.getBoundingClientRect();
-    minimap.style.width = '200px';
-    minimap.style.height = (200 * cRect.height / cRect.width) + 'px';
-    minimap.style.backgroundImage = `url(${mImg.src})`;
-    minimap.classList.add('visible');
-
     updatePan(e);
   } else {
     resetZoom();
@@ -688,7 +680,6 @@ if (modalCanvas) {
 
 function resetZoom() {
   mImg.classList.remove('zoomed');
-  if (minimap) minimap.classList.remove('visible');
   mImg.style.setProperty('--x', '50%');
   mImg.style.setProperty('--y', '50%');
 }
@@ -707,11 +698,162 @@ function updatePan(e) {
 
   mImg.style.setProperty('--x', xPct);
   mImg.style.setProperty('--y', yPct);
+}
 
-  if (minimapBox) {
-    minimapBox.style.left = xPct;
-    minimapBox.style.top = yPct;
+// Improvement Guide DOM Elements
+const mImprovementDetails = document.getElementById('mImprovementDetails');
+const mImprovementBadge = document.getElementById('mImprovementBadge');
+const mImprovementContent = document.getElementById('mImprovementContent');
+
+function renderImprovementGuide(p) {
+  if (!mImprovementContent) return;
+  const isEdit = p.is_edit || p.isEdit || /_\d+\./.test(p.id);
+  const pairTarget = p.pairedId || p.pair_id || (p.id === 'IMG_0150_1.jpg' ? 'IMG_0150.JPG' : (p.id === 'IMG_0150.JPG' ? 'IMG_0150_1.jpg' : (p.id === 'IMG_0151_1.jpg' ? 'IMG_0151.JPG' : (p.id === 'IMG_0151.JPG' ? 'IMG_0151_1.jpg' : null))));
+  const hasEdit = p.hasEdit || (!isEdit && pairTarget !== null) || (!isEdit && photos.some(other => other.id !== p.id && other.id.replace(/_\d+\./, '.').toLowerCase() === p.id.toLowerCase()));
+
+  if (mImprovementBadge) {
+    if (isEdit) {
+      mImprovementBadge.textContent = 'Revize v1 (Edit)';
+      mImprovementBadge.style.color = '#81c784';
+      mImprovementBadge.style.borderColor = 'rgba(76, 175, 80, 0.35)';
+      mImprovementBadge.style.background = 'rgba(76, 175, 80, 0.12)';
+    } else if (hasEdit) {
+      mImprovementBadge.textContent = 'Edit Mevcut';
+      mImprovementBadge.style.color = '#ffd54f';
+      mImprovementBadge.style.borderColor = 'rgba(255, 193, 7, 0.35)';
+      mImprovementBadge.style.background = 'rgba(255, 193, 7, 0.12)';
+    } else {
+      mImprovementBadge.textContent = 'İyileştirme Rehberi';
+      mImprovementBadge.style.color = 'var(--gold)';
+      mImprovementBadge.style.borderColor = 'rgba(255, 215, 0, 0.25)';
+      mImprovementBadge.style.background = 'rgba(255, 215, 0, 0.12)';
+    }
   }
+
+  // Extract actionable advice
+  let rawAdvice = '';
+  if (p.ozet) {
+    const sentences = p.ozet.split(/(?<=[.!?])\s+/);
+    if (sentences.length > 1) {
+      rawAdvice = sentences.slice(1).join(' ');
+    } else {
+      rawAdvice = p.ozet;
+    }
+  }
+
+  // 1. Kadraj & Kompozisyon Analizi
+  let kompAdvice = '';
+  if (isEdit) {
+    kompAdvice = 'Orijinal çekimdeki oryantasyon/perspektif ve kenar kirlilikleri giderildi; ana obje altın oran çizgisine çekilerek güçlü bir odak dengesi sağlandı.';
+    if (p.komp_desc) kompAdvice += ' (' + p.komp_desc + ')';
+  } else {
+    if (p.komp_desc && p.komp_desc.length > 10) {
+      kompAdvice = p.komp_desc;
+    } else {
+      kompAdvice = 'Kadrajda ana objeyi öne çıkaracak altın oran kırpması (crop) yapılmalı, kadraj kenarlarındaki dikkat dağıtıcı unsurlar elenmelidir.';
+    }
+    if (p.komp_score < 7.5) {
+      kompAdvice += ' Tavsiye: Ufuk çizgisi veya dikey terazi hizalanmalı, simetri ve yönlendirici çizgiler pekiştirilmelidir.';
+    }
+  }
+
+  // 2. Teknik & Pozlama Analizi
+  let tekAdvice = '';
+  if (isEdit) {
+    tekAdvice = 'Canon CCD sensörün mikro-kontrastı korunarak patlayan parlak alanlar kısıldı ve gölge detayları temiz bir dinamik aralıkla açıldı.';
+    if (p.tek_desc) tekAdvice += ' (' + p.tek_desc + ')';
+  } else {
+    if (p.tek_desc && p.tek_desc.length > 10) {
+      tekAdvice = p.tek_desc;
+    } else {
+      tekAdvice = 'Pozlama dengesi optimize edilmeli; parlak gökyüzü veya yansımalar hafifçe kısılmalı, gölgede kalan dokular kurtarılmalıdır.';
+    }
+    if (p.tek_score < 7.5) {
+      tekAdvice += ' Tavsiye: ISO 80 pürüzsüzlüğü korunarak keskinlik (clarity/texture) ve dinamik aralık eğrisi dengelenmelidir.';
+    }
+  }
+
+  // 3. Color Grade & Atmosfer
+  let colAdvice = '';
+  if (isEdit) {
+    colAdvice = 'Sıcak analog film tonlaması (Portra/Amber), renk bloklama ve dengeli kontrast uygulanarak sinematik bir görsel derinlik kazandırıldı.';
+    if (p.col_desc) colAdvice += ' (' + p.col_desc + ')';
+  } else {
+    if (p.col_desc && p.col_desc.length > 10) {
+      colAdvice = p.col_desc;
+    } else {
+      colAdvice = 'Renk doygunluğu ve beyaz dengesi (WB) optimize edilmeli; sahneye sıcak film tonları ve dengeli bir renk kontrastı kazandırılmalıdır.';
+    }
+    if (p.col_score < 7.5) {
+      colAdvice += ' Tavsiye: Doygunluk yerine HSL ton eğrileriyle doğal analog sıcaklığı yakalanabilir.';
+    }
+  }
+
+  let html = '';
+
+  if (isEdit) {
+    html += `
+      <div class="improvement-status-banner edit-status">
+        <span class="status-icon">✨</span>
+        <div class="status-info">
+          <strong>Küratör Revizyonu Tamamlandı</strong>
+          <span>Ham çekimdeki kadraj oryantasyonu, dinamik aralık ve renk dengesi optimize edilerek başyapıt seviyesine ulaştırılmıştır.</span>
+        </div>
+      </div>
+    `;
+  } else if (hasEdit) {
+    html += `
+      <div class="improvement-status-banner raw-has-edit">
+        <span class="status-icon">💡</span>
+        <div class="status-info">
+          <strong>Düzenlenmiş (Editli) Versiyon Mevcut!</strong>
+          <span>Bu fotoğraf için yapılan kadraj ve renk iyileştirmelerini 'Karşılaştır' butonuna tıklayarak doğrudan inceleyebilirsiniz.</span>
+        </div>
+      </div>
+    `;
+  }
+
+  html += `
+    <div class="improvement-grid">
+      <div class="improvement-card">
+        <div class="improvement-card-header">
+          <span class="imp-icon">📐</span>
+          <span class="imp-title">Kadraj & Kompozisyon</span>
+        </div>
+        <p class="imp-desc">${kompAdvice}</p>
+      </div>
+
+      <div class="improvement-card">
+        <div class="improvement-card-header">
+          <span class="imp-icon">⚙️</span>
+          <span class="imp-title">Teknik & Pozlama</span>
+        </div>
+        <p class="imp-desc">${tekAdvice}</p>
+      </div>
+
+      <div class="improvement-card">
+        <div class="improvement-card-header">
+          <span class="imp-icon">🎨</span>
+          <span class="imp-title">Color Grade & Renk Uyumu</span>
+        </div>
+        <p class="imp-desc">${colAdvice}</p>
+      </div>
+    </div>
+  `;
+
+  if (rawAdvice) {
+    html += `
+      <div class="improvement-action-box">
+        <div class="imp-action-title">
+          <span class="imp-icon">🎯</span>
+          <span>${isEdit ? 'İleri Düzey Küratör Önerisi & Baskı Notu:' : 'Küratör Eylem & İyileştirme Planı:'}</span>
+        </div>
+        <p class="imp-action-text">${rawAdvice}</p>
+      </div>
+    `;
+  }
+
+  mImprovementContent.innerHTML = html;
 }
 
 // LIGHTBOX
@@ -766,6 +908,7 @@ function openModal(index, direction) {
 
     mOzet.textContent = p.ozet;
 
+    renderImprovementGuide(p);
 
     const isFav = isFavorite(p.id);
     if (mFavBtn) mFavBtn.classList.toggle('active', isFav);
@@ -1026,7 +1169,6 @@ function openCompareStage() {
 
   compareStage.style.display = 'flex';
   mImg.style.display = 'none';
-  if (minimap) minimap.classList.remove('visible');
   isCompareOpen = true;
   mCompare.classList.add('active');
   mCompare.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg> <span class="btn-text">Karşılaştırmadan Çık</span>';
