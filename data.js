@@ -1099,6 +1099,32 @@ const staticPhotosData = [
     "resolution": "3072 × 2304"
   },
   {
+    "id": "IMG_0056_1.JPG",
+    "tur": "Özel Seri & Belgesel / Kentsel Derinlik & Gökyüzünde Dalgalanan Türk Bayrağı (Revize v1)",
+    "tek_score": 8.8,
+    "tek_desc": "CCD sensörün f/4.0 diyafram ve 12.7mm odakta sunduğu mikro-kontrast kusursuz korunmuş. Güneş ışığının kumaştan süzülen yarı saydam kırmızısı patlamadan aktarılmış, ISO 80 sayesinde gökyüzü pürüzsüz ve sıfır parazitli.",
+    "komp_score": 8.9,
+    "komp_desc": "90 derece dikey portrait oryantasyonuna getirilerek anıtsal bir kentsel derinlik sağlanmış. Bayrak üst-orta alanda görkemli biçimde asılı dururken sol bina ve sağ ağaçlar doğal bir çerçeve oluşturuyor.",
+    "col_score": 9.0,
+    "col_desc": "Derin gök mavisi ile arkadan aydınlanan kırmızı bayrağın oluşturduğu güçlü renk kontrastı; ağaçların yeşili ve sıcak güneş ışığıyla birleşerek son derece coşkulu ve sinematik bir sokak atmosferi sunuyor.",
+    "gen_score": 8.9,
+    "ozet": "Ham fotoğraftaki oryantasyon hatasını dikey kadrajlama, kusursuz renk doygunluğu ve ışık dengesiyle düzelten birinci sınıf bir revizyon. Bayrağın gökyüzündeki asaleti ve kentsel derinlik portfolyonun en güçlü sokak/sembolizm karelerinden birini ortaya çıkarmış.",
+    "exif": {
+      "mode": "Manuel Düzenleme (Post-Process & Dikey Kadraj)",
+      "shutter": "1/250s",
+      "aperture": "f/4.0",
+      "iso": "ISO 80",
+      "focal": "12.7mm",
+      "bias": "Color Grade & Dikey Kadraj: Kentsel Derinlik & Al Bayrak",
+      "flash": "Kapalı",
+      "date": "1980:01:01 00:00:17 (Revize v1)",
+      "resolution": "2304 × 3072"
+    },
+    "thumbUrl": "thumbs/IMG_0056_1.JPG",
+    "fullUrl": "thumbs/IMG_0056_1.JPG",
+    "file_size": 6232763
+  },
+  {
     "id": "IMG_0058.JPG",
     "tur": "Sokak & İç Mekan / Yansıma ve Katmanlı Anlatım (Layering)",
     "tek_score": 7.5,
